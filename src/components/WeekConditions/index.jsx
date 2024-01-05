@@ -5,8 +5,8 @@ import spotsCoordinate from '../../assets/spotsCoordinate.json'
 
 function WeekConditions() {
   const { wave, wind } = useFetch(
-    `https://marine-api.open-meteo.com/v1/marine?latitude=${spotsCoordinate.lacanau[0]}&longitude=${spotsCoordinate.lacanau[1]}&daily=wave_height_max,wave_direction_dominant,wave_period_max&timezone=Europe%2FLondon`,
-    `https://api.open-meteo.com/v1/forecast?latitude=${spotsCoordinate.lacanau[0]}&longitude=${spotsCoordinate.lacanau[1]}&daily=wind_speed_10m_max,wind_direction_10m_dominant&timezone=Europe%2FLondon`,
+    `https://marine-api.open-meteo.com/v1/marine?latitude=${spotsCoordinate.Lacanau[0]}&longitude=${spotsCoordinate.Lacanau[1]}&daily=wave_height_max,wave_direction_dominant,wave_period_max&timezone=Europe%2FLondon`,
+    `https://api.open-meteo.com/v1/forecast?latitude=${spotsCoordinate.Lacanau[0]}&longitude=${spotsCoordinate.Lacanau[1]}&daily=wind_speed_10m_max,wind_direction_10m_dominant&timezone=Europe%2FLondon`,
   )
 
   if (wind && wave) {

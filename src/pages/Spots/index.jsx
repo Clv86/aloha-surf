@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import DayConditions from '../../components/DayConditions'
-import WeekConditions from '../../components/WeekConditions'
-import { useState } from 'react'
+import { Link } from 'react-router-dom'
+
+import spotsCoordinate from '../../assets/spotsCoordinate.json'
 
 const Presentation = styled.div`
   display: flex;
@@ -13,79 +13,39 @@ const Presentation = styled.div`
   right: 122px;
   background-color: #54a8a3;
 `
-const SpotTitle = styled.h2`
+
+const SpotLink = styled(Link)`
+  display: flex;
+  width: 117px;
+  height: 29px;
+  padding: 14px 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
   flex-shrink: 0;
-  olor: #000;
-  text-align: left;
+  border-radius: 20px;
+  background: #062848;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  color: #fff;
+  text-align: center;
+  font-family: Amaranth;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: auto;
+  margin-bottom: auto;
   margin-left: 122px;
-  font-family: Amaranth;
-  font-size: 36px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
 `
 
-const DayButton = styled.button`
-  display: flex;
-  width: 117px;
-  height: 29px;
-  padding: 14px 10px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  flex-shrink: 0;
-  border-radius: 20px;
-  background: #062848;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  color: #fff;
-  text-align: center;
-  font-family: Amaranth;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  margin-top: auto;
-  margin-bottom: auto;
-`
-
-const WeekButton = styled.button`
-  display: flex;
-  width: 117px;
-  height: 29px;
-  padding: 14px 10px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  flex-shrink: 0;
-  border-radius: 20px;
-  background: #062848;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  color: #fff;
-  text-align: center;
-  font-family: Amaranth;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  margin-top: auto;
-  margin-bottom: auto;
-`
-const TitleBar = styled.div`
-  display: inline-flex;
-  gap: 3%;
-`
 function Spots() {
-  const [tableWeek, setTable] = useState(false)
+  const spotNames = Object.entries(spotsCoordinate)
 
   return (
     <Presentation>
-      <TitleBar>
-        <SpotTitle>Lacanau</SpotTitle>
-        <DayButton onClick={() => setTable(false)}>Jour</DayButton>
-        <WeekButton onClick={() => setTable(true)}>Semaine</WeekButton>
-      </TitleBar>
-
-      {tableWeek ? <WeekConditions /> : <DayConditions />}
+      {spotNames.map((val, i) => (
+        <SpotLink to={`/conditions/${val[0]}`}>{val[0]}</SpotLink>
+      ))}
     </Presentation>
   )
 }

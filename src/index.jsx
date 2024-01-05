@@ -7,6 +7,7 @@ import Contact from './pages/Contact'
 import Spots from './pages/Spots'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import Conditions from './pages/Conditions'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
@@ -18,6 +19,7 @@ root.render(
         <Route path="/" element={<Home />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/spots" element={<Spots />} />
+        <Route path="/conditions/:spotName" element={<Conditions />} />
       </Routes>
       <Footer />
     </Router>

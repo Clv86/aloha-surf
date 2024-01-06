@@ -86,7 +86,11 @@ function Conditions(spot, setSpot) {
         <WeekButton onClick={() => setTable(true)}>Semaine</WeekButton>
       </TitleBar>
 
-      {tableWeek ? <WeekConditions /> : <DayConditions name={spotName} />}
+      {tableWeek ? (
+        <WeekConditions name={spotName} />
+      ) : (
+        <DayConditions name={spotName} />
+      )}
     </Presentation>
   )
 }

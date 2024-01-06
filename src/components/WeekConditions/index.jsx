@@ -3,10 +3,22 @@ import DirectionArrow from '../../utils/styles/arrow'
 import { useFetch } from '../../utils/hooks'
 import spotsCoordinate from '../../assets/spotsCoordinate.json'
 
-function WeekConditions() {
+function WeekConditions(spotName) {
+  const { name } = spotName
+  const arrayCoordinates = Object.entries(spotsCoordinate)
+
+  function filterIt(arr, searchKey) {
+    return arr.filter(function (obj) {
+      return Object.keys(obj).some(function (key) {
+        return obj[key].includes(searchKey)
+      })
+    })
+  }
+  const location = filterIt(arrayCoordinates, name)
+
   const { wave, wind } = useFetch(
-    `https://marine-api.open-meteo.com/v1/marine?latitude=${spotsCoordinate.Lacanau[0]}&longitude=${spotsCoordinate.Lacanau[1]}&daily=wave_height_max,wave_direction_dominant,wave_period_max&timezone=Europe%2FLondon`,
-    `https://api.open-meteo.com/v1/forecast?latitude=${spotsCoordinate.Lacanau[0]}&longitude=${spotsCoordinate.Lacanau[1]}&daily=wind_speed_10m_max,wind_direction_10m_dominant&timezone=Europe%2FLondon`,
+    `https://marine-api.open-meteo.com/v1/marine?latitude=${location[0][1][0]}&longitude=${location[0][1][1]}&daily=wave_height_max,wave_direction_dominant,wave_period_max&timezone=Europe%2FLondon`,
+    `https://api.open-meteo.com/v1/forecast?latitude=${location[0][1][0]}&longitude=${location[0][1][1]}&daily=wind_speed_10m_max,wind_direction_10m_dominant&timezone=Europe%2FLondon`,
   )
 
   if (wind && wave) {

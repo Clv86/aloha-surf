@@ -9,14 +9,19 @@ const Presentation = styled.div`
   top: 17%;
   bottom: 8%;
   left: 0%;
-  right: 122px;
+  right: 0;
+
   background-color: #54a8a3;
 `
 const SurfPic = styled.img`
   object-fit: contain;
+
   display: flex;
   text-align: right;
   justify-content: end;
+  margin-right: 122px;
+
+  }
 `
 
 function Home() {

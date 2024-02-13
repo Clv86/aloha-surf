@@ -66,6 +66,7 @@ const Searchbar = styled.input`
   background: #fff;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 `
+
 function Description() {
   return (
     <DescriptionStyle>
@@ -77,7 +78,7 @@ function Description() {
         sur 7 jours et détails heure par heure.
       </DescriptionText>
 
-      <Searchbar type="search" id="spot-search" name="q" />
+      <Searchbar type="search" id="spot-search" />
       <Button>Recherche spot</Button>
     </DescriptionStyle>
   )

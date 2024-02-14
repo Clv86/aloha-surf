@@ -14,11 +14,14 @@ const NavContainer = styled.nav`
 const ButtonNav = styled.nav`
   align-self: flex-end;
 `
-const Logo = styled.div`
+const Logo = styled(Link)`
   display: inline-flex;
   flex-direction: row;
   align-item: stretch;
   align-content: stretch;
+  &:link {
+    text-decoration: none;
+  }
 `
 
 const LogoPic = styled.img`
@@ -36,12 +39,12 @@ const Title = styled.h1`
   font-size: 64px;
   font-style: normal;
   font-weight: 400;
+  color: black;
   line-height: normal;
   display: flex;
   margin: 0;
   justify-content: center;
   align-self: flex-end;
-  flex-shrink: 0;
 `
 const StyledLink = styled(Link)`
   font-family: 'Jomhuria';
@@ -56,7 +59,7 @@ const StyledLink = styled(Link)`
 function Header() {
   return (
     <NavContainer>
-      <Logo>
+      <Logo to="/">
         <LogoPic src={logo} alt="logo" />
         <Title>ALOHA SURF</Title>
       </Logo>

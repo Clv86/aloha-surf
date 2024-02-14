@@ -51,7 +51,7 @@ function SpotList(props) {
   })
   console.log(filteredData)
   return (
-    <div>
+    <>
       {filteredData.map((val, i) => (
         <Spot>
           <SpotLink to={`/conditions/${val[0]}`}>{val[0]}</SpotLink>
@@ -61,7 +61,7 @@ function SpotList(props) {
           ></SpotPic>
         </Spot>
       ))}
-    </div>
+    </>
   )
 }
 

@@ -4,17 +4,20 @@ import styled from 'styled-components'
 
 const NavContainer = styled.nav`
   position: absolute;
-  right: 122px;
-  left: 122px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 3;
+  background-color: white;
 `
 
 const ButtonNav = styled.nav`
+  padding-right: 122px;
   align-self: flex-end;
 `
 const Logo = styled(Link)`
+  padding-left: 122px;
   display: inline-flex;
   flex-direction: row;
   align-item: stretch;
@@ -48,7 +51,7 @@ const Title = styled.h1`
 `
 const StyledLink = styled(Link)`
   font-family: 'Jomhuria';
-  font-size: 24px;
+  font-size: 32px;
   font-weight: 400;
   line-height: normal;
   text-decoration: none;

@@ -3,10 +3,10 @@ import styled from 'styled-components'
 import spotsCoordinate from '../../assets/spotsCoordinate.json'
 
 const Spot = styled('div')`
-  weight: 40%;
-  height: 40%;
-  margin-bottom: 15px;
-  margin-top: 15px;
+  max-width: 137px;
+  height: 163.8px;
+  margin: 15px;
+  padding-bottom: 0;
   overflow: hidden;
   border-radius: 0px 0px 20px 20px;
 `
@@ -27,6 +27,7 @@ const SpotLink = styled(Link)`
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
+  text-decoration: none;
   line-height: normal;
 `
 
@@ -37,6 +38,24 @@ const SpotPic = styled('img')`
   padding: 0;
   margin: 0;
   border-radius: 0px 0px 20px 20px;
+`
+const SpotPresentation = styled.div`
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: absolute;
+  right: 122px;
+  top: 8%;
+  width: 30%;
+  height: 60%;
+  padding: 0 5% 5% 5%;
+  background-color: rgba(84, 168, 163, 0.5);
+  border-radius: 25px;
+  box-shadow: 5px 3px 3px black;
+  overflow-x: hidden;
+  z-index: 3;
 `
 
 function SpotList(props) {
@@ -51,7 +70,7 @@ function SpotList(props) {
   })
   console.log(filteredData)
   return (
-    <>
+    <SpotPresentation>
       {filteredData.map((val, i) => (
         <Spot>
           <SpotLink to={`/conditions/${val[0]}`}>{val[0]}</SpotLink>
@@ -61,7 +80,7 @@ function SpotList(props) {
           ></SpotPic>
         </Spot>
       ))}
-    </>
+    </SpotPresentation>
   )
 }
 

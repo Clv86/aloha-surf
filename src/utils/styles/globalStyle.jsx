@@ -4,6 +4,10 @@ const GlobalStyle = createGlobalStyle`
 body {
     font-family: 'Amaranth', sans-serif;
     font-family: 'Jomhuria', serif;
+        margin: 0;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
 }`
 
 /* import Jomhuria from '/Users/Charl/Documents/WebDev/Aloha/aloha-surf/src/fonts/Jomhuria.woff'

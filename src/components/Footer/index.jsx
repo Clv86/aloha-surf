@@ -9,7 +9,8 @@ text-align: center;
 width: 100%;
 height: 8%;
 box-sizing: border-box;
-padding: 0px;`
+padding: 0px;
+z-index: 2;`
 
 const ContactTitle = styled.h1`
   padding: 0px;

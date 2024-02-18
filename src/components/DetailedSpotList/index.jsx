@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import spotsCoordinate from '../../assets/spotsCoordinate.json'
+import HourConditions from '../HourConditions'
 
 const List = styled.div``
 const Spot = styled.div``
@@ -40,6 +41,7 @@ function DetailedSpotlist(props) {
       {filteredData.map((val, i) => (
         <Spot>
           <SpotLink to={`/conditions/${val[0]}`}>{val[0]}</SpotLink>
+          <HourConditions name={val[0]} />
         </Spot>
       ))}
     </List>

@@ -1,5 +1,14 @@
 import styled from 'styled-components'
 
+function ContactText() {
+  return (
+    <ContactStyle>
+      <ContactTitle>Contact</ContactTitle>
+      <ContactDescription>loremipsum@gmx.fr</ContactDescription>
+    </ContactStyle>
+  )
+}
+
 const ContactStyle = styled.div`
   margin-left: 145px;
   width: 444px;
@@ -28,13 +37,5 @@ const ContactDescription = styled.p`
   justify-content: center;
   flex-shrink: 0;
 `
-function ContactText() {
-  return (
-    <ContactStyle>
-      <ContactTitle>Contact</ContactTitle>
-      <ContactDescription>loremipsum@gmx.fr</ContactDescription>
-    </ContactStyle>
-  )
-}
 
 export default ContactText

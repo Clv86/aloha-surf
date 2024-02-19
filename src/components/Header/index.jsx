@@ -2,6 +2,22 @@ import { Link } from 'react-router-dom'
 import logo from '../../assets/logo.svg'
 import styled from 'styled-components'
 
+function Header() {
+  return (
+    <NavContainer>
+      <Logo to="/">
+        <LogoPic src={logo} alt="logo" />
+        <Title>ALOHA SURF</Title>
+      </Logo>
+      <ButtonNav>
+        <StyledLink to="/">Accueil</StyledLink>
+        <StyledLink to="/spots">Spots</StyledLink>
+        <StyledLink to="/contact">Contact</StyledLink>
+      </ButtonNav>
+    </NavContainer>
+  )
+}
+
 const NavContainer = styled.nav`
   position: absolute;
   width: 100%;
@@ -58,21 +74,5 @@ const StyledLink = styled(Link)`
   color: black;
   margin-left: 16px;
 `
-
-function Header() {
-  return (
-    <NavContainer>
-      <Logo to="/">
-        <LogoPic src={logo} alt="logo" />
-        <Title>ALOHA SURF</Title>
-      </Logo>
-      <ButtonNav>
-        <StyledLink to="/">Accueil</StyledLink>
-        <StyledLink to="/spots">Spots</StyledLink>
-        <StyledLink to="/contact">Contact</StyledLink>
-      </ButtonNav>
-    </NavContainer>
-  )
-}
 
 export default Header

@@ -2,6 +2,45 @@ import styled from 'styled-components'
 import { useState } from 'react'
 import { useEffect } from 'react'
 
+function Description({ chooseFilter, chooseSpotList }) {
+  const [inputText, setInputText] = useState('')
+  const [showSpots, setShowSpots] = useState(false)
+  let inputHandler = (e) => {
+    setInputText(e.target.value)
+  }
+
+  useEffect(() => {
+    chooseFilter(inputText)
+  }, [inputText, chooseFilter])
+
+  useEffect(() => {
+    chooseSpotList(showSpots)
+    console.log(showSpots)
+  }, [showSpots, chooseSpotList])
+  function openSpotList() {
+    setShowSpots(true)
+  }
+  return (
+    <DescriptionStyle>
+      <DescriptionTitle>
+        Les conditions du surf sur la côte ouest française
+      </DescriptionTitle>
+      <DescriptionText>
+        Conditions météo de la côte Ouest française en temps réel avec prévision
+        sur 7 jours et détails heure par heure.
+      </DescriptionText>
+
+      <Searchbar
+        type="search"
+        id="spot-search"
+        placeholder="Rechercher un spot"
+        onClick={openSpotList}
+        onChange={inputHandler}
+      />
+    </DescriptionStyle>
+  )
+}
+
 const DescriptionStyle = styled.div`
   position: absolute;
   top: 8%;
@@ -58,44 +97,5 @@ const Searchbar = styled.input`
   padding-left: 20px;
   font-family: Amaranth;
 `
-
-function Description({ chooseFilter, chooseSpotList }) {
-  const [inputText, setInputText] = useState('')
-  const [showSpots, setShowSpots] = useState(false)
-  let inputHandler = (e) => {
-    setInputText(e.target.value)
-  }
-
-  useEffect(() => {
-    chooseFilter(inputText)
-  }, [inputText, chooseFilter])
-
-  useEffect(() => {
-    chooseSpotList(showSpots)
-    console.log(showSpots)
-  }, [showSpots, chooseSpotList])
-  function openSpotList() {
-    setShowSpots(true)
-  }
-  return (
-    <DescriptionStyle>
-      <DescriptionTitle>
-        Les conditions du surf sur la côte ouest française
-      </DescriptionTitle>
-      <DescriptionText>
-        Conditions météo de la côte Ouest française en temps réel avec prévision
-        sur 7 jours et détails heure par heure.
-      </DescriptionText>
-
-      <Searchbar
-        type="search"
-        id="spot-search"
-        placeholder="Rechercher un spot"
-        onClick={openSpotList}
-        onChange={inputHandler}
-      />
-    </DescriptionStyle>
-  )
-}
 
 export default Description

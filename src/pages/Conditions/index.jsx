@@ -4,6 +4,26 @@ import WeekConditions from '../../components/WeekConditions'
 import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 
+function Conditions(spot, setSpot) {
+  const [tableWeek, setTable] = useState(false)
+  const { spotName } = useParams()
+  return (
+    <Presentation>
+      <TitleBar>
+        <SpotTitle>{spotName}</SpotTitle>
+        <DayButton onClick={() => setTable(false)}>Jour</DayButton>
+        <WeekButton onClick={() => setTable(true)}>Semaine</WeekButton>
+      </TitleBar>
+
+      {tableWeek ? (
+        <WeekConditions name={spotName} />
+      ) : (
+        <DayConditions name={spotName} />
+      )}
+    </Presentation>
+  )
+}
+
 const Presentation = styled.div`
   display: flex;
   flex-direction: column;
@@ -75,24 +95,5 @@ const TitleBar = styled.div`
   display: inline-flex;
   gap: 3%;
 `
-function Conditions(spot, setSpot) {
-  const [tableWeek, setTable] = useState(false)
-  const { spotName } = useParams()
-  return (
-    <Presentation>
-      <TitleBar>
-        <SpotTitle>{spotName}</SpotTitle>
-        <DayButton onClick={() => setTable(false)}>Jour</DayButton>
-        <WeekButton onClick={() => setTable(true)}>Semaine</WeekButton>
-      </TitleBar>
-
-      {tableWeek ? (
-        <WeekConditions name={spotName} />
-      ) : (
-        <DayConditions name={spotName} />
-      )}
-    </Presentation>
-  )
-}
 
 export default Conditions

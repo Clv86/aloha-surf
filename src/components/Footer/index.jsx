@@ -1,5 +1,14 @@
 import styled from 'styled-components'
 
+function Footer() {
+  return (
+    <FooterContact>
+      <ContactTitle>Contact</ContactTitle>
+      <ContactText>loremipsum@gmx.fr</ContactText>
+    </FooterContact>
+  )
+}
+
 const FooterContact = styled.div`
 display= inline;
 position: absolute;
@@ -31,14 +40,5 @@ const ContactText = styled.p`
   font-weight: 400;
   line-height: normal;
 `
-
-function Footer() {
-  return (
-    <FooterContact>
-      <ContactTitle>Contact</ContactTitle>
-      <ContactText>loremipsum@gmx.fr</ContactText>
-    </FooterContact>
-  )
-}
 
 export default Footer

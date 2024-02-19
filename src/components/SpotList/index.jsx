@@ -2,6 +2,32 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import spotsCoordinate from '../../assets/spotsCoordinate.json'
 
+function SpotList(props) {
+  const spotNames = Object.entries(spotsCoordinate)
+  console.log(props.input)
+  const filteredData = spotNames.filter((el) => {
+    if (props.input === '') {
+      return el
+    } else {
+      return el[0].includes(props.input)
+    }
+  })
+  console.log(filteredData)
+  return (
+    <SpotPresentation>
+      {filteredData.map((val, i) => (
+        <Spot>
+          <SpotLink to={`/conditions/${val[0]}`}>{val[0]}</SpotLink>
+          <SpotPic
+            src={require(`../../assets/SpotsPictures/${val[0]}.jpg`)}
+            alt={`/src/assets/SpotsPictures/${val[0]}.jpg`}
+          ></SpotPic>
+        </Spot>
+      ))}
+    </SpotPresentation>
+  )
+}
+
 const Spot = styled('div')`
   max-width: 137px;
   height: 163.8px;
@@ -57,31 +83,5 @@ const SpotPresentation = styled.div`
   overflow-x: hidden;
   z-index: 3;
 `
-
-function SpotList(props) {
-  const spotNames = Object.entries(spotsCoordinate)
-  console.log(props.input)
-  const filteredData = spotNames.filter((el) => {
-    if (props.input === '') {
-      return el
-    } else {
-      return el[0].includes(props.input)
-    }
-  })
-  console.log(filteredData)
-  return (
-    <SpotPresentation>
-      {filteredData.map((val, i) => (
-        <Spot>
-          <SpotLink to={`/conditions/${val[0]}`}>{val[0]}</SpotLink>
-          <SpotPic
-            src={require(`../../assets/SpotsPictures/${val[0]}.jpg`)}
-            alt={`/src/assets/SpotsPictures/${val[0]}.jpg`}
-          ></SpotPic>
-        </Spot>
-      ))}
-    </SpotPresentation>
-  )
-}
 
 export default SpotList

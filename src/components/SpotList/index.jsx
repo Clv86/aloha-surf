@@ -29,8 +29,8 @@ function SpotList(props) {
 }
 
 const Spot = styled('div')`
-  max-width: 137px;
-  height: 163.8px;
+  max-width: 160px;
+  height: 160px;
   margin: 15px;
   padding-bottom: 0;
   overflow: hidden;
@@ -38,7 +38,7 @@ const Spot = styled('div')`
 `
 const SpotLink = styled(Link)`
   display: flex;
-  max-width: 137px;
+  max-width: 180px;
   height: 29px;
   padding: 0;
   margin: 0;
@@ -59,8 +59,8 @@ const SpotLink = styled(Link)`
 
 const SpotPic = styled('img')`
   position: relative;
-  max-width: 137px;
-  height: 134.8px;
+  max-width: 180px;
+  height: 180px;
   padding: 0;
   margin: 0;
   border-radius: 0px 0px 20px 20px;
@@ -76,7 +76,7 @@ const SpotPresentation = styled.div`
   top: 8%;
   width: 30%;
   height: 60%;
-  padding: 0 5% 5% 5%;
+  padding: 2% 5% 3% 5%;
   background-color: rgba(84, 168, 163, 0.5);
   border-radius: 25px;
   box-shadow: 5px 3px 3px black;

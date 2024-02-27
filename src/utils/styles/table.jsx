@@ -3,9 +3,9 @@ import styled from 'styled-components'
 export const StyledTable = styled.table`
   position: relative;
   background-color: white;
-  table-layout: fixed;
   border-spacing: 0;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 100%;
 `
 
 export const THead = styled.thead`
@@ -16,9 +16,7 @@ export const THead = styled.thead`
   letter-spacing: 0.03em;
 `
 
-export const TFoot = styled.tfoot`
-  // custom css goes here
-`
+export const TFoot = styled.tfoot``
 
 export const TBody = styled.tbody``
 

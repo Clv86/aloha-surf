@@ -18,7 +18,6 @@ function Conditions(spot, setSpot) {
           <DayButton onClick={() => setTable(false)}>Jour</DayButton>
           <WeekButton onClick={() => setTable(true)}>Semaine</WeekButton>
         </TitleBar>
-
         {tableWeek ? (
           <WeekConditions name={spotName} />
         ) : (
@@ -57,21 +56,22 @@ const Presentation = styled.div`
   flex-direction: column;
   flex: 1;
   background-color: rgba(84, 168, 163, 0.5);
-  padding: 16px;
+  padding: 4%;
   border-radius: 25px;
   box-shadow: 5px 3px 3px black;
   z-index: 3;
 `
 const SpotTitle = styled.h2`
   flex-shrink: 0;
-  olor: #000;
   text-align: left;
-  margin-left: 106px;
   font-family: Amaranth;
   font-size: 36px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+  align-self: center;
+  padding: 0;
+  margin: 0;
 `
 
 const DayButton = styled.button`
@@ -93,8 +93,7 @@ const DayButton = styled.button`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  margin-top: auto;
-  margin-bottom: auto;
+  align-self: center;
 `
 
 const WeekButton = styled.button`
@@ -116,12 +115,13 @@ const WeekButton = styled.button`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  margin-top: auto;
-  margin-bottom: auto;
+  align-self: center;
 `
 const TitleBar = styled.div`
-  display: inline-flex;
+  display: flex;
   gap: 3%;
+  margin-bottom: 2%;
+  padding: 0;
 `
 
 export default Conditions

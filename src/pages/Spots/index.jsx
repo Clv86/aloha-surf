@@ -5,17 +5,10 @@ import DetailedSpotlist from '../../components/DetailedSpotList'
 import surf1 from '../../assets/gian-luca-modified.jpg'
 
 function Spots() {
-  // const [inputText, setInputText] = useState('')
-  // let inputHandler = (e) => {
-  //   setInputText(e.target.value)
-  // }
-
   return (
     <Main>
       <Presentation>
         <SurfPic src={surf1} alt="surf-pic" />
-
-        {/* <Searchbar type="search" id="spot-search" onChange={inputHandler} /> */}
         <DetailedSpotlist input="" />
       </Presentation>
     </Main>

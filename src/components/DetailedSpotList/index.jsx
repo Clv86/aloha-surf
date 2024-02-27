@@ -23,7 +23,7 @@ function DetailedSpotlist(props) {
         <Description>
           Voici la liste des spots disponibles avec les conditions du jour pour
           chacun d'entre eux. Vous pouvez cliquez sur les noms pour plus de
-          détail !
+          détails !
         </Description>
       </LeftSide>
       <Table>
@@ -66,7 +66,9 @@ const Description = styled.p`
   font-weight: 400;
   line-height: normal;
 `
-const LeftSide = styled.div``
+const LeftSide = styled.div`
+  padding: 0 2% 2% 2%;
+`
 const List = styled.div`
   position: absolute;
   top: 8%;

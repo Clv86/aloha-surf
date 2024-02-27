@@ -16,27 +16,18 @@ function SpotList(props) {
   return (
     <SpotPresentation>
       {filteredData.map((val, i) => (
-        <Spot>
-          <SpotLink to={`/conditions/${val[0]}`}>{val[0]}</SpotLink>
+        <SpotLink to={`/conditions/${val[0]}`}>
+          <SpotName>{val[0]}</SpotName>
           <SpotPic
             src={require(`../../assets/SpotsPictures/${val[0]}.jpg`)}
             alt={`/src/assets/SpotsPictures/${val[0]}.jpg`}
           ></SpotPic>
-        </Spot>
+        </SpotLink>
       ))}
     </SpotPresentation>
   )
 }
-
-const Spot = styled('div')`
-  max-width: 160px;
-  height: 160px;
-  margin: 15px;
-  padding-bottom: 0;
-  overflow: hidden;
-  border-radius: 0px 0px 20px 20px;
-`
-const SpotLink = styled(Link)`
+const SpotName = styled.p`
   display: flex;
   max-width: 180px;
   height: 29px;
@@ -53,8 +44,17 @@ const SpotLink = styled(Link)`
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  text-decoration: none;
   line-height: normal;
+`
+
+const SpotLink = styled(Link)`
+  max-width: 160px;
+  height: 160px;
+  margin: 15px;
+  padding-bottom: 0;
+  overflow: hidden;
+  border-radius: 0px 0px 20px 20px;
+  text-decoration: none;
 `
 
 const SpotPic = styled('img')`

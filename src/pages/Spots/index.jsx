@@ -43,18 +43,6 @@ const SurfPic = styled.img`
   z-index: 2;
 `
 
-// const Searchbar = styled.input`
-//   width: 419px;
-//   height: 57px;
-//   flex-shrink: 0;
-//   border-radius: 20px;
-//   border: 1px solid #0f0e0e;
-//   background: #fff;
-//   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-//   padding-left: 20px;
-//   font-family: Amaranth;
-//   font-style: italic;
-// `
 const Presentation = styled.div``
 
 export default Spots

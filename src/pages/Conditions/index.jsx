@@ -66,7 +66,7 @@ const SpotTitle = styled.h2`
   flex-shrink: 0;
   olor: #000;
   text-align: left;
-  margin-left: 122px;
+  margin-left: 106px;
   font-family: Amaranth;
   font-size: 36px;
   font-style: normal;

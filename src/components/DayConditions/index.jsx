@@ -17,8 +17,8 @@ function DayConditions(spotName) {
   const location = filterIt(arrayCoordinates, name)
 
   const { wave, wind } = useFetch(
-    `https://marine-api.open-meteo.com/v1/marine?latitude=${location[0][1][0]}&longitude=${location[0][1][1]}&hourly=wave_height,wave_direction,wave_period&timezone=Europe%2FLondon&forecast_days=1`,
-    `https://api.open-meteo.com/v1/forecast?latitude=${location[0][1][0]}&longitude=${location[0][1][1]}&hourly=wind_speed_10m,wind_direction_10m&timezone=Europe%2FLondon&forecast_days=1`,
+    `https://marine-api.open-meteo.com/v1/marine?latitude=${location[0][1][0]}&longitude=${location[0][1][1]}&hourly=wave_height,wave_direction,wave_period&timezone=Europe%2FBerlin&forecast_days=1`,
+    `https://api.open-meteo.com/v1/forecast?latitude=${location[0][1][0]}&longitude=${location[0][1][1]}&hourly=wind_speed_10m,wind_direction_10m&timezone=Europe%2FBerlin&forecast_days=1`,
   )
   if (wind && wave) {
     return (
@@ -28,7 +28,7 @@ function DayConditions(spotName) {
             <Table.TR>
               <Table.TH>Aujourd'hui</Table.TH>
               {wave.hourly.wave_height.map((val, i) => (
-                <Table.TH>{i}</Table.TH>
+                <Table.TD>{i}h</Table.TD>
               ))}
             </Table.TR>
           </Table.Head>

@@ -1,7 +1,7 @@
 import { useFetch } from '../../utils/hooks'
 import DirectionArrow from '../../utils/styles/arrow'
 import spotsCoordinate from '../../assets/spotsCoordinate.json'
-import Table from '../Table'
+import Table from '../../components/Table'
 
 function HourConditions(spotName) {
   const { name } = spotName
@@ -26,22 +26,15 @@ function HourConditions(spotName) {
 
   if (wind && wave) {
     return (
-      <div>
-        <Table>
-          <Table.Body>
-            <Table.TD>{wave.hourly.wave_height[hour]}</Table.TD>
-            <Table.TD>
-              {DirectionArrow(wave.hourly.wave_direction[hour])}
-            </Table.TD>
-            <Table.TD>{wave.hourly.wave_period[hour]}</Table.TD>
-            <Table.TD>{wind.hourly.wind_speed_10m[hour]}</Table.TD>
-            <Table.TD>
-              {DirectionArrow(wave.hourly.wave_direction[hour])}
-            </Table.TD>
-          </Table.Body>
-        </Table>
-      </div>
+      <>
+        <Table.TD>{wave.hourly.wave_height[hour]}</Table.TD>
+        <Table.TD>{DirectionArrow(wave.hourly.wave_direction[hour])}</Table.TD>
+        <Table.TD>{wave.hourly.wave_period[hour]}</Table.TD>
+        <Table.TD>{wind.hourly.wind_speed_10m[hour]}</Table.TD>
+        <Table.TD>{DirectionArrow(wave.hourly.wave_direction[hour])}</Table.TD>
+      </>
     )
   }
 }
+
 export default HourConditions

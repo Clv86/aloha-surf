@@ -4,11 +4,17 @@ function ContactText() {
   return (
     <ContactStyle>
       <ContactTitle>Contact</ContactTitle>
-      <ContactDescription>loremipsum@gmx.fr</ContactDescription>
+      <ContactDescription>
+        J'ai fait ce site pour m'exercer au code et montrer les conditions des
+        différents spots susceptibles d'être intéressant sur la côte ouest
+        française ! N'hésitez pas à me contacter pour faire des retours sur le
+        site ou proposer de nouveaux spots à ajouter :
+      </ContactDescription>
+      <ContactMail>charleslouis.velieu@gmx.fr</ContactMail>
     </ContactStyle>
   )
 }
-
+const ContactMail = styled.a``
 const ContactStyle = styled.div`
   margin-left: 145px;
   width: 444px;

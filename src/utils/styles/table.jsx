@@ -1,33 +1,37 @@
 import styled from 'styled-components'
 
 export const StyledTable = styled.table`
-  border: 1px solid black;
-  margin: auto;
-  position: absolute;
-  left: 122px;
+  position: relative;
   background-color: white;
+  table-layout: fixed;
+  border-spacing: 0;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 `
 
 export const THead = styled.thead`
-  // custom css goes here
+  background-color: #062848;
+  color: white;
+  font-family: Amaranth;
+  font-size: 14px;
+  letter-spacing: 0.03em;
 `
 
 export const TFoot = styled.tfoot`
   // custom css goes here
 `
 
-export const TBody = styled.tbody`
-  // custom css goes here
-`
+export const TBody = styled.tbody``
 
-export const TR = styled.tr`
-  // custom css goes here
-`
+export const TR = styled.tr``
 
 export const TH = styled.th`
-  // custom css goes here
+  width: 80px;
+  padding: 0.5em;
+  text-align: center;
 `
 
 export const TD = styled.td`
-  // custom css goes here
+  width: 20px;
+  text-align: center;
+  padding: 5px;
 `

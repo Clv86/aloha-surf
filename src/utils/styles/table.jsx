@@ -6,6 +6,7 @@ export const StyledTable = styled.table`
   border-spacing: 0;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   width: 100%;
+  table-layout: fixed;
 `
 
 export const THead = styled.thead`
@@ -23,13 +24,12 @@ export const TBody = styled.tbody``
 export const TR = styled.tr``
 
 export const TH = styled.th`
-  width: 80px;
   padding: 0.5em;
   text-align: center;
+  width: max-content;
 `
 
 export const TD = styled.td`
-  width: 20px;
   text-align: center;
   padding: 5px;
 `

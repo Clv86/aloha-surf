@@ -60,6 +60,7 @@ const Presentation = styled.div`
   border-radius: 25px;
   box-shadow: 5px 3px 3px black;
   z-index: 3;
+  overflow: scroll;
 `
 const SpotTitle = styled.h2`
   flex-shrink: 0;

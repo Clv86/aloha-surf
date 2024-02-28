@@ -22,8 +22,7 @@ function DetailedSpotlist(props) {
         <Title>Liste des spots :</Title>
         <Description>
           Voici la liste des spots disponibles avec les conditions du jour pour
-          chacun d'entre eux. Vous pouvez cliquez sur les noms pour plus de
-          détails !
+          chacun d'entre eux. Cliquez sur les noms pour plus de détails !
         </Description>
       </LeftSide>
       <Table>

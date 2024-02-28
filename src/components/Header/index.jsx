@@ -12,7 +12,7 @@ function Header() {
       <ButtonNav>
         <StyledLink to="/">Accueil</StyledLink>
         <StyledLink to="/spots">Spots</StyledLink>
-        <StyledLink to="/contact">Contact</StyledLink>
+        <StyledLink to="/à-propos">À Propos</StyledLink>
       </ButtonNav>
     </NavContainer>
   )

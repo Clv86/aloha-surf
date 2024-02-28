@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import ContactText from '../../components/ContactText'
 import surf1 from '../../assets/gian-luca-modified.jpg'
+import CL from '../../assets/CL.jpg'
 
 function Contact() {
   return (
@@ -9,14 +10,20 @@ function Contact() {
 
       <Presentation>
         <ContactText />
+        <Portrait src={CL} alt="Photo de moi" />
       </Presentation>
     </Main>
   )
 }
+const Portrait = styled.img`
+  position: relative;
+  max-width: 50%;
+  border-radius: 25px;
+`
 
 const Main = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   position: absolute;
   top: 17%;
   bottom: 0;
@@ -42,7 +49,7 @@ const Presentation = styled.div`
   left: 122px;
   right: 122px;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   flex: 1;
   background-color: rgba(84, 168, 163, 0.5);
   padding: 16px;

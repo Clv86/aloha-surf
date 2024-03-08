@@ -19,9 +19,13 @@ export const THead = styled.thead`
 
 export const TFoot = styled.tfoot``
 
-export const TBody = styled.tbody``
+export const TBody = styled.tbody`
+  width: 100%;
+`
 
-export const TR = styled.tr``
+export const TR = styled.tr`
+  width: max-content;
+`
 
 export const TH = styled.th`
   padding: 0.5em;

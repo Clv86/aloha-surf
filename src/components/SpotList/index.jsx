@@ -85,8 +85,12 @@ const SpotLink = styled(Link)`
   border-radius: 0px 0px 20px 20px;
   text-decoration: none;
   @media (max-width: 412px) {
-    max-width: 120px;
-    height: 120px;
+    max-width: 100px;
+    height: 100px;
+  }
+  @media (max-height: 500px) {
+    max-width: 100px;
+    height: 100px;
   }
 `
 

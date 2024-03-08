@@ -99,9 +99,11 @@ const LogoPic = styled.img`
   }
   @media (max-width: 554px) {
     max-height: 50px;
+    margin-bottom: 5px;
   }
   @media (max-height: 425px) {
     max-height: 50px;
+    margin-bottom: 5px;
   }
 `
 
@@ -116,6 +118,7 @@ const Title = styled.h1`
   margin: 0;
   justify-content: center;
   align-self: flex-end;
+  height: 55px;
   @media (max-width: 554px) {
     display: none;
   }

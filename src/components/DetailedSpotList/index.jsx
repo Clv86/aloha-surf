@@ -56,10 +56,13 @@ function DetailedSpotlist(props) {
 const TableSizer = styled.div`
   width: 550px;
   margin: auto;
+  overflow: hidden;
   @media (max-width: 628px) {
     width: auto;
   }
-  overflow: hidden;
+  @media (max-height: 490px) {
+    width: 490px;
+  }
 `
 const TableScroll = styled.div`
   height: 350px;
@@ -74,9 +77,15 @@ const Description = styled.p`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  @media (max-height: 490px) {
+    margin-top: 0;
+  }
 `
 const LeftSide = styled.div`
   padding: 0 2% 2% 2%;
+  @media (max-height: 490px) {
+    padding-bottom: 0;
+  }
 `
 const List = styled.div`
   position: absolute;
@@ -103,6 +112,9 @@ const Title = styled.h1`
   position: relative;
   padding: 0;
   margin-top: 2%;
+  @media (max-height: 490px) {
+    margin: 0;
+  }
 `
 const SpotLink = styled(Link)`
   display: inline;

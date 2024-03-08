@@ -41,8 +41,9 @@ const Main = styled.div`
     top: 7%;
   }
   @media (max-height: 490px) {
-    height: 408px;
     overflow: scroll;
+    height: auto;
+    bottom: -8%;
   }
 `
 // const SurfPic = styled.img`
@@ -72,6 +73,9 @@ const Presentation = styled.div`
     left: 4%;
     right: 4%;
   }
+  @media (max-height: 490px) {
+    padding-top: 0;
+  }
 `
 const SpotTitle = styled.h2`
   flex-shrink: 0;
@@ -86,6 +90,9 @@ const SpotTitle = styled.h2`
   margin: 0;
   @media (max-width: 460px) {
     font-size: 1.5em;
+  }
+  @media (max-height: 490px) {
+    font-size: 1.2em;
   }
 `
 
@@ -111,6 +118,9 @@ const TableButton = styled.button`
   align-self: center;
   @media (max-width: 460px) {
     width: 80px;
+  }
+  @media (max-height: 490px) {
+    height: 50%;
   }
 `
 const TitleBar = styled.div`

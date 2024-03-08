@@ -28,8 +28,10 @@ const Main = styled.div`
     top: 7%;
   }
   @media (max-height: 490px) {
-    height: 408px;
+    top: 20%;
     overflow: scroll;
+    height: auto;
+    bottom: -8%;
   }
 `
 

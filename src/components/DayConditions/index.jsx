@@ -75,6 +75,9 @@ function DayConditions(spotName) {
 }
 const TableSizer = styled.div`
   width: 881px;
+  @media (max-height: 490px) {
+    width: 500px;
+  }
 `
 const TableScroll = styled.div`
   overflow: auto;

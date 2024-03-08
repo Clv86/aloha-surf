@@ -32,6 +32,9 @@ export const TH = styled.th`
   text-align: center;
   width: max-content;
   letter-spacing: 0.03em;
+  @media (max-height: 490px) {
+    padding: 0.2em;
+  }
 `
 
 export const TD = styled.td`

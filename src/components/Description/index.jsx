@@ -68,6 +68,14 @@ const DescriptionStyle = styled.div`
   @media (max-width: 726px) {
     gap: 12px;
   }
+  @media (max-height: 500px) {
+    height: 60px;
+  }
+  @media (max-width: 412px) {
+    ${(props) =>
+      props.$variant === true ? 'padding: 0; padding-right: 8px;' : null}
+    justify-content: center;
+  }
 `
 const DescriptionTitle = styled.h2`
   font-family: Amaranth;
@@ -123,8 +131,9 @@ const Searchbar = styled.input`
   padding-top: 5px;
   padding-bottom: 5px;
   font-family: Amaranth;
-  @media (max-width: 1175px) {
-    // align-item: flex-start;
+  @media (max-width: 412px) {
+    width: 100%;
+    margin-left: 0;
   }
 `
 

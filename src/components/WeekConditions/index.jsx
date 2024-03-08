@@ -44,6 +44,9 @@ function WeekConditions(spotName) {
     @media (max-width: 640px) {
       width: auto;
     }
+    @media (max-height: 490px) {
+      width: 480px;
+    }
   `
   const TableScroll = styled.div`
     overflow: auto;

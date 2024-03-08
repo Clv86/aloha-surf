@@ -66,6 +66,11 @@ const ShowVert = styled.div`
     border-radius: 0 0 25px 25px;
     border-top: none;
   }
+  @media (max-height: 500px) {
+    top: 24%;
+    left: 0;
+    right: 0;
+  }
 `
 const VerticalDisplayContainer = styled.div`
   position: absolute;
@@ -93,6 +98,9 @@ const VerticalDisplayContainer = styled.div`
   @media (max-width: 1000px) {
     left: 4%;
     right: 4%;
+  }
+  @media (orientation: landscape) {
+    top: 23%;
   }
 `
 const Main = styled.div`

@@ -37,7 +37,7 @@ const ShowHorizontal = styled.div`
   border-radius: 25px;
   position: absolute;
   right: 122px;
-  top: 25%;
+  top: 23%;
   width: 36%;
   height: 64%;
   padding: 2% 5% 3% 5%

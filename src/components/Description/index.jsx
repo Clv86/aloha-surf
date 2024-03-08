@@ -44,12 +44,11 @@ function Description({ chooseFilter, chooseSpotList, filter }) {
 const TextContainer = styled.div``
 const DescriptionStyle = styled.div`
   position: absolute;
-  top: 8%;
+  top: 4%;
   left: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  flex: 1;
   background-color: rgba(84, 168, 163, 0.5);
   padding: 16px;
   border-radius: 25px;

@@ -43,7 +43,6 @@ const ShowHorizontal = styled.div`
   padding: 2% 5% 3% 5%
   flex: 1;
   display: flex;
-  flex: 1;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
@@ -59,8 +58,8 @@ const ShowVert = styled.div`
     display: flex;
     z-index: 3;
     position: absolute;
-    top: 24.1%;
-    height: 60%;
+    top: 16%;
+    bottom: 8%;
     left: 4%;
     right: 4%;
     padding: 5% 0% 4% 0%;
@@ -80,15 +79,15 @@ const VerticalDisplayContainer = styled.div`
       props.$show === true
         ? 'background-color: rgba(84, 168, 163, 0.5);   box-shadow: 5px 3px 3px black;'
         : null}
-    // background-color: rgba(84, 168, 163, 0.5);
+    top: 12%;
+    bottom: 7%;
+    height: auto;
     padding: 16px;
     border-radius: 25px;
-    // box-shadow: 5px 3px 3px black;
-    height: 60%;
     z-index: 3;
     position: absolute;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
   }
   @media (max-width: 1000px) {
@@ -97,18 +96,11 @@ const VerticalDisplayContainer = styled.div`
   }
 `
 const Main = styled.div`
-  display: flex;
-  // justify-content: space-between;
-  // position: absolute;
-  // top: 17%;
   bottom: 0;
   left: 0;
   right: 0;
   padding: 0;
   margin: 0;
-  @media (max-width: 554px) {
-    top: 7%;
-  }
 `
 
 export default Home

@@ -74,7 +74,7 @@ function DayConditions(spotName) {
   }
 }
 const TableSizer = styled.div`
-  width: 919px;
+  width: 881px;
 `
 const TableScroll = styled.div`
   overflow: auto;

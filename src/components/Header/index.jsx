@@ -116,7 +116,7 @@ const Title = styled.h1`
   margin: 0;
   justify-content: center;
   align-self: flex-end;
-  @media (max-width: 740px) {
+  @media (max-width: 554px) {
     display: none;
   }
 `

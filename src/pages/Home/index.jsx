@@ -14,33 +14,98 @@ function Home() {
   }
   return (
     <Main>
-      <Description
-        chooseFilter={chooseFilter}
-        chooseSpotList={chooseSpotList}
-      />
-
-      {SpotListOpen === true ? <SpotList input={filter} /> : null}
+      <VerticalDisplayContainer $show={SpotListOpen}>
+        <Description
+          chooseFilter={chooseFilter}
+          chooseSpotList={chooseSpotList}
+        />
+        <ShowVert>
+          {SpotListOpen === true ? <SpotList input={filter} /> : null}
+        </ShowVert>
+      </VerticalDisplayContainer>
+      <ShowHorizontal $show={SpotListOpen}>
+        {SpotListOpen === true ? <SpotList input={filter} /> : null}
+      </ShowHorizontal>
     </Main>
   )
 }
-
+const ShowHorizontal = styled.div`
+  ${(props) =>
+    props.$show === true
+      ? 'background-color: rgba(84, 168, 163, 0.5);   box-shadow: 5px 3px 3px black;'
+      : null}
+  border-radius: 25px;
+  position: absolute;
+  right: 122px;
+  top: 25%;
+  width: 36%;
+  height: 64%;
+  padding: 2% 5% 3% 5%
+  flex: 1;
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow-x: hidden;
+  z-index: 3;
+  @media (max-width: 1175px) {
+    display: none;
+  }
+`
+const ShowVert = styled.div`
+  display: none;
+  @media (max-width: 1175px) {
+    display: flex;
+    z-index: 3;
+    position: absolute;
+    top: 24.1%;
+    height: 60%;
+    left: 4%;
+    right: 4%;
+    padding: 5% 0% 4% 0%;
+    border-radius: 0 0 25px 25px;
+    border-top: none;
+  }
+`
+const VerticalDisplayContainer = styled.div`
+  position: absolute;
+  top: 20%;
+  left: 122px;
+  right: 122px;
+  height: 64%;
+  display: flex;
+  @media (max-width: 1175px) {
+    ${(props) =>
+      props.$show === true
+        ? 'background-color: rgba(84, 168, 163, 0.5);   box-shadow: 5px 3px 3px black;'
+        : null}
+    // background-color: rgba(84, 168, 163, 0.5);
+    padding: 16px;
+    border-radius: 25px;
+    // box-shadow: 5px 3px 3px black;
+    height: 60%;
+    z-index: 3;
+    position: absolute;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  @media (max-width: 1000px) {
+    left: 4%;
+    right: 4%;
+  }
+`
 const Main = styled.div`
   display: flex;
-  justify-content: space-between;
-  position: absolute;
-  top: 17%;
+  // justify-content: space-between;
+  // position: absolute;
+  // top: 17%;
   bottom: 0;
   left: 0;
   right: 0;
   padding: 0;
   margin: 0;
-  // @media (max-width: 1175px) {
-  //   flex-direction: column;
-  //   justify-content: center;
-  //   align-items: center;
-  //   flex-wrap: wrap;
-  // background-color: red;
-  // }
   @media (max-width: 554px) {
     top: 7%;
   }

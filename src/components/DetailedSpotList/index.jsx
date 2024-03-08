@@ -6,8 +6,6 @@ import Table from '../Table'
 
 function DetailedSpotlist(props) {
   const spotNames = Object.entries(spotsCoordinate)
-
-  console.log(props.input)
   const filteredData = spotNames.filter((el) => {
     if (props.input === '') {
       return el

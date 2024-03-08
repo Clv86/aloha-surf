@@ -4,7 +4,6 @@ import spotsCoordinate from '../../assets/spotsCoordinate.json'
 
 function SpotList(props) {
   const spotNames = Object.entries(spotsCoordinate)
-  console.log(props.input)
   const filteredData = spotNames.filter((el) => {
     if (props.input === '') {
       return el
@@ -12,7 +11,6 @@ function SpotList(props) {
       return el[0].includes(props.input)
     }
   })
-  console.log(filteredData)
   return (
     <SpotPresentation>
       {filteredData.map((val, i) => (
@@ -28,46 +26,36 @@ function SpotList(props) {
   )
 }
 const SpotPresentation = styled.div`
-  right: 122px;
-  top: 8%;
-  width: 30%;
-  height: 60%;
-  flex: 1;
+  width: 100%;
   display: flex;
-  flex: 1;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  position: absolute;
-  padding: 2% 5% 3% 5%;
-  background-color: rgba(84, 168, 163, 0.5);
-  border-radius: 25px;
-  box-shadow: 5px 3px 3px black;
   overflow-x: hidden;
-  z-index: 3;
-  @media (max-width: 1175px) {
-    top: 24.1%;
-    height: 50%;
-    left: 4%;
-    right: 4%;
-    width: auto;
-    padding: 1% 0% 4% 0%;
-    border-radius: 0 0 25px 25px;
-    border-top: none;
-  }
-  @media (max-width: 554px) {
-    top: 23.4%;
-    height: 60%;
-  }
-  @media (-webkit-min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi) and (max-width: 554px) {
-    top: 23.2%;
-    height: 60%;
-  }
+  // background-color: red;
+  // @media (max-width: 1175px) {
+  //   top: 24.1%;
+  //   height: 50%;
+  //   left: 4%;
+  //   right: 4%;
+  // width: auto;
+  //   padding: 1% 0% 4% 0%;
+  //   border-radius: 0 0 25px 25px;
+  //   border-top: none;
+  // }
+  // @media (max-width: 554px) {
+  //   top: 23.4%;
+  //   height: 60%;
+  // }
+  // @media (-webkit-min-device-pixel-ratio: 2),
+  //   (min-resolution: 192dpi) and (max-width: 554px) {
+  //   top: 23.2%;
+  //   height: 60%;
+  // }
 `
 const SpotName = styled.p`
   display: flex;
-  max-width: 180px;
+  max-width: 160px;
   height: 29px;
   padding: 0;
   margin: 0;
@@ -104,8 +92,8 @@ const SpotLink = styled(Link)`
 
 const SpotPic = styled('img')`
   position: relative;
-  max-width: 180px;
-  height: 180px;
+  max-width: 160px;
+  height: 160px;
   padding: 0;
   margin: 0;
   border-radius: 0px 0px 20px 20px;

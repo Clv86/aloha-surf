@@ -27,6 +27,7 @@ export const TH = styled.th`
   padding: 0.5em;
   text-align: center;
   width: max-content;
+  letter-spacing: 0.03em;
 `
 
 export const TD = styled.td`

@@ -19,7 +19,10 @@ width: 100%;
 height: 8%;
 box-sizing: border-box;
 padding: 0px;
-z-index: 2;`
+z-index: 2;
+@media (max-height: 464px) {
+  display: none;
+}`
 
 const ContactTitle = styled.h1`
   padding: 0px;

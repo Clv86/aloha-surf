@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import DayConditions from '../../components/DayConditions'
 import WeekConditions from '../../components/WeekConditions'
-import surf1 from '../../assets/gian-luca-modified.jpg'
+// import surf1 from '../../assets/gian-luca-modified.jpg'
 import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 
@@ -10,13 +10,13 @@ function Conditions(spot, setSpot) {
   const { spotName } = useParams()
   return (
     <Main>
-      <SurfPic src={surf1} alt="surf-pic" />
+      {/* <SurfPic src={surf1} alt="surf-pic" /> */}
 
       <Presentation>
         <TitleBar>
           <SpotTitle>{spotName}</SpotTitle>
-          <DayButton onClick={() => setTable(false)}>Jour</DayButton>
-          <WeekButton onClick={() => setTable(true)}>Semaine</WeekButton>
+          <TableButton onClick={() => setTable(false)}>Jour</TableButton>
+          <TableButton onClick={() => setTable(true)}>Semaine</TableButton>
         </TitleBar>
         {tableWeek ? (
           <WeekConditions name={spotName} />
@@ -37,15 +37,22 @@ const Main = styled.div`
   right: 0;
   padding: 0;
   margin: 0;
+  @media (max-width: 554px) {
+    top: 7%;
+  }
+  @media (max-height: 490px) {
+    height: 408px;
+    overflow: scroll;
+  }
 `
-const SurfPic = styled.img`
-  display: flex;
-  position: absolute;
-  width: 100%;
-  opacity: 0.5;
+// const SurfPic = styled.img`
+//   display: flex;
+//   position: absolute;
+//   width: 100%;
+//   opacity: 0.5;
 
-  z-index: 2;
-`
+//   z-index: 2;
+// `
 const Presentation = styled.div`
   position: absolute;
   top: 8%;
@@ -61,6 +68,10 @@ const Presentation = styled.div`
   box-shadow: 5px 3px 3px black;
   z-index: 3;
   overflow: scroll;
+  @media (max-width: 1000px) {
+    left: 4%;
+    right: 4%;
+  }
 `
 const SpotTitle = styled.h2`
   flex-shrink: 0;
@@ -73,9 +84,12 @@ const SpotTitle = styled.h2`
   align-self: center;
   padding: 0;
   margin: 0;
+  @media (max-width: 460px) {
+    font-size: 1.5em;
+  }
 `
 
-const DayButton = styled.button`
+const TableButton = styled.button`
   display: flex;
   width: 117px;
   height: 29px;
@@ -95,28 +109,9 @@ const DayButton = styled.button`
   font-weight: 400;
   line-height: normal;
   align-self: center;
-`
-
-const WeekButton = styled.button`
-  display: flex;
-  width: 117px;
-  height: 29px;
-  padding: 14px 10px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  flex-shrink: 0;
-  border-radius: 20px;
-  background: #062848;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  color: #fff;
-  text-align: center;
-  font-family: Amaranth;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  align-self: center;
+  @media (max-width: 460px) {
+    width: 80px;
+  }
 `
 const TitleBar = styled.div`
   display: flex;

@@ -1,13 +1,10 @@
 import styled from 'styled-components'
 import ContactText from '../../components/ContactText'
-import surf1 from '../../assets/gian-luca-modified.jpg'
 import CL from '../../assets/CL.jpg'
 
 function Contact() {
   return (
     <Main>
-      <SurfPic src={surf1} alt="surf-pic" />
-
       <Presentation>
         <ContactText />
         <Portrait src={CL} alt="Photo de moi" />
@@ -19,6 +16,12 @@ const Portrait = styled.img`
   position: relative;
   max-width: 50%;
   border-radius: 25px;
+  @media (max-width: 670px) {
+    display: none;
+  }
+  @media (max-height: 425px) {
+    display: none;
+  }
 `
 
 const Main = styled.div`
@@ -31,15 +34,19 @@ const Main = styled.div`
   right: 0;
   padding: 0;
   margin: 0;
-`
-
-const SurfPic = styled.img`
-  display: flex;
-  position: absolute;
-  width: 100%;
-  opacity: 0.5;
-
-  z-index: 2;
+  @media (max-width: 554px) {
+    top: 7%;
+  }
+  @media (max-height: 490px) {
+    height: 408px;
+    overflow: scroll;
+  }
+  @media (max-height: 427px) {
+    height: 90%;
+  }
+  @media (max-height: 349px) {
+    height: 300px;
+  }
 `
 
 const Presentation = styled.div`
@@ -56,5 +63,9 @@ const Presentation = styled.div`
   border-radius: 25px;
   box-shadow: 5px 3px 3px black;
   z-index: 3;
+  @media (max-width: 1000px) {
+    left: 4%;
+    right: 4%;
+  }
 `
 export default Contact

@@ -2,13 +2,12 @@ import styled from 'styled-components'
 import React from 'react'
 // import { useState } from 'react'
 import DetailedSpotlist from '../../components/DetailedSpotList'
-import surf1 from '../../assets/gian-luca-modified.jpg'
+// import surf1 from '../../assets/gian-luca-modified.jpg'
 
 function Spots() {
   return (
     <Main>
       <Presentation>
-        <SurfPic src={surf1} alt="surf-pic" />
         <DetailedSpotlist input="" />
       </Presentation>
     </Main>
@@ -25,15 +24,13 @@ const Main = styled.div`
   right: 0;
   padding: 0;
   margin: 0;
-`
-
-const SurfPic = styled.img`
-  display: flex;
-  position: absolute;
-  width: 100%;
-  opacity: 0.5;
-
-  z-index: 2;
+  @media (max-width: 554px) {
+    top: 7%;
+  }
+  @media (max-height: 490px) {
+    height: 408px;
+    overflow: scroll;
+  }
 `
 
 const Presentation = styled.div``

@@ -25,38 +25,50 @@ function DetailedSpotlist(props) {
           chacun d'entre eux. Cliquez sur les noms pour plus de détails !
         </Description>
       </LeftSide>
-      <Table>
-        <TableScroll>
-          <Table.Head>
-            <Table.TR>
-              <Table.TH>Spots</Table.TH>
-              <Table.TH>Hauteur</Table.TH>
-              <Table.TH>Direction Vague</Table.TH>
-              <Table.TH>Période</Table.TH>
-              <Table.TH>Vitesse Vent</Table.TH>
-              <Table.TH>Direction Vent</Table.TH>
-            </Table.TR>
-          </Table.Head>
-
-          <Table.Body>
-            {filteredData.map((val, i) => (
+      <TableSizer>
+        <Table>
+          <TableScroll>
+            <Table.Head>
               <Table.TR>
-                <Table.TH>
-                  <SpotLink to={`/conditions/${val[0]}`}>{val[0]}</SpotLink>
-                </Table.TH>
-                <HourConditions name={val[0]} />
+                <Table.TH>Spots</Table.TH>
+                <Table.TH>Hauteur</Table.TH>
+                <Table.TH>Direction Vague</Table.TH>
+                <Table.TH>Période</Table.TH>
+                <Table.TH>Vitesse Vent</Table.TH>
+                <Table.TH>Direction Vent</Table.TH>
               </Table.TR>
-            ))}
-          </Table.Body>
-        </TableScroll>
-      </Table>
+            </Table.Head>
+
+            <Table.Body>
+              {filteredData.map((val, i) => (
+                <Table.TR>
+                  <Table.TH>
+                    <SpotLink to={`/conditions/${val[0]}`}>{val[0]}</SpotLink>
+                  </Table.TH>
+                  <HourConditions name={val[0]} />
+                </Table.TR>
+              ))}
+            </Table.Body>
+          </TableScroll>
+        </Table>
+      </TableSizer>
     </List>
   )
 }
-
+const TableSizer = styled.div`
+  width: 550px;
+  margin: auto;
+  @media (max-width: 628px) {
+    width: auto;
+  }
+  overflow: hidden;
+`
 const TableScroll = styled.div`
   height: 350px;
   overflow: auto;
+  @media (max-width: 1000px) {
+    height: 200px;
+  }
 `
 const Description = styled.p`
   font-family: Amaranth;
@@ -81,7 +93,13 @@ const List = styled.div`
   padding: 2%;
   border-radius: 25px;
   box-shadow: 5px 3px 3px black;
-  z-index: 3;
+  z-index: 2;
+  @media (max-width: 1000px) {
+    flex-direction: column;
+    left: 4%;
+    right: 4%;
+    justify-content: start;
+  }
 `
 const Title = styled.h1`
   position: relative;
@@ -96,9 +114,6 @@ const SpotLink = styled(Link)`
   margin: 0;
   justify-content: center;
   align-items: center;
-  // border-radius: 20px 20px 0px 0px;
-  // background: #062848;
-  // box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   color: black;
   text-align: center;
   font-family: Amaranth;
@@ -107,7 +122,9 @@ const SpotLink = styled(Link)`
   font-weight: 400;
   text-decoration: none;
   line-height: normal;
-  z-index: 5;
+  &:hover {
+    color: rgb(84, 168, 163);
+  }
 `
 
 export default DetailedSpotlist

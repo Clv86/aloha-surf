@@ -1,5 +1,4 @@
 import Description from '../../components/Description'
-import surf1 from '../../assets/gian-luca-modified.jpg'
 import styled from 'styled-components'
 import SpotList from '../../components/SpotList'
 import { useState } from 'react'
@@ -15,11 +14,11 @@ function Home() {
   }
   return (
     <Main>
-      <SurfPic src={surf1} alt="surf-pic" />
       <Description
         chooseFilter={chooseFilter}
         chooseSpotList={chooseSpotList}
       />
+
       {SpotListOpen === true ? <SpotList input={filter} /> : null}
     </Main>
   )
@@ -35,15 +34,16 @@ const Main = styled.div`
   right: 0;
   padding: 0;
   margin: 0;
-`
-
-const SurfPic = styled.img`
-  display: flex;
-  position: absolute;
-  width: 100%;
-  opacity: 0.5;
-
-  z-index: 2;
+  // @media (max-width: 1175px) {
+  //   flex-direction: column;
+  //   justify-content: center;
+  //   align-items: center;
+  //   flex-wrap: wrap;
+  // background-color: red;
+  // }
+  @media (max-width: 554px) {
+    top: 7%;
+  }
 `
 
 export default Home

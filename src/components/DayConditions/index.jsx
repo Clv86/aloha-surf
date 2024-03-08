@@ -2,7 +2,7 @@ import Table from '../Table'
 import DirectionArrow from '../../utils/styles/arrow'
 import { useFetch } from '../../utils/hooks'
 import spotsCoordinate from '../../assets/spotsCoordinate.json'
-
+import styled from 'styled-components'
 function DayConditions(spotName) {
   const { name } = spotName
   const arrayCoordinates = Object.entries(spotsCoordinate)
@@ -24,50 +24,54 @@ function DayConditions(spotName) {
     return (
       <div>
         <Table>
-          <Table.Head>
-            <Table.TR>
-              <Table.TH>Aujourd'hui</Table.TH>
-              {wave.hourly.wave_height.map((val, i) => (
-                <Table.TD>{i}h</Table.TD>
-              ))}
-            </Table.TR>
-          </Table.Head>
-          <Table.Body>
-            <Table.TR>
-              <Table.TH>Hauteur</Table.TH>
-              {wave.hourly.wave_height.map((val, i) => (
-                <Table.TD>{val}</Table.TD>
-              ))}
-            </Table.TR>
-            <Table.TR>
-              <Table.TH>Direction Vague</Table.TH>
-              {wave.hourly.wave_direction.map((val, i) => (
-                <Table.TD>{DirectionArrow(val)}</Table.TD>
-              ))}
-            </Table.TR>
-            <Table.TR>
-              <Table.TH>Période</Table.TH>
-              {wave.hourly.wave_period.map((val, i) => (
-                <Table.TD>{val}</Table.TD>
-              ))}
-            </Table.TR>
-            <Table.TR>
-              <Table.TH>Vitesse Vent</Table.TH>
-              {wind.hourly.wind_speed_10m.map((val, i) => (
-                <Table.TD>{val}</Table.TD>
-              ))}
-            </Table.TR>
-            <Table.TR>
-              <Table.TH>Direction Vent</Table.TH>
-              {wind.hourly.wind_direction_10m.map((val, i) => (
-                <Table.TD>{DirectionArrow(val)}</Table.TD>
-              ))}
-            </Table.TR>
-          </Table.Body>
+          <TableScroll>
+            <Table.Head>
+              <Table.TR>
+                <Table.TH>Aujourd'hui</Table.TH>
+                {wave.hourly.wave_height.map((val, i) => (
+                  <Table.TD>{i}h</Table.TD>
+                ))}
+              </Table.TR>
+            </Table.Head>
+            <Table.Body>
+              <Table.TR>
+                <Table.TH>Hauteur</Table.TH>
+                {wave.hourly.wave_height.map((val, i) => (
+                  <Table.TD>{val}</Table.TD>
+                ))}
+              </Table.TR>
+              <Table.TR>
+                <Table.TH>Direction Vague</Table.TH>
+                {wave.hourly.wave_direction.map((val, i) => (
+                  <Table.TD>{DirectionArrow(val)}</Table.TD>
+                ))}
+              </Table.TR>
+              <Table.TR>
+                <Table.TH>Période</Table.TH>
+                {wave.hourly.wave_period.map((val, i) => (
+                  <Table.TD>{val}</Table.TD>
+                ))}
+              </Table.TR>
+              <Table.TR>
+                <Table.TH>Vitesse Vent</Table.TH>
+                {wind.hourly.wind_speed_10m.map((val, i) => (
+                  <Table.TD>{val}</Table.TD>
+                ))}
+              </Table.TR>
+              <Table.TR>
+                <Table.TH>Direction Vent</Table.TH>
+                {wind.hourly.wind_direction_10m.map((val, i) => (
+                  <Table.TD>{DirectionArrow(val)}</Table.TD>
+                ))}
+              </Table.TR>
+            </Table.Body>
+          </TableScroll>
         </Table>
       </div>
     )
   }
 }
-
+const TableScroll = styled.div`
+  overflow: auto;
+`
 export default DayConditions

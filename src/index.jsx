@@ -8,12 +8,14 @@ import Spots from './pages/Spots'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Conditions from './pages/Conditions'
-
+import Main from './components/Main'
 const root = ReactDOM.createRoot(document.getElementById('root'))
+
 root.render(
   <React.StrictMode>
     <Router>
       <GlobalStyle />
+      <Main />
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />

@@ -27,6 +27,44 @@ function SpotList(props) {
     </SpotPresentation>
   )
 }
+const SpotPresentation = styled.div`
+  right: 122px;
+  top: 8%;
+  width: 30%;
+  height: 60%;
+  flex: 1;
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: absolute;
+  padding: 2% 5% 3% 5%;
+  background-color: rgba(84, 168, 163, 0.5);
+  border-radius: 25px;
+  box-shadow: 5px 3px 3px black;
+  overflow-x: hidden;
+  z-index: 3;
+  @media (max-width: 1175px) {
+    top: 24.1%;
+    height: 50%;
+    left: 4%;
+    right: 4%;
+    width: auto;
+    padding: 1% 0% 4% 0%;
+    border-radius: 0 0 25px 25px;
+    border-top: none;
+  }
+  @media (max-width: 554px) {
+    top: 23.4%;
+    height: 60%;
+  }
+  @media (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi) and (max-width: 554px) {
+    top: 23.2%;
+    height: 60%;
+  }
+`
 const SpotName = styled.p`
   display: flex;
   max-width: 180px;
@@ -45,6 +83,9 @@ const SpotName = styled.p`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  @media (max-width: 412px) {
+    max-width: 120px;
+  }
 `
 
 const SpotLink = styled(Link)`
@@ -55,6 +96,10 @@ const SpotLink = styled(Link)`
   overflow: hidden;
   border-radius: 0px 0px 20px 20px;
   text-decoration: none;
+  @media (max-width: 412px) {
+    max-width: 120px;
+    height: 120px;
+  }
 `
 
 const SpotPic = styled('img')`
@@ -64,24 +109,10 @@ const SpotPic = styled('img')`
   padding: 0;
   margin: 0;
   border-radius: 0px 0px 20px 20px;
-`
-const SpotPresentation = styled.div`
-  display: flex;
-  flex: 1;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  position: absolute;
-  right: 122px;
-  top: 8%;
-  width: 30%;
-  height: 60%;
-  padding: 2% 5% 3% 5%;
-  background-color: rgba(84, 168, 163, 0.5);
-  border-radius: 25px;
-  box-shadow: 5px 3px 3px black;
-  overflow-x: hidden;
-  z-index: 3;
+  @media (max-width: 412px) {
+    max-width: 120px;
+    height: 120px;
+  }
 `
 
 export default SpotList

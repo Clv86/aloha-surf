@@ -23,6 +23,54 @@ function DayConditions(spotName) {
   if (wind && wave) {
     return (
       <div>
+        <VertTable>
+          <Table>
+            <TableScroll>
+              <Table.Head>
+                <Table.TR>
+                  <Table.TH>Heure</Table.TH>
+                  <Table.TH>Hauteur</Table.TH>
+                  <Table.TH>Direction Vague</Table.TH>
+                  <Table.TH>Période</Table.TH>
+                  <Table.TH>Vitesse Vent</Table.TH>
+                  <Table.TH>Direction Vent</Table.TH>
+                </Table.TR>
+              </Table.Head>
+              <Table.Body>
+                <Table.TD>
+                  {wave.hourly.wave_height.map((val, i) => (
+                    <Table.TR>{i}h</Table.TR>
+                  ))}
+                </Table.TD>
+                <Table.TD>
+                  {wave.hourly.wave_height.map((val, i) => (
+                    <Table.TR>{val}</Table.TR>
+                  ))}
+                </Table.TD>
+                <Table.TD>
+                  {wave.hourly.wave_direction.map((val, i) => (
+                    <Table.TR>{DirectionArrow(val)}</Table.TR>
+                  ))}
+                </Table.TD>
+                <Table.TD>
+                  {wave.hourly.wave_period.map((val, i) => (
+                    <Table.TR>{val}</Table.TR>
+                  ))}
+                </Table.TD>
+                <Table.TD>
+                  {wind.hourly.wind_speed_10m.map((val, i) => (
+                    <Table.TR>{val}</Table.TR>
+                  ))}
+                </Table.TD>
+                <Table.TD>
+                  {wind.hourly.wind_direction_10m.map((val, i) => (
+                    <Table.TR>{DirectionArrow(val)}</Table.TR>
+                  ))}
+                </Table.TD>
+              </Table.Body>
+            </TableScroll>
+          </Table>
+        </VertTable>
         <TableSizer>
           <Table>
             <TableScroll>
@@ -73,8 +121,17 @@ function DayConditions(spotName) {
     )
   }
 }
+const VertTable = styled.div`
+  display: none;
+  @media (max-width: 554px) {
+    display: initial;
+  }
+`
 const TableSizer = styled.div`
   width: 881px;
+  @media (max-width: 554px) {
+    display: none;
+  }
   @media (max-height: 490px) {
     width: 500px;
   }

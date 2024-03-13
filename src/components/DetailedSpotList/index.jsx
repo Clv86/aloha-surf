@@ -59,6 +59,9 @@ const TableSizer = styled.div`
   overflow: hidden;
   @media (max-width: 628px) {
     width: auto;
+    height: auto;
+    margin-top: 0;
+    margin-bottom: 0;
   }
   @media (max-height: 490px) {
     width: 490px;
@@ -68,7 +71,7 @@ const TableScroll = styled.div`
   height: 350px;
   overflow: auto;
   @media (max-width: 1000px) {
-    height: 200px;
+    height: 250px;
   }
 `
 const Description = styled.p`
@@ -88,12 +91,8 @@ const LeftSide = styled.div`
   }
 `
 const List = styled.div`
-  position: absolute;
-  top: 8%;
-  bottom: 16%;
-  left: 122px;
-  right: 122px;
   display: flex;
+  gap: 32px;
   flex-direction: block;
   justify-content: space-between;
   background-color: rgba(84, 168, 163, 0.5);

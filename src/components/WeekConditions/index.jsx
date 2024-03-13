@@ -41,6 +41,9 @@ function WeekConditions(spotName) {
   )
   const TableSizer = styled.div`
     width: 541.1px;
+    @media (max-width: 554px) {
+      display: none;
+    }
     @media (max-width: 640px) {
       width: auto;
     }
@@ -51,54 +54,110 @@ function WeekConditions(spotName) {
   const TableScroll = styled.div`
     overflow: auto;
   `
+  const VertTable = styled.div`
+    display: none;
+    @media (max-width: 554px) {
+      display: initial;
+    }
+  `
   if (wind && wave) {
     return (
-      <TableSizer>
-        <Table>
-          <TableScroll>
-            <Table.Head>
-              <Table.TR>
-                <Table.TH>Cette semaine</Table.TH>
-                {wave.daily.wave_height_max.map((val, i) => (
-                  <Table.TH>{weekDay[d.getDay() + i]}</Table.TH>
-                ))}
-              </Table.TR>
-            </Table.Head>
-            <Table.Body>
-              <Table.TR>
-                <Table.TH>Hauteur</Table.TH>
-                {wave.daily.wave_height_max.map((val, i) => (
-                  <Table.TD>{val}</Table.TD>
-                ))}
-              </Table.TR>
-              <Table.TR>
-                <Table.TH>Direction Vague</Table.TH>
-                {wave.daily.wave_direction_dominant.map((val, i) => (
-                  <Table.TD>{DirectionArrow(val)}</Table.TD>
-                ))}
-              </Table.TR>
-              <Table.TR>
-                <Table.TH>Période</Table.TH>
-                {wave.daily.wave_period_max.map((val, i) => (
-                  <Table.TD>{val}</Table.TD>
-                ))}
-              </Table.TR>
-              <Table.TR>
-                <Table.TH>Vitesse Vent</Table.TH>
-                {wind.daily.wind_speed_10m_max.map((val, i) => (
-                  <Table.TD>{val}</Table.TD>
-                ))}
-              </Table.TR>
-              <Table.TR>
-                <Table.TH>Direction Vent</Table.TH>
-                {wind.daily.wind_direction_10m_dominant.map((val, i) => (
-                  <Table.TD>{DirectionArrow(val)}</Table.TD>
-                ))}
-              </Table.TR>
-            </Table.Body>
-          </TableScroll>
-        </Table>
-      </TableSizer>
+      <>
+        <VertTable>
+          <Table>
+            <TableScroll>
+              <Table.Head>
+                <Table.TR>
+                  <Table.TH>Cette semaine</Table.TH>
+                  <Table.TH>Hauteur</Table.TH>
+                  <Table.TH>Direction Vague</Table.TH>
+                  <Table.TH>Période</Table.TH>
+                  <Table.TH>Vitesse Vent</Table.TH>
+                  <Table.TH>Direction Vent</Table.TH>
+                </Table.TR>
+              </Table.Head>
+              <Table.Body>
+                <Table.TD>
+                  {wave.daily.wave_height_max.map((val, i) => (
+                    <Table.TR>{weekDay[d.getDay() + i]}</Table.TR>
+                  ))}
+                </Table.TD>
+                <Table.TD>
+                  {wave.daily.wave_height_max.map((val, i) => (
+                    <Table.TR>{val}</Table.TR>
+                  ))}
+                </Table.TD>
+                <Table.TD>
+                  {wave.daily.wave_direction_dominant.map((val, i) => (
+                    <Table.TR>{DirectionArrow(val)}</Table.TR>
+                  ))}
+                </Table.TD>
+                <Table.TD>
+                  {wave.daily.wave_period_max.map((val, i) => (
+                    <Table.TR>{val}</Table.TR>
+                  ))}
+                </Table.TD>
+                <Table.TD>
+                  {wind.daily.wind_speed_10m_max.map((val, i) => (
+                    <Table.TR>{val}</Table.TR>
+                  ))}
+                </Table.TD>
+                <Table.TD>
+                  {wind.daily.wind_direction_10m_dominant.map((val, i) => (
+                    <Table.TR>{DirectionArrow(val)}</Table.TR>
+                  ))}
+                </Table.TD>
+              </Table.Body>
+            </TableScroll>
+          </Table>
+        </VertTable>
+        <TableSizer>
+          <Table>
+            <TableScroll>
+              <Table.Head>
+                <Table.TR>
+                  <Table.TH>Cette semaine</Table.TH>
+                  {wave.daily.wave_height_max.map((val, i) => (
+                    <Table.TH>{weekDay[d.getDay() + i]}</Table.TH>
+                  ))}
+                </Table.TR>
+              </Table.Head>
+              <Table.Body>
+                <Table.TR>
+                  <Table.TH>Hauteur</Table.TH>
+                  {wave.daily.wave_height_max.map((val, i) => (
+                    <Table.TD>{val}</Table.TD>
+                  ))}
+                </Table.TR>
+                <Table.TR>
+                  <Table.TH>Direction Vague</Table.TH>
+                  {wave.daily.wave_direction_dominant.map((val, i) => (
+                    <Table.TD>{DirectionArrow(val)}</Table.TD>
+                  ))}
+                </Table.TR>
+                <Table.TR>
+                  <Table.TH>Période</Table.TH>
+                  {wave.daily.wave_period_max.map((val, i) => (
+                    <Table.TD>{val}</Table.TD>
+                  ))}
+                </Table.TR>
+                <Table.TR>
+                  <Table.TH>Vitesse Vent</Table.TH>
+                  {wind.daily.wind_speed_10m_max.map((val, i) => (
+                    <Table.TD>{val}</Table.TD>
+                  ))}
+                </Table.TR>
+                <Table.TR>
+                  <Table.TH>Direction Vent</Table.TH>
+                  {wind.daily.wind_direction_10m_dominant.map((val, i) => (
+                    <Table.TD>{DirectionArrow(val)}</Table.TD>
+                  ))}
+                </Table.TR>
+              </Table.Body>
+            </TableScroll>
+          </Table>
+        </TableSizer>
+      </>
     )
   }
 }

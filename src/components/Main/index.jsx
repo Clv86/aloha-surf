@@ -24,7 +24,7 @@ const SurfPic = styled.img`
   min-width: 1003px;
   width: auto;
   opacity: 0.5;
-  z-index: 2;
+  z-index: -10;
   @media (max-width: 1003px) {
     position: absolute;
     top: -9999px;

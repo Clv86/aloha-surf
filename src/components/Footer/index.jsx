@@ -12,20 +12,13 @@ function Footer() {
 }
 
 const FooterContact = styled.div`
-  display: flex;
-  padding-bottom: 2%;
+  display: inline-flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
-
-  position: absolute;
-  bottom: 0%;
-  left: 0%;
-  text-align: center;
   width: 100%;
+  text-align: center;
   box-sizing: border-box;
-  padding: 0px;
-  z-index: 2;
   @media (max-height: 464px) {
     display: none;
   }
@@ -37,6 +30,7 @@ const ContactTitle = styled.h1`
   font-weight: 400;
   line-height: normal;
   margin: 0;
+  margin-top: 8px;
 `
 const ContactText = styled.a`
   text-decoration: none;
@@ -46,7 +40,7 @@ const ContactText = styled.a`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  margin-bottom: 1%;
+  margin-bottom: 100%;
 `
 
 export default Footer

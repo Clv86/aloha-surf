@@ -43,9 +43,6 @@ function Description({ chooseFilter, chooseSpotList, filter }) {
 }
 const TextContainer = styled.div``
 const DescriptionStyle = styled.div`
-  position: absolute;
-  top: 4%;
-  left: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;

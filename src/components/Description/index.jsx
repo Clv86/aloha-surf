@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 import { useState } from 'react'
 import { useEffect } from 'react'
+import searchButton from '../../assets/SearchIcon.png'
+import { Link } from 'react-router-dom'
 
 function Description({ chooseFilter, chooseSpotList, filter }) {
   const [inputText, setInputText] = useState('')
@@ -20,17 +22,7 @@ function Description({ chooseFilter, chooseSpotList, filter }) {
     setShowSpots(true)
   }
   return (
-    <DescriptionStyle $variant={showSpots}>
-      <TextContainer>
-        <DescriptionTitle>
-          Les conditions du surf sur la côte ouest française
-        </DescriptionTitle>
-        <DescriptionText>
-          Conditions météo de la côte Ouest française en temps réel avec
-          prévision sur 7 jours et détails heure par heure.
-        </DescriptionText>
-      </TextContainer>
-
+    <SearchContainer>
       <Searchbar
         type="search"
         id="spot-search"
@@ -38,99 +30,44 @@ function Description({ chooseFilter, chooseSpotList, filter }) {
         onClick={openSpotList}
         onChange={inputHandler}
       />
-    </DescriptionStyle>
+      <SearchButton to={`/spots/${inputText}`} />
+    </SearchContainer>
   )
 }
-const TextContainer = styled.div``
-const DescriptionStyle = styled.div`
+const SearchContainer = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background-color: rgba(84, 168, 163, 0.5);
-  padding: 16px;
-  border-radius: 25px;
-  box-shadow: 5px 3px 3px black;
-  height: 40%;
-  z-index: 3;
-  @media (max-width: 1175px) {
-    flex-direction: row;
-    gap: 40px;
-    left: 4%;
-    right: 4%;
-    ${(props) =>
-      props.$variant === false
-        ? 'height: 12%; border-radius: 25px; box-shadow: 5px 3px 3px black; border-bottom: 5px 3px 3px black;'
-        : 'height: 10%; border-radius: 25px 25px 0 0; box-shadow: none; border-bottom: none; background-color: initial;'}
-  }
-  @media (max-width: 726px) {
-    gap: 12px;
-  }
-  @media (max-height: 500px) {
-    height: 60px;
-  }
-  @media (max-width: 412px) {
-    ${(props) =>
-      props.$variant === true ? 'padding: 0; padding-right: 8px;' : null}
-    justify-content: center;
-  }
-`
-const DescriptionTitle = styled.h2`
-  font-family: Amaranth;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  display: flex;
-  width: 419px;
-  height: 71px;
-  flex-direction: column;
-  justify-content: center;
-  align-item: center;
+  width: 60vw;
+  height: fit-content;
+  padding: 18px 24px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
   flex-shrink: 0;
-  margin: 0;
-  padding-top: 0;
-  @media (max-width: 726px) {
-    width: auto;
-    font-size: 18px;
-  }
-  @media (max-width: 654px) {
-    font-size: 14px;
-  }
+  border-radius: 4px;
+  border: 1px solid #fff;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(7px);
 `
-
-const DescriptionText = styled.p`
-  font-family: Amaranth;
-  font-size: 16px;
+const SearchButton = styled(Link)`
+  width: clamp(1.5rem, 7vw, 2.5rem);
+  height: clamp(1.5rem, 7vw, 2.5rem);
+  border: none;
+  flex-shrink: 0;
+  background: url(${searchButton}) lightgray 50% / contain no-repeat;
+  background-color: transparent;
+`
+const Searchbar = styled.input`
+  border: none;
+  width: 80%;
+  background-color: transparent;
+  color: #2e2e2e;
+  font-family: 'Space Grotesk';
+  font-size: clamp(1rem, 2.5vw, 2rem);
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  display: flex;
-  width: 419px;
-  height: 71px;
-  flex-direction: column;
-  justify-content: center;
-  flex-shrink: 0;
-  margin-top: 0;
-  margin-bottom: 0;
-  @media (max-width: 1175px) {
-    display: none;
-  }
-`
-
-const Searchbar = styled.input`
-  width: 200px;
-  height: 57px;
-  border-radius: 20px;
-  border: 1px solid #0f0e0e;
-  background: #fff;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  padding-left: 20px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  font-family: Amaranth;
-  @media (max-width: 412px) {
-    width: 100%;
-    margin-left: 0;
+  &:focus {
+    outline: none;
   }
 `
 

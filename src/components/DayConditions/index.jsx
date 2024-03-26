@@ -71,52 +71,50 @@ function DayConditions(spotName) {
             </TableScroll>
           </Table>
         </VertTable>
-        <TableSizer>
-          <Table>
-            <TableScroll>
-              <Table.Head>
-                <Table.TR>
-                  <Table.TH>Aujourd'hui</Table.TH>
-                  {wave.hourly.wave_height.map((val, i) => (
-                    <Table.TD>{i}h</Table.TD>
-                  ))}
-                </Table.TR>
-              </Table.Head>
-              <Table.Body>
-                <Table.TR>
-                  <Table.TH>Hauteur</Table.TH>
-                  {wave.hourly.wave_height.map((val, i) => (
-                    <Table.TD>{val}</Table.TD>
-                  ))}
-                </Table.TR>
-                <Table.TR>
-                  <Table.TH>Direction Vague</Table.TH>
-                  {wave.hourly.wave_direction.map((val, i) => (
-                    <Table.TD>{DirectionArrow(val)}</Table.TD>
-                  ))}
-                </Table.TR>
-                <Table.TR>
-                  <Table.TH>Période</Table.TH>
-                  {wave.hourly.wave_period.map((val, i) => (
-                    <Table.TD>{val}</Table.TD>
-                  ))}
-                </Table.TR>
-                <Table.TR>
-                  <Table.TH>Vitesse Vent</Table.TH>
-                  {wind.hourly.wind_speed_10m.map((val, i) => (
-                    <Table.TD>{val}</Table.TD>
-                  ))}
-                </Table.TR>
-                <Table.TR>
-                  <Table.TH>Direction Vent</Table.TH>
-                  {wind.hourly.wind_direction_10m.map((val, i) => (
-                    <Table.TD>{DirectionArrow(val)}</Table.TD>
-                  ))}
-                </Table.TR>
-              </Table.Body>
-            </TableScroll>
-          </Table>
-        </TableSizer>
+        <Table>
+          <TableSizer>
+            <Table.Head>
+              <Table.TR>
+                <Table.TH>Aujourd'hui</Table.TH>
+                {wave.hourly.wave_height.map((val, i) => (
+                  <Table.TH>{i}h</Table.TH>
+                ))}
+              </Table.TR>
+            </Table.Head>
+            <Table.Body>
+              <Table.TR>
+                <Table.TH>Hauteur</Table.TH>
+                {wave.hourly.wave_height.map((val, i) => (
+                  <Table.TD>{val}</Table.TD>
+                ))}
+              </Table.TR>
+              <Table.TR>
+                <Table.TH>Direction Vague</Table.TH>
+                {wave.hourly.wave_direction.map((val, i) => (
+                  <Table.TD>{DirectionArrow(val)}</Table.TD>
+                ))}
+              </Table.TR>
+              <Table.TR>
+                <Table.TH>Période</Table.TH>
+                {wave.hourly.wave_period.map((val, i) => (
+                  <Table.TD>{val}</Table.TD>
+                ))}
+              </Table.TR>
+              <Table.TR>
+                <Table.TH>Vitesse Vent</Table.TH>
+                {wind.hourly.wind_speed_10m.map((val, i) => (
+                  <Table.TD>{val}</Table.TD>
+                ))}
+              </Table.TR>
+              <Table.TR>
+                <Table.TH>Direction Vent</Table.TH>
+                {wind.hourly.wind_direction_10m.map((val, i) => (
+                  <Table.TD>{DirectionArrow(val)}</Table.TD>
+                ))}
+              </Table.TR>
+            </Table.Body>
+          </TableSizer>
+        </Table>
       </div>
     )
   }
@@ -124,19 +122,28 @@ function DayConditions(spotName) {
 const VertTable = styled.div`
   display: none;
   @media (max-width: 554px) {
-    display: initial;
+    display: block;
+    height: 50vh;
+    border-radius: 16px;
+    border: 1px solid #fff;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    width: auto;
+    overflow: auto;
   }
 `
 const TableSizer = styled.div`
-  width: 881px;
+  border-radius: 16px;
+  border: 1px solid #fff;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  width: max-content;
+  max-width: 80vw;
+  overflow: auto;
   @media (max-width: 554px) {
     display: none;
   }
-  @media (max-height: 490px) {
-    width: 500px;
-  }
 `
-const TableScroll = styled.div`
-  overflow: auto;
-`
+const TableScroll = styled.div``
+
 export default DayConditions

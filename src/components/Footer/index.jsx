@@ -1,46 +1,26 @@
 import styled from 'styled-components'
-
+import { useLocation } from 'react-router-dom'
 function Footer() {
+  const { pathname } = useLocation()
   return (
-    <FooterContact>
-      <ContactTitle>Contact</ContactTitle>
-      <ContactText href="mailto:charleslouis.velieu@gmail.com">
-        charleslouis.velieu@gmail.com
-      </ContactText>
-    </FooterContact>
+    <ContactText style={{ color: pathname === '/' ? '#fff' : '#2E2E2E' }}>
+      Dévelopé avec amour par charleslouis.velieu@gmail.com 🏄‍{' '}
+    </ContactText>
   )
 }
-
-const FooterContact = styled.div`
-  display: inline-flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
+const ContactText = styled.p`
+  position: fixed;
+  bottom: 0;
+  width: 80%;
+  padding-left: 10%;
+  padding-right: 10%;
+  font-family: 'Space Grotesk';
+  font-size: 0.8em;
+  vertical-align: bottom;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
   text-align: center;
-  box-sizing: border-box;
-  @media (max-height: 464px) {
-    display: none;
-  }
-`
-
-const ContactTitle = styled.h1`
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  margin: 0;
-  margin-top: 8px;
-`
-const ContactText = styled.a`
-  text-decoration: none;
-  color: #000;
-  font-family: Amaranth;
-  font-size: 8px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  margin-bottom: 100%;
 `
 
 export default Footer

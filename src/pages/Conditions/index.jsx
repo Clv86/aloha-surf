@@ -1,22 +1,21 @@
 import styled from 'styled-components'
 import DayConditions from '../../components/DayConditions'
 import WeekConditions from '../../components/WeekConditions'
-// import surf1 from '../../assets/gian-luca-modified.jpg'
 import { useState } from 'react'
 import { useParams } from 'react-router-dom'
-
+import surf2 from '../../assets/Background2.jpg'
 function Conditions(spot, setSpot) {
   const [tableWeek, setTable] = useState(false)
   const { spotName } = useParams()
   return (
     <Main>
-      {/* <SurfPic src={surf1} alt="surf-pic" /> */}
-
       <Presentation>
         <TitleBar>
           <SpotTitle>{spotName}</SpotTitle>
-          <TableButton onClick={() => setTable(false)}>Jour</TableButton>
-          <TableButton onClick={() => setTable(true)}>Semaine</TableButton>
+          <ChooseButton>
+            <TableButton onClick={() => setTable(false)}>Jour</TableButton>
+            <TableButton onClick={() => setTable(true)}>Semaine</TableButton>
+          </ChooseButton>
         </TitleBar>
         {tableWeek ? (
           <WeekConditions name={spotName} />
@@ -27,106 +26,60 @@ function Conditions(spot, setSpot) {
     </Main>
   )
 }
+const ChooseButton = styled.div`
+  display: flex;
+`
+
 const Main = styled.div`
   display: flex;
-  justify-content: space-between;
-  position: absolute;
-  top: 17%;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 0;
-  margin: 0;
-  @media (max-width: 554px) {
-    top: 7%;
-  }
-  @media (max-height: 490px) {
-    overflow: scroll;
-    height: auto;
-    bottom: -8%;
-  }
+  justify-content: center;
+  align-items: center;
+  height: 78vh;
 `
-// const SurfPic = styled.img`
-//   display: flex;
-//   position: absolute;
-//   width: 100%;
-//   opacity: 0.5;
-
-//   z-index: 2;
-// `
 const Presentation = styled.div`
-  position: absolute;
-  top: 8%;
-  bottom: 16%;
-  left: 122px;
-  right: 122px;
   display: flex;
   flex-direction: column;
-  flex: 1;
-  background-color: rgba(84, 168, 163, 0.5);
-  padding: 4%;
-  border-radius: 25px;
-  box-shadow: 5px 3px 3px black;
-  z-index: 3;
-  overflow: scroll;
-  @media (max-width: 1000px) {
-    left: 4%;
-    right: 4%;
-  }
-  @media (max-height: 490px) {
-    padding-top: 0;
-  }
+  width: 80vw;
+  justify-content: center;
+  gap: 10px;
+  align-items: left;
 `
 const SpotTitle = styled.h2`
-  flex-shrink: 0;
-  text-align: left;
-  font-family: Amaranth;
-  font-size: 36px;
+  color: #3c3c3c;
+  font-family: 'Space Grotesk';
+  font-size: 35px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  align-self: center;
-  padding: 0;
   margin: 0;
-  @media (max-width: 460px) {
-    font-size: 1.5em;
-  }
-  @media (max-height: 490px) {
-    font-size: 1.2em;
-  }
+  margin-bottom: 8px;
 `
 
 const TableButton = styled.button`
+  &:hover {
+    border-bottom: 2px solid #2e2e2e;
+    padding-bottom: 4px;
+  }
+  padding-bottom: 6px;
+  padding-top: 6px;
   display: flex;
-  width: 117px;
-  height: 29px;
-  padding: 14px 10px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  flex-shrink: 0;
-  border-radius: 20px;
-  background: #062848;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  color: #fff;
-  text-align: center;
-  font-family: Amaranth;
+
+  color: #2e2e2e;
+  font-family: 'Space Grotesk';
   font-size: 16px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 700;
   line-height: normal;
-  align-self: center;
-  @media (max-width: 460px) {
-    width: 80px;
-  }
-  @media (max-height: 490px) {
-    height: 50%;
-  }
+  background: none;
+  border: none;
+  outline: none;
+  box-shadow: none;
 `
 const TitleBar = styled.div`
   display: flex;
-  gap: 3%;
-  margin-bottom: 2%;
+  flex-direction: column;
+  width: auto;
+  gap: 8px;
   padding: 0;
 `
 

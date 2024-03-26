@@ -40,26 +40,31 @@ function WeekConditions(spotName) {
     `https://api.open-meteo.com/v1/forecast?latitude=${location[0][1][0]}&longitude=${location[0][1][1]}&daily=wind_speed_10m_max,wind_direction_10m_dominant&timezone=Europe%2FBerlin`,
   )
   const TableSizer = styled.div`
-    width: 541.1px;
-    @media (max-width: 554px) {
-      display: none;
-    }
-    @media (max-width: 640px) {
-      width: auto;
-    }
-    @media (max-height: 490px) {
-      width: 480px;
-    }
-  `
-  const TableScroll = styled.div`
+    border-radius: 16px;
+    border: 1px solid #fff;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+
+    width: fit-content;
+    max-width: 80vw;
+
     overflow: auto;
   `
+  const TableScroll = styled.div``
   const VertTable = styled.div`
     display: none;
     @media (max-width: 554px) {
-      display: initial;
+      display: block;
+      height: 60vh;
+      border-radius: 16px;
+      border: 1px solid #fff;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(5px);
+      width: auto;
+      overflow: auto;
     }
   `
+
   if (wind && wave) {
     return (
       <>

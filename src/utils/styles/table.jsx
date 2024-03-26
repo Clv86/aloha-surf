@@ -1,37 +1,31 @@
 import styled from 'styled-components'
 
 export const StyledTable = styled.table`
+  text-align: left;
+  display: table;
+  width: max-content;
+  font-size: 12px;
+  border-spacing: 10px;
+  margin: 0 -10px;
   position: relative;
-  background-color: white;
-  border-spacing: 0;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  width: 100%;
   table-layout: fixed;
+  @media (max-width: 554px) {
+    padding: 0;
+  }
 `
 
 export const THead = styled.thead`
-  background-color: #062848;
-  color: white;
-  font-family: Amaranth;
-  font-size: 14px;
-  letter-spacing: 0.03em;
+  border-bottom: 1px solid #000;
+  display: table-header-group;
 `
 
 export const TFoot = styled.tfoot``
 
-export const TBody = styled.tbody`
-  width: 100%;
-`
+export const TBody = styled.tbody``
 
-export const TR = styled.tr`
-  width: max-content;
-`
+export const TR = styled.tr``
 
 export const TH = styled.th`
-  padding: 0.5em;
-  text-align: center;
-  width: max-content;
-  letter-spacing: 0.03em;
   @media (max-height: 490px) {
     padding: 0.2em;
   }
@@ -39,5 +33,10 @@ export const TH = styled.th`
 
 export const TD = styled.td`
   text-align: center;
-  padding: 5px;
+  color: #3c3c3c;
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  width: 20px;
 `

@@ -13,8 +13,12 @@ function Conditions(spot, setSpot) {
         <TitleBar>
           <SpotTitle>{spotName}</SpotTitle>
           <ChooseButton>
-            <TableButton onClick={() => setTable(false)}>Jour</TableButton>
-            <TableButton onClick={() => setTable(true)}>Semaine</TableButton>
+            <TableButton onClick={() => setTable(false)}>
+              Aujourd'hui
+            </TableButton>
+            <TableButton onClick={() => setTable(true)}>
+              Cette semaine
+            </TableButton>
           </ChooseButton>
         </TitleBar>
         {tableWeek ? (
@@ -28,6 +32,7 @@ function Conditions(spot, setSpot) {
 }
 const ChooseButton = styled.div`
   display: flex;
+  gap: 8px;
 `
 
 const Main = styled.div`

@@ -37,6 +37,16 @@ function DayConditions(spotName) {
                 </Table.TR>
               </Table.Head>
               <Table.Body>
+                {wave.hourly.wave_height.map((val, i) => (
+                  <Table.TR>
+                    <Table.TH>{i}h</Table.TH>
+                    <Table.TD>{val}</Table.TD>
+                    <Table.TD>{wave.hourly.wave_direction[i]}</Table.TD>
+                    <Table.TD>{wave.hourly.wave_period[i]}</Table.TD>
+                    <Table.TD>{wind.hourly.wind_speed_10m[i]}</Table.TD>
+                    <Table.TD>{wind.hourly.wind_direction_10m[i]}</Table.TD>
+                  </Table.TR>
+                ))}
                 <Table.TD>
                   {wave.hourly.wave_height.map((val, i) => (
                     <Table.TR>{i}h</Table.TR>

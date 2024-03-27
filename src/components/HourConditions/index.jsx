@@ -1,12 +1,11 @@
 import { useFetch } from '../../utils/hooks'
 import DirectionArrow from '../../utils/styles/arrow'
 import spotsCoordinate from '../../assets/spotsCoordinate.json'
-import Table from '../../components/Table'
+import styled from 'styled-components'
 
-function HourConditions(spotName) {
-  const { name } = spotName
+function HourConditions(props) {
+  const name = props.spotName
   const arrayCoordinates = Object.entries(spotsCoordinate)
-
   function filterIt(arr, searchKey) {
     return arr.filter(function (obj) {
       return Object.keys(obj).some(function (key) {
@@ -26,15 +25,26 @@ function HourConditions(spotName) {
 
   if (wind && wave) {
     return (
-      <>
-        <Table.TD>{wave.hourly.wave_height[hour]}</Table.TD>
-        <Table.TD>{DirectionArrow(wave.hourly.wave_direction[hour])}</Table.TD>
-        <Table.TD>{wave.hourly.wave_period[hour]}</Table.TD>
-        <Table.TD>{wind.hourly.wind_speed_10m[hour]}</Table.TD>
-        <Table.TD>{DirectionArrow(wave.hourly.wave_direction[hour])}</Table.TD>
-      </>
+      <Container>
+        <LiveCondition>Hauteur</LiveCondition>
+        <LiveCondition>Période</LiveCondition>
+        <LiveCondition>Vitesse</LiveCondition>
+        <LiveCondition>Direction</LiveCondition>
+        <LiveCondition>{wave.hourly.wave_height[hour]}</LiveCondition>
+        <LiveCondition>{wave.hourly.wave_period[hour]}</LiveCondition>
+        <LiveCondition>{wind.hourly.wind_speed_10m[hour]}</LiveCondition>
+        <LiveCondition>
+          {DirectionArrow(wave.hourly.wave_direction[hour])}
+        </LiveCondition>
+      </Container>
     )
   }
 }
-
+const Container = styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  font-size: 0.4em;
+  color: #3c3c3c;
+`
+const LiveCondition = styled.div``
 export default HourConditions

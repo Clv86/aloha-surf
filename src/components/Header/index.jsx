@@ -13,14 +13,20 @@ function Header() {
         <LogoPic src={logo} alt="logo" />
         <Title>ALOHA</Title>
       </Logo>
-      <ButtonContact>
-        <StyledLink to="/contact">Contact</StyledLink>
-      </ButtonContact>
+      <FlexContainer>
+        <ButtonContact>
+          <StyledLink to="/contact">Contact</StyledLink>
+        </ButtonContact>
+      </FlexContainer>
     </NavContainer>
   )
 }
+const FlexContainer = styled.div`
+  flex: 1;
+`
 const ButtonContact = styled.div`
   display: flex;
+  margin-left: auto;
   width: 100px;
   max-width: 33%;
   padding: 10px 16px;
@@ -32,7 +38,7 @@ const ButtonContact = styled.div`
   margin-top: 17px;
   margin-bottom: 19px;
   @media (max-width: 724px) {
-    padding: 4px 0px;
+    padding: 4px 8px;
   }
 `
 const NavContainer = styled.nav`
@@ -55,6 +61,7 @@ const NavContainer = styled.nav`
 
 const ButtonNav = styled.nav`
   display: flex;
+  flex: 1;
   gap: clamp(1rem, 3.02vw - 0.937rem, 2.688rem);
   align-self: flex-end;
   margin-bottom: auto;
@@ -64,7 +71,9 @@ const ButtonNav = styled.nav`
 `
 const Logo = styled(Link)`
   display: flex;
+  flex: 1;
   flex-direction: row;
+  justify-content: center;
   align-items: center;
   align-content: center;
   max-width: 33%;
@@ -101,7 +110,7 @@ const Title = styled.h1`
 const StyledLink = styled(Link)`
   color: #fff;
   font-family: 'Space Grotesk';
-  font-size: 16px;
+  font-size: font-size: clamp(0.75rem, 0.4375rem + 1vw, 1rem);
   font-style: normal;
   font-weight: 700;
   line-height: normal;

@@ -30,16 +30,18 @@ function Spots() {
       <Presentation>
         {filteredData.map((val, i) => (
           <SpotSquare to={`/conditions/${val[0]}`}>
-            <PicContainer>
-              <SpotPic
-                src={require(`../../assets/SpotsPictures/${val[0]}.jpg`)}
-                alt={`/src/assets/SpotsPictures/${val[0]}.jpg`}
-              ></SpotPic>
-            </PicContainer>
-            <TitleContainer>
-              <SpotTitle>{val[0]}</SpotTitle>
-              <ArrowClick src={arrow} alt="arrow"></ArrowClick>
-            </TitleContainer>
+            <Block1>
+              <PicContainer>
+                <SpotPic
+                  src={require(`../../assets/SpotsPictures/${val[0]}.jpg`)}
+                  alt={`/src/assets/SpotsPictures/${val[0]}.jpg`}
+                ></SpotPic>
+              </PicContainer>
+              <TitleContainer>
+                <SpotTitle>{val[0]}</SpotTitle>
+                <ArrowClick src={arrow} alt="arrow"></ArrowClick>
+              </TitleContainer>
+            </Block1>
             <SpotDescription>
               <HourConditions spotName={val[0]} />
             </SpotDescription>
@@ -49,6 +51,7 @@ function Spots() {
     </Main>
   )
 }
+const Block1 = styled.div``
 const Title = styled.h1`
   color: #3c3c3c;
   font-family: 'Space Grotesk';
@@ -90,6 +93,9 @@ const ArrowClick = styled('img')`
   height: 16px;
 `
 const SpotSquare = styled(Link)`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   aspect-ratio: 1 / 1;
   text-decoration: none;
   background: #fff;
@@ -131,13 +137,16 @@ const Presentation = styled.div`
   padding-top: 16px;
   padding-bottom: 64px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
   width: 100%;
   height: 80vh;
   margin-left: auto;
   margin-right: auto;
   overflow: scroll;
   gap: 4vh;
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+  }
 `
 
 export default Spots

@@ -44,7 +44,9 @@ const Presentation = styled.div`
   margin: auto;
   @media (max-width: 670px) {
     flex-direction: column;
+    justify-content: start;
     margin-bottom: 4vh;
+    margin-top: 4vh;
   }
 `
 

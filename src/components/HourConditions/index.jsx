@@ -2,6 +2,7 @@ import { useFetch } from '../../utils/hooks'
 import DirectionArrow from '../../utils/styles/arrow'
 import spotsCoordinate from '../../assets/spotsCoordinate.json'
 import styled from 'styled-components'
+import windAnalysis from '../../utils/windAnalysis'
 
 function HourConditions(props) {
   const name = props.spotName
@@ -26,23 +27,31 @@ function HourConditions(props) {
   if (wind && wave) {
     return (
       <Container>
-        <LiveCondition>Hauteur</LiveCondition>
-        <LiveCondition>Période</LiveCondition>
-        <LiveCondition>Vitesse</LiveCondition>
-        <LiveCondition>Direction</LiveCondition>
+        <LiveConditionTitle>Hauteur</LiveConditionTitle>
+        <LiveConditionTitle>Période</LiveConditionTitle>
+        <LiveConditionTitle>Vitesse</LiveConditionTitle>
+        <LiveConditionTitle>Direction</LiveConditionTitle>
         <LiveCondition>{wave.hourly.wave_height[hour]}</LiveCondition>
         <LiveCondition>{wave.hourly.wave_period[hour]}</LiveCondition>
         <LiveCondition>{wind.hourly.wind_speed_10m[hour]}</LiveCondition>
         <LiveCondition>
-          {DirectionArrow(wave.hourly.wave_direction[hour])}
+          {windAnalysis(
+            wave.hourly.wave_direction[hour],
+            wind.hourly.wind_direction_10m[hour],
+          )}
         </LiveCondition>
       </Container>
     )
   }
 }
+const LiveConditionTitle = styled.div`
+  font-weight: 700;
+`
 const Container = styled.div`
   display: grid;
+  margin: 8px;
   grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
   font-size: 0.4em;
   color: #3c3c3c;
 `

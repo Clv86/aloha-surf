@@ -21,9 +21,9 @@ function Header() {
 }
 const ButtonContact = styled.div`
   display: flex;
-  width: 149px;
+  width: 100px;
   max-width: 33%;
-  padding: 16px 20px;
+  padding: 10px 16px;
   justify-content: center;
   align-items: center;
   gap: 10px;
@@ -32,9 +32,6 @@ const ButtonContact = styled.div`
   margin-top: 17px;
   margin-bottom: 19px;
   @media (max-width: 724px) {
-    width: 100px;
-    margin-top: 12px;
-    margin-bottom: 12px;
     padding: 4px 0px;
   }
 `
@@ -48,7 +45,7 @@ const NavContainer = styled.nav`
   border-bottom: solid 1px white;
   padding: 0 72px 0 72px;
   @media (max-width: 724px) {
-    padding: 0 28px 0 28px;
+    padding: 0 28px;
   }
 
   @media (max-width: 450px) {
@@ -58,14 +55,11 @@ const NavContainer = styled.nav`
 
 const ButtonNav = styled.nav`
   display: flex;
-  gap: 43px;
+  gap: clamp(1rem, 3.02vw - 0.937rem, 2.688rem);
   align-self: flex-end;
   margin-bottom: auto;
   margin-top: auto;
   @media (max-width: 724px) {
-    gap: 16px;
-    margin-top: 12px;
-    margin-bottom: 12px;
   }
 `
 const Logo = styled(Link)`
@@ -81,10 +75,6 @@ const Logo = styled(Link)`
     text-decoration: none;
   }
   @media (max-width: 724px) {
-    margin-top: 12px;
-    margin-bottom: 12px;
-  }
-  @media (max-width: 450px) {
     display: none;
   }
 `
@@ -107,9 +97,6 @@ const Title = styled.h1`
   line-height: normal;
   margin: 0;
   align-self: flex-end;
-  @media (max-width: 724px) {
-    display: none;
-  }
 `
 const StyledLink = styled(Link)`
   color: #fff;

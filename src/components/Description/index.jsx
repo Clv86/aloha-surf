@@ -49,8 +49,8 @@ const SearchContainer = styled.div`
   backdrop-filter: blur(7px);
 `
 const SearchButton = styled(Link)`
-  width: clamp(1.5rem, 7vw, 2.5rem);
-  height: clamp(1.5rem, 7vw, 2.5rem);
+  width: clamp(1rem, 6vw, 2.5rem);
+  height: clamp(1rem, 6vw, 2.5rem);
   border: none;
   flex-shrink: 0;
   background: url(${searchButton}) lightgray 50% / contain no-repeat;
@@ -62,7 +62,7 @@ const Searchbar = styled.input`
   background-color: transparent;
   color: #2e2e2e;
   font-family: 'Space Grotesk';
-  font-size: clamp(1rem, 2.5vw, 2rem);
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
   font-style: normal;
   font-weight: 400;
   line-height: normal;

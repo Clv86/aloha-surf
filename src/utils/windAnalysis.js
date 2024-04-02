@@ -8,7 +8,7 @@ function windAnalysis(wave, wind) {
   let vectorResult = [waveX + windX, waveY + windY]
   let RadiansResult = Math.atan2(vectorResult[0], vectorResult[1])
   let degreesResult = (180 * RadiansResult) / Math.PI
-  console.log(vectorResult)
+  console.log(degreesResult)
   if (degreesResult <= 45) {
     let result = 'Onshore'
     return result

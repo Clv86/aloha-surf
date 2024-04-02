@@ -52,7 +52,7 @@ const Container = styled.div`
   margin: 8px;
   grid-template-columns: repeat(4, 1fr);
   gap: 4px;
-  font-size: 0.4em;
+  font-size: 0.5em;
   color: #3c3c3c;
 `
 const LiveCondition = styled.div``

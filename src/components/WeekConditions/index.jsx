@@ -3,6 +3,7 @@ import DirectionArrow from '../../utils/styles/arrow'
 import { useFetch } from '../../utils/hooks'
 import spotsCoordinate from '../../assets/spotsCoordinate.json'
 import styled from 'styled-components'
+import windAnalysis from '../../utils/windAnalysis'
 
 function WeekConditions(spotName) {
   const { name } = spotName
@@ -34,7 +35,20 @@ function WeekConditions(spotName) {
     })
   }
   const location = filterIt(arrayCoordinates, name)
-
+  function colorConditions(wave, wind, i) {
+    let result = windAnalysis(
+      wave.daily.wave_direction_dominant[i],
+      wind.daily.wind_direction_10m_dominant[i],
+    )
+    console.log(result)
+    if (result === 'Onshore') {
+      return { color: 'red' }
+    } else if (result === 'Off-shore') {
+      return { color: 'green' }
+    } else {
+      return null
+    }
+  }
   const { wave, wind } = useFetch(
     `https://marine-api.open-meteo.com/v1/marine?latitude=${location[0][1][0]}&longitude=${location[0][1][1]}&daily=wave_height_max,wave_direction_dominant,wave_period_max&timezone=Europe%2FBerlin`,
     `https://api.open-meteo.com/v1/forecast?latitude=${location[0][1][0]}&longitude=${location[0][1][1]}&daily=wind_speed_10m_max,wind_direction_10m_dominant&timezone=Europe%2FBerlin`,
@@ -93,7 +107,9 @@ function WeekConditions(spotName) {
                 <Table.TR>
                   <Table.TH>Direction Vague</Table.TH>
                   {wave.daily.wave_direction_dominant.map((val, i) => (
-                    <Table.TD>{DirectionArrow(val)}</Table.TD>
+                    <Table.TD style={colorConditions(wave, wind, i)}>
+                      {DirectionArrow(val)}
+                    </Table.TD>
                   ))}
                 </Table.TR>
                 <Table.TR>
@@ -111,7 +127,9 @@ function WeekConditions(spotName) {
                 <Table.TR>
                   <Table.TH>Direction Vent</Table.TH>
                   {wind.daily.wind_direction_10m_dominant.map((val, i) => (
-                    <Table.TD>{DirectionArrow(val)}</Table.TD>
+                    <Table.TD style={colorConditions(wave, wind, i)}>
+                      {DirectionArrow(val)}
+                    </Table.TD>
                   ))}
                 </Table.TR>
               </Table.Body>

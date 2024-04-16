@@ -3,20 +3,29 @@ import DayConditions from '../../components/DayConditions'
 import WeekConditions from '../../components/WeekConditions'
 import { useState } from 'react'
 import { useParams } from 'react-router-dom'
-import surf2 from '../../assets/Background2.jpg'
 function Conditions(spot, setSpot) {
   const [tableWeek, setTable] = useState(false)
   const { spotName } = useParams()
+  const underline = {
+    'border-bottom': '2px solid #2e2e2e',
+    'padding-bottom': '4px',
+  }
   return (
     <Main>
       <Presentation>
         <TitleBar>
           <SpotTitle>{spotName}</SpotTitle>
           <ChooseButton>
-            <TableButton onClick={() => setTable(false)}>
+            <TableButton
+              style={tableWeek ? null : underline}
+              onClick={() => setTable(false)}
+            >
               Aujourd'hui
             </TableButton>
-            <TableButton onClick={() => setTable(true)}>
+            <TableButton
+              style={tableWeek ? underline : null}
+              onClick={() => setTable(true)}
+            >
               Cette semaine
             </TableButton>
           </ChooseButton>
@@ -33,6 +42,26 @@ function Conditions(spot, setSpot) {
 const ChooseButton = styled.div`
   display: flex;
   gap: 8px;
+`
+const TableButton = styled.button`
+  &:hover {
+    border-bottom: 2px solid #2e2e2e;
+    padding-bottom: 4px;
+  }
+  padding-bottom: 6px;
+  padding-top: 6px;
+  display: flex;
+
+  color: #2e2e2e;
+  font-family: 'Space Grotesk';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  background: none;
+  border: none;
+  outline: none;
+  box-shadow: none;
 `
 
 const Main = styled.div`
@@ -60,26 +89,6 @@ const SpotTitle = styled.h2`
   margin-bottom: 8px;
 `
 
-const TableButton = styled.button`
-  &:hover {
-    border-bottom: 2px solid #2e2e2e;
-    padding-bottom: 4px;
-  }
-  padding-bottom: 6px;
-  padding-top: 6px;
-  display: flex;
-
-  color: #2e2e2e;
-  font-family: 'Space Grotesk';
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  background: none;
-  border: none;
-  outline: none;
-  box-shadow: none;
-`
 const TitleBar = styled.div`
   display: flex;
   flex-direction: column;

@@ -1,5 +1,4 @@
 import { useFetch } from '../../utils/hooks'
-import DirectionArrow from '../../utils/styles/arrow'
 import spotsCoordinate from '../../assets/spotsCoordinate.json'
 import styled from 'styled-components'
 import windAnalysis from '../../utils/windAnalysis'

@@ -74,11 +74,15 @@ function WeekConditions(spotName) {
                   <Table.TR>
                     <Table.TH>{weekDay[i]}</Table.TH>
                     <Table.TD>{val}</Table.TD>
-                    <Table.TD>{wave.daily.wave_direction_dominant[i]}</Table.TD>
+                    <Table.TD style={colorConditions(wave, wind, i)}>
+                      {DirectionArrow(wave.daily.wave_direction_dominant[i])}
+                    </Table.TD>
                     <Table.TD>{wave.daily.wave_period_max[i]}</Table.TD>
                     <Table.TD>{wind.daily.wind_speed_10m_max[i]}</Table.TD>
-                    <Table.TD>
-                      {wind.daily.wind_direction_10m_dominant[i]}
+                    <Table.TD style={colorConditions(wave, wind, i)}>
+                      {DirectionArrow(
+                        wind.daily.wind_direction_10m_dominant[i],
+                      )}
                     </Table.TD>
                   </Table.TR>
                 ))}
@@ -151,6 +155,13 @@ const TableSizer = styled.div`
   @media (max-width: 554px) {
     display: none;
   }
+  scrollbar-width: none;
+  @media (max-width: 633px) {
+    scrollbar-width: thin;
+    &::-webkit-scrollbar {
+      width: 0.25rem;
+    }
+  }
 `
 const TableScroll = styled.div``
 const VertTable = styled.div`
@@ -164,6 +175,10 @@ const VertTable = styled.div`
     backdrop-filter: blur(5px);
     width: auto;
     overflow: auto;
+  }
+  scrollbar-width: thin;
+  &::-webkit-scrollbar {
+    width: 0.25rem;
   }
 `
 export default WeekConditions

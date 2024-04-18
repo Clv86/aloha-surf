@@ -1,14 +1,18 @@
 import styled from 'styled-components'
-import { useState } from 'react'
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import searchButton from '../../assets/SearchIcon.png'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import titleCase from '../../utils/titleCase'
 
 function Description({ chooseFilter, chooseSpotList, filter }) {
   const [inputText, setInputText] = useState('')
   const [showSpots, setShowSpots] = useState(false)
+  const navigate = useNavigate()
+
   let inputHandler = (e) => {
-    setInputText(e.target.value)
+    const myRe = /^[A-Za-z ]+$/
+    if (e.target.value === '' || myRe.test(e.target.value))
+      setInputText(titleCase(e.target.value))
   }
 
   useEffect(() => {
@@ -21,12 +25,28 @@ function Description({ chooseFilter, chooseSpotList, filter }) {
   function openSpotList() {
     setShowSpots(true)
   }
+  useEffect(() => {
+    const listener = (event) => {
+      if (
+        (event.code === 'Enter' || event.code === 'NumpadEnter') &&
+        showSpots
+      ) {
+        event.preventDefault()
+        navigate(`/spots/${inputText}`)
+      }
+    }
+    document.addEventListener('keydown', listener)
+    return () => {
+      document.removeEventListener('keydown', listener)
+    }
+  }, [inputText, navigate, showSpots])
   return (
     <SearchContainer>
       <Searchbar
         type="search"
         id="spot-search"
         placeholder="Rechercher un spot"
+        value={inputText}
         onClick={openSpotList}
         onChange={inputHandler}
       />

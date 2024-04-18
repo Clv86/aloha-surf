@@ -66,19 +66,6 @@ const TitleContainer = styled.div`
   justify-content: space-between;
   margin: 8px;
 `
-//const Searchbar = styled.input`
-//border: none;
-//background-color: transparent;
-//color: #2e2e2e;
-//font-family: 'Space Grotesk';
-//font-size: 24px;
-//font-style: normal;
-//font-weight: 400;
-//line-height: normal;
-//&:focus {
-//outline: none;
-//}
-//`
 
 const PicContainer = styled.div`
   object-fit: cover;
@@ -146,6 +133,10 @@ const Presentation = styled.div`
   gap: 4vh;
   @media (max-width: 900px) {
     grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+  }
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
   }
 `
 

@@ -1,14 +1,16 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import spotsCoordinate from '../../assets/spotsCoordinate.json'
+import titleCase from '../../utils/titleCase'
 
 function SpotList(props) {
   const spotNames = Object.entries(spotsCoordinate)
+  const titleCaseProps = titleCase(props.input)
   const filteredData = spotNames.filter((el) => {
     if (props.input === '') {
       return el
     } else {
-      return el[0].includes(props.input)
+      return el[0].includes(titleCaseProps)
     }
   })
   return (
@@ -50,19 +52,6 @@ const SpotLink = styled(Link)`
   border-radius: 8px;
   border: 1px solid #000;
   background: rgba(255, 255, 255, 0.5);
-`
-
-const SpotPic = styled('img')`
-  position: relative;
-  max-width: 160px;
-  height: 160px;
-  padding: 0;
-  margin: 0;
-  border-radius: 0px 0px 20px 20px;
-  @media (max-width: 412px) {
-    max-width: 120px;
-    height: 120px;
-  }
 `
 
 export default SpotList

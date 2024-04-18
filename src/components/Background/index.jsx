@@ -23,7 +23,7 @@ const BackgroundContainer = styled.div`
   height: 100vh;
   object-fit: cover;
   z-index: -2;
-  @media (max-width: 562px) {
+  @media (max-width: 748px) {
     object-fit: fill;
   }
 `
@@ -36,7 +36,7 @@ const SurfPic = styled.img`
   margin: auto;
   max-width: 100%;
   z-index: -10;
-  @media (max-width: 562px) {
+  @media (max-width: 748px) {
     top: 0;
     bottom: 0;
     left: 0;

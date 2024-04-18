@@ -14,7 +14,7 @@ function APropos() {
 }
 
 const Portrait = styled.img`
-  height: 311px;
+  height: 400px;
   @media (max-height: 425px) {
     display: none;
   }
@@ -38,7 +38,7 @@ const Main = styled.div`
 const Presentation = styled.div`
   display: flex;
   width: 80vw;
-  align-items: flex-end;
+  align-items: flex-start;
   justify-content: center;
   gap: 4vh;
   margin: auto;

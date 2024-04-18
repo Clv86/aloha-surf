@@ -18,8 +18,6 @@ function ContactText() {
 }
 const ContactStyle = styled.div`
   width: 444px;
-  flex-direction: column;
-  align-items: end;
   padding-left: 2%;
   @media (max-width: 808px) {
     width: auto;

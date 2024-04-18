@@ -10,10 +10,10 @@ function windAnalysis(wave, wind) {
     (degreesResult >= 45 && degreesResult <= 90) ||
     (degreesResult >= 225 && degreesResult <= 335)
   ) {
-    let result = 'Cross-shore'
+    let result = 'Cross'
     return result
   } else {
-    let result = 'Off-shore'
+    let result = 'Offshore'
     return result
   }
   //  let waveRadians = wave / (180 * Math.PI)

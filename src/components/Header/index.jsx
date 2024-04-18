@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import logo from '../../assets/logo2.svg'
 import styled from 'styled-components'
+
 function Header() {
   return (
     <NavContainer>
@@ -110,7 +111,7 @@ const Title = styled.h1`
 const StyledLink = styled(Link)`
   color: #fff;
   font-family: 'Space Grotesk';
-  font-size: font-size: clamp(0.75rem, 0.4375rem + 1vw, 1rem);
+  font-size: clamp(0.75rem, 0.4375rem + 1vw, 1rem);
   font-style: normal;
   font-weight: 700;
   line-height: normal;

@@ -3,6 +3,8 @@ import DirectionArrow from '../../utils/styles/arrow'
 import { useFetch } from '../../utils/hooks'
 import spotsCoordinate from '../../assets/spotsCoordinate.json'
 import styled from 'styled-components'
+import windAnalysis from '../../utils/windAnalysis'
+
 function DayConditions(spotName) {
   const { name } = spotName
   const arrayCoordinates = Object.entries(spotsCoordinate)
@@ -20,6 +22,20 @@ function DayConditions(spotName) {
     `https://marine-api.open-meteo.com/v1/marine?latitude=${location[0][1][0]}&longitude=${location[0][1][1]}&hourly=wave_height,wave_direction,wave_period&timezone=Europe%2FBerlin&forecast_days=1`,
     `https://api.open-meteo.com/v1/forecast?latitude=${location[0][1][0]}&longitude=${location[0][1][1]}&hourly=wind_speed_10m,wind_direction_10m&timezone=Europe%2FBerlin&forecast_days=1`,
   )
+  function colorConditions(wave, wind, i) {
+    let result = windAnalysis(
+      wave.hourly.wave_direction[i],
+      wind.hourly.wind_direction_10m[i],
+    )
+    console.log(result)
+    if (result === 'Onshore') {
+      return { color: 'red' }
+    } else if (result === 'Off-shore') {
+      return { color: 'green' }
+    } else {
+      return null
+    }
+  }
   if (wind && wave) {
     return (
       <div>
@@ -41,10 +57,14 @@ function DayConditions(spotName) {
                   <Table.TR>
                     <Table.TH>{i}h</Table.TH>
                     <Table.TD>{val}</Table.TD>
-                    <Table.TD>{wave.hourly.wave_direction[i]}</Table.TD>
+                    <Table.TD style={colorConditions(wave, wind, i)}>
+                      {DirectionArrow(wave.hourly.wave_direction[i])}
+                    </Table.TD>
                     <Table.TD>{wave.hourly.wave_period[i]}</Table.TD>
                     <Table.TD>{wind.hourly.wind_speed_10m[i]}</Table.TD>
-                    <Table.TD>{wind.hourly.wind_direction_10m[i]}</Table.TD>
+                    <Table.TD style={colorConditions(wave, wind, i)}>
+                      {DirectionArrow(wind.hourly.wind_direction_10m[i])}
+                    </Table.TD>
                   </Table.TR>
                 ))}
                 <Table.TD>
@@ -101,7 +121,9 @@ function DayConditions(spotName) {
               <Table.TR>
                 <Table.TH>Direction Vague</Table.TH>
                 {wave.hourly.wave_direction.map((val, i) => (
-                  <Table.TD>{DirectionArrow(val)}</Table.TD>
+                  <Table.TD style={colorConditions(wave, wind, i)}>
+                    {DirectionArrow(val)}
+                  </Table.TD>
                 ))}
               </Table.TR>
               <Table.TR>
@@ -119,7 +141,9 @@ function DayConditions(spotName) {
               <Table.TR>
                 <Table.TH>Direction Vent</Table.TH>
                 {wind.hourly.wind_direction_10m.map((val, i) => (
-                  <Table.TD>{DirectionArrow(val)}</Table.TD>
+                  <Table.TD style={colorConditions(wave, wind, i)}>
+                    {DirectionArrow(val)}
+                  </Table.TD>
                 ))}
               </Table.TR>
             </Table.Body>
@@ -141,6 +165,10 @@ const VertTable = styled.div`
     width: auto;
     overflow: auto;
   }
+  scrollbar-width: thin;
+  &::-webkit-scrollbar {
+    width: 0.25rem;
+  }
 `
 const TableSizer = styled.div`
   border-radius: 16px;
@@ -152,6 +180,13 @@ const TableSizer = styled.div`
   overflow: auto;
   @media (max-width: 554px) {
     display: none;
+  }
+  scrollbar-width: none;
+  @media (max-width: 633px) {
+    scrollbar-width: thin;
+    &::-webkit-scrollbar {
+      width: 0.25rem;
+    }
   }
 `
 const TableScroll = styled.div``

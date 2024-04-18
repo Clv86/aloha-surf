@@ -15,7 +15,6 @@ function Spots() {
       return el[0].includes(spotsearch)
     }
   })
-  console.log(filteredData)
   return (
     <Main>
       {filteredData.length === 10 ? (
@@ -29,7 +28,7 @@ function Spots() {
       )}
       <Presentation>
         {filteredData.map((val, i) => (
-          <SpotSquare to={`/conditions/${val[0]}`}>
+          <SpotSquare key={val[0]} to={`/conditions/${val[0]}`}>
             <Block1>
               <PicContainer>
                 <SpotPic
@@ -84,6 +83,7 @@ const SpotSquare = styled(Link)`
   flex-direction: column;
   justify-content: space-between;
   aspect-ratio: 1 / 1;
+  max-width: 270px;
   text-decoration: none;
   background: #fff;
   @media (max-width: 563px) {
@@ -124,7 +124,7 @@ const Presentation = styled.div`
   padding-top: 16px;
   padding-bottom: 64px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(18%, 1fr));
   width: 100%;
   height: 80vh;
   margin-left: auto;

@@ -1,6 +1,4 @@
 import styled from 'styled-components'
-import ContactText from '../../components/ContactText'
-import CL from '../../assets/CL.jpg'
 
 function Contact() {
   return (

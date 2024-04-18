@@ -16,7 +16,7 @@ function SpotList(props) {
   return (
     <SpotPresentation>
       {filteredData.map((val, i) => (
-        <SpotLink to={`/conditions/${val[0]}`}>
+        <SpotLink key={val[0]} to={`/conditions/${val[0]}`}>
           <SpotName>{val[0]}</SpotName>
         </SpotLink>
       ))}

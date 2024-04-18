@@ -4,10 +4,12 @@ import { useFetch } from '../../utils/hooks'
 import spotsCoordinate from '../../assets/spotsCoordinate.json'
 import styled from 'styled-components'
 import windAnalysis from '../../utils/windAnalysis'
+import createKeyGenerator from '../../utils/keyGenerator'
 
 function WeekConditions(spotName) {
   const { name } = spotName
   const arrayCoordinates = Object.entries(spotsCoordinate)
+  const keygen = createKeyGenerator()
 
   const weekDay = [
     'Dimanche',
@@ -40,10 +42,9 @@ function WeekConditions(spotName) {
       wave.daily.wave_direction_dominant[i],
       wind.daily.wind_direction_10m_dominant[i],
     )
-    console.log(result)
     if (result === 'Onshore') {
       return { color: 'red' }
-    } else if (result === 'Off-shore') {
+    } else if (result === 'Offshore') {
       return { color: 'green' }
     } else {
       return null
@@ -71,7 +72,7 @@ function WeekConditions(spotName) {
               </Table.Head>
               <Table.Body>
                 {wave.daily.wave_height_max.map((val, i) => (
-                  <Table.TR>
+                  <Table.TR key={keygen(wave.daily.wave_height_max.name)}>
                     <Table.TH>{weekDay[i]}</Table.TH>
                     <Table.TD>{val}</Table.TD>
                     <Table.TD style={colorConditions(wave, wind, i)}>
@@ -97,7 +98,9 @@ function WeekConditions(spotName) {
                 <Table.TR>
                   <Table.TH>Cette semaine</Table.TH>
                   {wave.daily.wave_height_max.map((val, i) => (
-                    <Table.TH>{weekDay[d.getDay() + i]}</Table.TH>
+                    <Table.TH key={keygen(wave.daily.wave_height_max.name)}>
+                      {weekDay[d.getDay() + i]}
+                    </Table.TH>
                   ))}
                 </Table.TR>
               </Table.Head>
@@ -105,13 +108,18 @@ function WeekConditions(spotName) {
                 <Table.TR>
                   <Table.TH>Hauteur</Table.TH>
                   {wave.daily.wave_height_max.map((val, i) => (
-                    <Table.TD>{val}</Table.TD>
+                    <Table.TD key={keygen(wave.daily.wave_height_max.name)}>
+                      {val}
+                    </Table.TD>
                   ))}
                 </Table.TR>
                 <Table.TR>
                   <Table.TH>Direction Vague</Table.TH>
                   {wave.daily.wave_direction_dominant.map((val, i) => (
-                    <Table.TD style={colorConditions(wave, wind, i)}>
+                    <Table.TD
+                      key={keygen(wave.daily.wave_height_max.name)}
+                      style={colorConditions(wave, wind, i)}
+                    >
                       {DirectionArrow(val)}
                     </Table.TD>
                   ))}
@@ -119,19 +127,26 @@ function WeekConditions(spotName) {
                 <Table.TR>
                   <Table.TH>Période</Table.TH>
                   {wave.daily.wave_period_max.map((val, i) => (
-                    <Table.TD>{val}</Table.TD>
+                    <Table.TD key={keygen(wave.daily.wave_height_max.name)}>
+                      {val}
+                    </Table.TD>
                   ))}
                 </Table.TR>
                 <Table.TR>
                   <Table.TH>Vitesse Vent</Table.TH>
                   {wind.daily.wind_speed_10m_max.map((val, i) => (
-                    <Table.TD>{val}</Table.TD>
+                    <Table.TD key={keygen(wave.daily.wave_height_max.name)}>
+                      {val}
+                    </Table.TD>
                   ))}
                 </Table.TR>
                 <Table.TR>
                   <Table.TH>Direction Vent</Table.TH>
                   {wind.daily.wind_direction_10m_dominant.map((val, i) => (
-                    <Table.TD style={colorConditions(wave, wind, i)}>
+                    <Table.TD
+                      key={keygen(wave.daily.wave_height_max.name)}
+                      style={colorConditions(wave, wind, i)}
+                    >
                       {DirectionArrow(val)}
                     </Table.TD>
                   ))}

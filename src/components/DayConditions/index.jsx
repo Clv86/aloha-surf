@@ -4,10 +4,12 @@ import { useFetch } from '../../utils/hooks'
 import spotsCoordinate from '../../assets/spotsCoordinate.json'
 import styled from 'styled-components'
 import windAnalysis from '../../utils/windAnalysis'
+import createKeyGenerator from '../../utils/keyGenerator'
 
 function DayConditions(spotName) {
   const { name } = spotName
   const arrayCoordinates = Object.entries(spotsCoordinate)
+  const keygen = createKeyGenerator()
 
   function filterIt(arr, searchKey) {
     return arr.filter(function (obj) {
@@ -27,7 +29,6 @@ function DayConditions(spotName) {
       wave.hourly.wave_direction[i],
       wind.hourly.wind_direction_10m[i],
     )
-    console.log(result)
     if (result === 'Onshore') {
       return { color: 'red' }
     } else if (result === 'Off-shore') {
@@ -38,7 +39,7 @@ function DayConditions(spotName) {
   }
   if (wind && wave) {
     return (
-      <div>
+      <>
         <VertTable>
           <Table>
             <TableScroll>
@@ -54,7 +55,7 @@ function DayConditions(spotName) {
               </Table.Head>
               <Table.Body>
                 {wave.hourly.wave_height.map((val, i) => (
-                  <Table.TR>
+                  <Table.TR key={keygen(wave.hourly.wave_height.name)}>
                     <Table.TH>{i}h</Table.TH>
                     <Table.TD>{val}</Table.TD>
                     <Table.TD style={colorConditions(wave, wind, i)}>
@@ -69,32 +70,44 @@ function DayConditions(spotName) {
                 ))}
                 <Table.TD>
                   {wave.hourly.wave_height.map((val, i) => (
-                    <Table.TR>{i}h</Table.TR>
+                    <Table.TR key={keygen(wave.hourly.wave_height.name)}>
+                      {i}h
+                    </Table.TR>
                   ))}
                 </Table.TD>
                 <Table.TD>
                   {wave.hourly.wave_height.map((val, i) => (
-                    <Table.TR>{val}</Table.TR>
+                    <Table.TR key={keygen(wave.hourly.wave_height.name)}>
+                      {val}
+                    </Table.TR>
                   ))}
                 </Table.TD>
                 <Table.TD>
                   {wave.hourly.wave_direction.map((val, i) => (
-                    <Table.TR>{DirectionArrow(val)}</Table.TR>
+                    <Table.TR key={keygen(wave.hourly.wave_height.name)}>
+                      {DirectionArrow(val)}
+                    </Table.TR>
                   ))}
                 </Table.TD>
                 <Table.TD>
                   {wave.hourly.wave_period.map((val, i) => (
-                    <Table.TR>{val}</Table.TR>
+                    <Table.TR key={keygen(wave.hourly.wave_height.name)}>
+                      {val}
+                    </Table.TR>
                   ))}
                 </Table.TD>
                 <Table.TD>
                   {wind.hourly.wind_speed_10m.map((val, i) => (
-                    <Table.TR>{val}</Table.TR>
+                    <Table.TR key={keygen(wave.hourly.wave_height.name)}>
+                      {val}
+                    </Table.TR>
                   ))}
                 </Table.TD>
                 <Table.TD>
                   {wind.hourly.wind_direction_10m.map((val, i) => (
-                    <Table.TR>{DirectionArrow(val)}</Table.TR>
+                    <Table.TR key={keygen(wave.hourly.wave_height.name)}>
+                      {DirectionArrow(val)}
+                    </Table.TR>
                   ))}
                 </Table.TD>
               </Table.Body>
@@ -107,7 +120,9 @@ function DayConditions(spotName) {
               <Table.TR>
                 <Table.TH>Aujourd'hui</Table.TH>
                 {wave.hourly.wave_height.map((val, i) => (
-                  <Table.TH>{i}h</Table.TH>
+                  <Table.TH key={keygen(wave.hourly.wave_height.name)}>
+                    {i}h
+                  </Table.TH>
                 ))}
               </Table.TR>
             </Table.Head>
@@ -115,13 +130,18 @@ function DayConditions(spotName) {
               <Table.TR>
                 <Table.TH>Hauteur</Table.TH>
                 {wave.hourly.wave_height.map((val, i) => (
-                  <Table.TD>{val}</Table.TD>
+                  <Table.TD key={keygen(wave.hourly.wave_height.name)}>
+                    {val}
+                  </Table.TD>
                 ))}
               </Table.TR>
               <Table.TR>
                 <Table.TH>Direction Vague</Table.TH>
                 {wave.hourly.wave_direction.map((val, i) => (
-                  <Table.TD style={colorConditions(wave, wind, i)}>
+                  <Table.TD
+                    key={keygen(wave.hourly.wave_height.name)}
+                    style={colorConditions(wave, wind, i)}
+                  >
                     {DirectionArrow(val)}
                   </Table.TD>
                 ))}
@@ -129,19 +149,26 @@ function DayConditions(spotName) {
               <Table.TR>
                 <Table.TH>Période</Table.TH>
                 {wave.hourly.wave_period.map((val, i) => (
-                  <Table.TD>{val}</Table.TD>
+                  <Table.TD key={keygen(wave.hourly.wave_height.name)}>
+                    {val}
+                  </Table.TD>
                 ))}
               </Table.TR>
               <Table.TR>
                 <Table.TH>Vitesse Vent</Table.TH>
                 {wind.hourly.wind_speed_10m.map((val, i) => (
-                  <Table.TD>{val}</Table.TD>
+                  <Table.TD key={keygen(wave.hourly.wave_height.name)}>
+                    {val}
+                  </Table.TD>
                 ))}
               </Table.TR>
               <Table.TR>
                 <Table.TH>Direction Vent</Table.TH>
                 {wind.hourly.wind_direction_10m.map((val, i) => (
-                  <Table.TD style={colorConditions(wave, wind, i)}>
+                  <Table.TD
+                    key={keygen(wave.hourly.wave_height.name)}
+                    style={colorConditions(wave, wind, i)}
+                  >
                     {DirectionArrow(val)}
                   </Table.TD>
                 ))}
@@ -149,7 +176,7 @@ function DayConditions(spotName) {
             </Table.Body>
           </TableSizer>
         </Table>
-      </div>
+      </>
     )
   }
 }

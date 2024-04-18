@@ -7,8 +7,8 @@ function Conditions(spot, setSpot) {
   const [tableWeek, setTable] = useState(false)
   const { spotName } = useParams()
   const underline = {
-    'border-bottom': '2px solid #2e2e2e',
-    'padding-bottom': '4px',
+    borderBottom: '2px solid #2e2e2e',
+    paddingBottom: '4px',
   }
   return (
     <Main>

@@ -38,7 +38,7 @@ const ContactTitle = styled.h1`
   font-weight: 700;
   line-height: normal;
 `
-const ContactDescription = styled.p`
+const ContactDescription = styled.div`
   color: #2e2e2e;
   text-align: justify;
   font-family: 'Space Grotesk';

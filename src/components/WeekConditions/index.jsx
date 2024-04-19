@@ -59,100 +59,94 @@ function WeekConditions(spotName) {
       <div>
         <VertTable>
           <Table>
-            <TableScroll>
-              <Table.Head>
-                <Table.TR>
-                  <Table.TH>Cette semaine</Table.TH>
-                  <Table.TH>Hauteur</Table.TH>
-                  <Table.TH>Direction Vague</Table.TH>
-                  <Table.TH>Période</Table.TH>
-                  <Table.TH>Vitesse Vent</Table.TH>
-                  <Table.TH>Direction Vent</Table.TH>
+            <Table.Head>
+              <Table.TR>
+                <Table.TH>Cette semaine</Table.TH>
+                <Table.TH>Hauteur (m)</Table.TH>
+                <Table.TH>Direction Vague</Table.TH>
+                <Table.TH>Période (s)</Table.TH>
+                <Table.TH>Vitesse Vent (km/h)</Table.TH>
+                <Table.TH>Direction Vent</Table.TH>
+              </Table.TR>
+            </Table.Head>
+            <Table.Body>
+              {wave.daily.wave_height_max.map((val, i) => (
+                <Table.TR key={keygen(wave.daily.wave_height_max.name)}>
+                  <Table.TH>{weekDay[i]}</Table.TH>
+                  <Table.TD>{val}</Table.TD>
+                  <Table.TD style={colorConditions(wave, wind, i)}>
+                    {DirectionArrow(wave.daily.wave_direction_dominant[i])}
+                  </Table.TD>
+                  <Table.TD>{wave.daily.wave_period_max[i]}</Table.TD>
+                  <Table.TD>{wind.daily.wind_speed_10m_max[i]}</Table.TD>
+                  <Table.TD style={colorConditions(wave, wind, i)}>
+                    {DirectionArrow(wind.daily.wind_direction_10m_dominant[i])}
+                  </Table.TD>
                 </Table.TR>
-              </Table.Head>
-              <Table.Body>
-                {wave.daily.wave_height_max.map((val, i) => (
-                  <Table.TR key={keygen(wave.daily.wave_height_max.name)}>
-                    <Table.TH>{weekDay[i]}</Table.TH>
-                    <Table.TD>{val}</Table.TD>
-                    <Table.TD style={colorConditions(wave, wind, i)}>
-                      {DirectionArrow(wave.daily.wave_direction_dominant[i])}
-                    </Table.TD>
-                    <Table.TD>{wave.daily.wave_period_max[i]}</Table.TD>
-                    <Table.TD>{wind.daily.wind_speed_10m_max[i]}</Table.TD>
-                    <Table.TD style={colorConditions(wave, wind, i)}>
-                      {DirectionArrow(
-                        wind.daily.wind_direction_10m_dominant[i],
-                      )}
-                    </Table.TD>
-                  </Table.TR>
-                ))}
-              </Table.Body>
-            </TableScroll>
+              ))}
+            </Table.Body>
           </Table>
         </VertTable>
         <TableSizer>
           <Table>
-            <TableScroll>
-              <Table.Head>
-                <Table.TR>
-                  <Table.TH>Cette semaine</Table.TH>
-                  {wave.daily.wave_height_max.map((val, i) => (
-                    <Table.TH key={keygen(wave.daily.wave_height_max.name)}>
-                      {weekDay[d.getDay() + i]}
-                    </Table.TH>
-                  ))}
-                </Table.TR>
-              </Table.Head>
-              <Table.Body>
-                <Table.TR>
-                  <Table.TH>Hauteur</Table.TH>
-                  {wave.daily.wave_height_max.map((val, i) => (
-                    <Table.TD key={keygen(wave.daily.wave_height_max.name)}>
-                      {val}
-                    </Table.TD>
-                  ))}
-                </Table.TR>
-                <Table.TR>
-                  <Table.TH>Direction Vague</Table.TH>
-                  {wave.daily.wave_direction_dominant.map((val, i) => (
-                    <Table.TD
-                      key={keygen(wave.daily.wave_height_max.name)}
-                      style={colorConditions(wave, wind, i)}
-                    >
-                      {DirectionArrow(val)}
-                    </Table.TD>
-                  ))}
-                </Table.TR>
-                <Table.TR>
-                  <Table.TH>Période</Table.TH>
-                  {wave.daily.wave_period_max.map((val, i) => (
-                    <Table.TD key={keygen(wave.daily.wave_height_max.name)}>
-                      {val}
-                    </Table.TD>
-                  ))}
-                </Table.TR>
-                <Table.TR>
-                  <Table.TH>Vitesse Vent</Table.TH>
-                  {wind.daily.wind_speed_10m_max.map((val, i) => (
-                    <Table.TD key={keygen(wave.daily.wave_height_max.name)}>
-                      {val}
-                    </Table.TD>
-                  ))}
-                </Table.TR>
-                <Table.TR>
-                  <Table.TH>Direction Vent</Table.TH>
-                  {wind.daily.wind_direction_10m_dominant.map((val, i) => (
-                    <Table.TD
-                      key={keygen(wave.daily.wave_height_max.name)}
-                      style={colorConditions(wave, wind, i)}
-                    >
-                      {DirectionArrow(val)}
-                    </Table.TD>
-                  ))}
-                </Table.TR>
-              </Table.Body>
-            </TableScroll>
+            <Table.Head>
+              <Table.TR>
+                <Table.TH>Cette semaine</Table.TH>
+                {wave.daily.wave_height_max.map((val, i) => (
+                  <Table.TH key={keygen(wave.daily.wave_height_max.name)}>
+                    {weekDay[d.getDay() + i]}
+                  </Table.TH>
+                ))}
+              </Table.TR>
+            </Table.Head>
+            <Table.Body>
+              <Table.TR>
+                <Table.TH>Hauteur (m)</Table.TH>
+                {wave.daily.wave_height_max.map((val, i) => (
+                  <Table.TD key={keygen(wave.daily.wave_height_max.name)}>
+                    {val}
+                  </Table.TD>
+                ))}
+              </Table.TR>
+              <Table.TR>
+                <Table.TH>Direction Vague</Table.TH>
+                {wave.daily.wave_direction_dominant.map((val, i) => (
+                  <Table.TD
+                    key={keygen(wave.daily.wave_height_max.name)}
+                    style={colorConditions(wave, wind, i)}
+                  >
+                    {DirectionArrow(val)}
+                  </Table.TD>
+                ))}
+              </Table.TR>
+              <Table.TR>
+                <Table.TH>Période (s)</Table.TH>
+                {wave.daily.wave_period_max.map((val, i) => (
+                  <Table.TD key={keygen(wave.daily.wave_height_max.name)}>
+                    {val}
+                  </Table.TD>
+                ))}
+              </Table.TR>
+              <Table.TR>
+                <Table.TH>Vitesse Vent (km/h)</Table.TH>
+                {wind.daily.wind_speed_10m_max.map((val, i) => (
+                  <Table.TD key={keygen(wave.daily.wave_height_max.name)}>
+                    {val}
+                  </Table.TD>
+                ))}
+              </Table.TR>
+              <Table.TR>
+                <Table.TH>Direction Vent</Table.TH>
+                {wind.daily.wind_direction_10m_dominant.map((val, i) => (
+                  <Table.TD
+                    key={keygen(wave.daily.wave_height_max.name)}
+                    style={colorConditions(wave, wind, i)}
+                  >
+                    {DirectionArrow(val)}
+                  </Table.TD>
+                ))}
+              </Table.TR>
+            </Table.Body>
           </Table>
         </TableSizer>
       </div>
@@ -162,6 +156,7 @@ function WeekConditions(spotName) {
 const TableSizer = styled.div`
   border-radius: 16px;
   border: 1px solid #fff;
+  padding: 8px;
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(5px);
   width: fit-content;
@@ -178,12 +173,12 @@ const TableSizer = styled.div`
     }
   }
 `
-const TableScroll = styled.div``
 const VertTable = styled.div`
   display: none;
   @media (max-width: 554px) {
     display: block;
     height: fit-content;
+    padding: 8px;
     border-radius: 16px;
     border: 1px solid #fff;
     background: rgba(255, 255, 255, 0.2);

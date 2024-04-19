@@ -8,23 +8,57 @@ import Spots from './pages/Spots'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Conditions from './pages/Conditions'
-import Main from './components/Main'
+import APropos from './pages/APropos'
+import Background from './components/Background'
+
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
 root.render(
   <React.StrictMode>
     <Router>
       <GlobalStyle />
-      <Main />
+      <Background />
       <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/à-propos" element={<Contact />} />
+        <Route
+          path="/"
+          element={
+            <>
+              <Home />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/à-propos"
+          element={
+            <>
+              <APropos />
+              <Footer />
+            </>
+          }
+        />
         <Route path="/spots" element={<Spots />} />
-        <Route path="/conditions/:spotName" element={<Conditions />} />
+        <Route path="/spots/:spotsearch" element={<Spots />} />
+        <Route
+          path="/conditions/:spotName"
+          element={
+            <>
+              <Conditions />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/contact"
+          element={
+            <>
+              <Contact />
+              <Footer />
+            </>
+          }
+        />
       </Routes>
-      <Footer />
     </Router>
   </React.StrictMode>,
-  document.getElementById('root'),
 )

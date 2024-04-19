@@ -18,8 +18,6 @@ function ContactText() {
 }
 const ContactStyle = styled.div`
   width: 444px;
-  flex-direction: column;
-  align-items: flex-start;
   padding-left: 2%;
   @media (max-width: 808px) {
     width: auto;
@@ -33,30 +31,21 @@ const ContactStyle = styled.div`
   }
 `
 const ContactTitle = styled.h1`
-  width: 200px;
-  height: 72px;
-  font-family: Jomhuria;
-  font-size: 72px;
+  color: #3c3c3c;
+  font-family: 'Space Grotesk';
+  font-size: clamp(1.3rem, 8vw, 2rem);
   font-style: normal;
-  font-weight: 400;
+  font-weight: 700;
   line-height: normal;
-  text-align: left;
-  margin: 0;
-  @media (max-width: 1000px) {
-    text-align: center;
-  }
 `
-const ContactDescription = styled.p`
-  display: block;
-  font-family: Amaranth;
-  font-size: 16px;
+const ContactDescription = styled.div`
+  color: #2e2e2e;
+  text-align: justify;
+  font-family: 'Space Grotesk';
+  font-size: 12px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  height: 71px;
-  margin: 0;
-  margin-bottom: 10%;
-
   // @media (max-width: 1000px) {
   //   flex-direction: column;
   //   position: absolute;

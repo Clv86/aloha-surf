@@ -1,12 +1,11 @@
 import { useFetch } from '../../utils/hooks'
-import DirectionArrow from '../../utils/styles/arrow'
 import spotsCoordinate from '../../assets/spotsCoordinate.json'
-import Table from '../../components/Table'
+import styled from 'styled-components'
+import windAnalysis from '../../utils/windAnalysis'
 
-function HourConditions(spotName) {
-  const { name } = spotName
+function HourConditions(props) {
+  const name = props.spotName
   const arrayCoordinates = Object.entries(spotsCoordinate)
-
   function filterIt(arr, searchKey) {
     return arr.filter(function (obj) {
       return Object.keys(obj).some(function (key) {
@@ -26,15 +25,34 @@ function HourConditions(spotName) {
 
   if (wind && wave) {
     return (
-      <>
-        <Table.TD>{wave.hourly.wave_height[hour]}</Table.TD>
-        <Table.TD>{DirectionArrow(wave.hourly.wave_direction[hour])}</Table.TD>
-        <Table.TD>{wave.hourly.wave_period[hour]}</Table.TD>
-        <Table.TD>{wind.hourly.wind_speed_10m[hour]}</Table.TD>
-        <Table.TD>{DirectionArrow(wave.hourly.wave_direction[hour])}</Table.TD>
-      </>
+      <Container>
+        <LiveConditionTitle>Hauteur (m)</LiveConditionTitle>
+        <LiveConditionTitle>Période (s)</LiveConditionTitle>
+        <LiveConditionTitle>Vitesse (km/h)</LiveConditionTitle>
+        <LiveConditionTitle>Direction</LiveConditionTitle>
+        <LiveCondition>{wave.hourly.wave_height[hour]}</LiveCondition>
+        <LiveCondition>{wave.hourly.wave_period[hour]}</LiveCondition>
+        <LiveCondition>{wind.hourly.wind_speed_10m[hour]}</LiveCondition>
+        <LiveCondition>
+          {windAnalysis(
+            wave.hourly.wave_direction[hour],
+            wind.hourly.wind_direction_10m[hour],
+          )}
+        </LiveCondition>
+      </Container>
     )
   }
 }
-
+const LiveConditionTitle = styled.div`
+  font-weight: 700;
+`
+const Container = styled.div`
+  display: grid;
+  margin: 8px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+  font-size: 0.5em;
+  color: #3c3c3c;
+`
+const LiveCondition = styled.div``
 export default HourConditions

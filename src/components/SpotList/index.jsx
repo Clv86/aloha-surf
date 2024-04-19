@@ -1,110 +1,57 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import spotsCoordinate from '../../assets/spotsCoordinate.json'
+import titleCase from '../../utils/titleCase'
 
 function SpotList(props) {
   const spotNames = Object.entries(spotsCoordinate)
+  const titleCaseProps = titleCase(props.input)
   const filteredData = spotNames.filter((el) => {
     if (props.input === '') {
       return el
     } else {
-      return el[0].includes(props.input)
+      return el[0].includes(titleCaseProps)
     }
   })
   return (
     <SpotPresentation>
       {filteredData.map((val, i) => (
-        <SpotLink to={`/conditions/${val[0]}`}>
+        <SpotLink key={val[0]} to={`/conditions/${val[0]}`}>
           <SpotName>{val[0]}</SpotName>
-          <SpotPic
-            src={require(`../../assets/SpotsPictures/${val[0]}.jpg`)}
-            alt={`/src/assets/SpotsPictures/${val[0]}.jpg`}
-          ></SpotPic>
         </SpotLink>
       ))}
     </SpotPresentation>
   )
 }
 const SpotPresentation = styled.div`
-  width: 100%;
+  width: 60vw;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
-  overflow-x: hidden;
-  // background-color: red;
-  // @media (max-width: 1175px) {
-  //   top: 24.1%;
-  //   height: 50%;
-  //   left: 4%;
-  //   right: 4%;
-  // width: auto;
-  //   padding: 1% 0% 4% 0%;
-  //   border-radius: 0 0 25px 25px;
-  //   border-top: none;
-  // }
-  // @media (max-width: 554px) {
-  //   top: 23.4%;
-  //   height: 60%;
-  // }
-  // @media (-webkit-min-device-pixel-ratio: 2),
-  //   (min-resolution: 192dpi) and (max-width: 554px) {
-  //   top: 23.2%;
-  //   height: 60%;
-  // }
+  gap: 11px;
+  justify-content: left;
 `
 const SpotName = styled.p`
-  display: flex;
-  max-width: 160px;
-  height: 29px;
-  padding: 0;
-  margin: 0;
-  justify-content: center;
-  align-items: center;
-  border-radius: 20px 20px 0px 0px;
-  background: #062848;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  color: #fff;
-  text-align: center;
-  font-family: Amaranth;
-  font-size: 16px;
+  color: #2e2e2e;
+  font-family: 'Space Grotesk';
+  font-size: 0.8em;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  @media (max-width: 412px) {
-    max-width: 120px;
-  }
+  margin: 0;
 `
 
 const SpotLink = styled(Link)`
+  display: flex;
+  padding: 5px 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
   max-width: 160px;
-  height: 160px;
-  margin: 15px;
-  padding-bottom: 0;
-  overflow: hidden;
-  border-radius: 0px 0px 20px 20px;
   text-decoration: none;
-  @media (max-width: 412px) {
-    max-width: 100px;
-    height: 100px;
-  }
-  @media (max-height: 500px) {
-    max-width: 100px;
-    height: 100px;
-  }
-`
-
-const SpotPic = styled('img')`
-  position: relative;
-  max-width: 160px;
-  height: 160px;
-  padding: 0;
-  margin: 0;
-  border-radius: 0px 0px 20px 20px;
-  @media (max-width: 412px) {
-    max-width: 120px;
-    height: 120px;
-  }
+  border-radius: 8px;
+  border: 1px solid #000;
+  background: rgba(255, 255, 255, 0.5);
 `
 
 export default SpotList

@@ -31,7 +31,7 @@ function DayConditions(spotName) {
     )
     if (result === 'Onshore') {
       return { color: 'red' }
-    } else if (result === 'Off-shore') {
+    } else if (result === 'Offshore') {
       return { color: 'green' }
     } else {
       return null

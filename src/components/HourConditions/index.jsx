@@ -26,9 +26,9 @@ function HourConditions(props) {
   if (wind && wave) {
     return (
       <Container>
-        <LiveConditionTitle>Hauteur</LiveConditionTitle>
-        <LiveConditionTitle>Période</LiveConditionTitle>
-        <LiveConditionTitle>Vitesse</LiveConditionTitle>
+        <LiveConditionTitle>Hauteur (m)</LiveConditionTitle>
+        <LiveConditionTitle>Période (s)</LiveConditionTitle>
+        <LiveConditionTitle>Vitesse (km/h)</LiveConditionTitle>
         <LiveConditionTitle>Direction</LiveConditionTitle>
         <LiveCondition>{wave.hourly.wave_height[hour]}</LiveCondition>
         <LiveCondition>{wave.hourly.wave_period[hour]}</LiveCondition>

@@ -6,7 +6,7 @@ function Header() {
   return (
     <NavContainer>
       <ButtonNav>
-        <StyledLink to="/">Home</StyledLink>
+        <StyledLink to="/">Accueil</StyledLink>
         <StyledLink to="/spots">Spots</StyledLink>
         <StyledLink to="/à-propos">À Propos</StyledLink>
       </ButtonNav>

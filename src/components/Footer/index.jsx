@@ -4,7 +4,7 @@ function Footer() {
   const { pathname } = useLocation()
   return (
     <ContactText style={{ color: pathname === '/' ? '#fff' : '#2E2E2E' }}>
-      Dévelopé avec amour par charleslouis.velieu@gmail.com 🏄‍{' '}
+      Développé avec amour par charleslouis.velieu@gmail.com 🏄‍{' '}
     </ContactText>
   )
 }

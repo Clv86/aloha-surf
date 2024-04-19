@@ -49,15 +49,7 @@ root.render(
             </>
           }
         />
-        <Route
-          path="/contact"
-          element={
-            <>
-              <Contact />
-              <Footer />
-            </>
-          }
-        />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </Router>
   </React.StrictMode>,

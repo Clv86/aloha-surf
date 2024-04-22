@@ -68,7 +68,7 @@ const Main = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 78vh;
+  height: 78dvh;
 `
 const Presentation = styled.div`
   display: flex;

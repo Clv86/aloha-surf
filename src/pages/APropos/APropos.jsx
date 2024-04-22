@@ -42,6 +42,7 @@ const Presentation = styled.div`
   gap: 4vh;
   margin: auto;
   @media (max-width: 724px) {
+    width: auto;
     margin: 4vh 28px;
     flex-direction: column;
     justify-content: start;

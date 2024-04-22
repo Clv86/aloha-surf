@@ -118,6 +118,9 @@ const Main = styled.div`
   @media (max-width: 724px) {
     margin: 0 28px 0 28px;
   }
+  @media (max-width: 450px) {
+    margin: 0 12px;
+  }
 `
 
 const Presentation = styled.div`
@@ -133,6 +136,9 @@ const Presentation = styled.div`
   gap: 4vh;
   @media (max-width: 900px) {
     grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+  }
+  @media (max-width: 700px) {
+    gap: 3vh;
   }
   scrollbar-width: none;
   &::-webkit-scrollbar {

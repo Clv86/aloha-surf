@@ -44,11 +44,11 @@ const Presentation = styled.div`
   justify-content: center;
   gap: 4vh;
   margin: auto;
-  @media (max-width: 700px) {
+  @media (max-width: 670px) {
     flex-direction: column;
     justify-content: start;
-    margin-bottom: 4vh;
-    margin-top: 4vh;
+    margin-bottom: 40vh;
+    margin-top: 40vh;
     object-fit: contain;
   }
 `

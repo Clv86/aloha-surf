@@ -177,7 +177,7 @@ const VertTable = styled.div`
   display: none;
   @media (max-width: 554px) {
     display: block;
-    height: fit-content;
+    height: 50dvh;
     padding: 8px;
     border-radius: 16px;
     border: 1px solid #fff;

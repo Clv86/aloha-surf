@@ -30,10 +30,10 @@ const Portrait = styled.img`
 const Main = styled.div`
   display: flex;
   justify-content: center;
-  height: 78dvh;
+  height: 78vh;
   margin-bottom: auto;
   @media (max-device-width: 724px) {
-    height: calc(78vh + 34px);
+    height: 78dvh;
   }
 `
 

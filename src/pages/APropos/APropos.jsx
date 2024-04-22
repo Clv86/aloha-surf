@@ -15,13 +15,12 @@ function APropos() {
 
 const Portrait = styled.img`
   height: 400px;
-  @media (max-device-height: 425px) {
+  @media (max-height: 425px) {
     display: none;
   }
-  @media (max-device-width: 670px) {
+  @media (max-width: 670px) {
     max-width: 317px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
     max-width: 100%;
     max-height: 40dvh;
   }

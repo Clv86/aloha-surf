@@ -18,12 +18,15 @@ const Portrait = styled.img`
   @media (max-device-height: 425px) {
     display: none;
   }
-  @media (max-device-width: 670px) {
+  @media (max-width: 724px) {
+    margin: 0 28px;
     max-width: 317px;
-    margin-left: auto;
-    margin-right: auto;
     max-width: 100%;
     height: 100%;
+  }
+
+  @media (max-width: 450px) {
+    margin: 0 12px;
   }
 `
 
@@ -33,7 +36,7 @@ const Main = styled.div`
   height: 78vh;
   margin-bottom: auto;
   @media (max-device-width: 724px) {
-    height: 78dvh;
+    height: calc(78vh + 34px);
   }
 `
 

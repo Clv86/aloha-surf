@@ -33,7 +33,7 @@ const Main = styled.div`
   height: 78vh;
   margin-bottom: auto;
   @media (max-device-width: 724px) {
-    height: calc(78vh + 34px);
+    height: calc(78vh);
   }
 `
 

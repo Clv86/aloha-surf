@@ -138,7 +138,7 @@ function DayConditions(spotName) {
 }
 const VertTable = styled.div`
   display: none;
-  @media (max-width: 700px) {
+  @media (max-width: 554px) {
     display: block;
     height: 50vh;
     padding: 8px;
@@ -147,7 +147,7 @@ const VertTable = styled.div`
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(5px);
     width: auto;
-    overflow: scroll;
+    overflow: auto;
   }
   scrollbar-width: thin;
   &::-webkit-scrollbar {

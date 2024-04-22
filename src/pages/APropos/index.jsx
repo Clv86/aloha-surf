@@ -22,7 +22,8 @@ const Portrait = styled.img`
     max-width: 317px;
     margin-left: auto;
     margin-right: auto;
-    max-height: 50vh;
+    max-width: 100%;
+    height: 100%;
   }
 `
 
@@ -48,6 +49,7 @@ const Presentation = styled.div`
     justify-content: start;
     margin-bottom: 4vh;
     margin-top: 4vh;
+    object-fit: contain;
   }
 `
 

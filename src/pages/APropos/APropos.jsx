@@ -33,7 +33,7 @@ const Main = styled.div`
   height: 78vh;
   margin-bottom: auto;
   @media (max-device-width: 724px) {
-    height: calc(78vh);
+    height: calc(78vh + 34px);
   }
 `
 
@@ -44,7 +44,7 @@ const Presentation = styled.div`
   justify-content: center;
   gap: 4vh;
   margin: auto;
-  @media (max-width: 670px) {
+  @media (max-width: 700px) {
     flex-direction: column;
     justify-content: start;
     margin-bottom: 4vh;

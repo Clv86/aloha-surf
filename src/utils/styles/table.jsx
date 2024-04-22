@@ -7,7 +7,11 @@ export const StyledTable = styled.table`
   border-spacing: 10px;
   margin: 0 -10px;
   position: relative;
+  table-layout: fixed;
   font-size: 12px;
+  @media (max-width: 700px) {
+    table-layout: auto;
+  }
   @media (max-width: 554px) {
     padding: 0;
   }

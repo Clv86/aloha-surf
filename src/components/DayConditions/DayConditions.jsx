@@ -164,7 +164,7 @@ const TableSizer = styled.div`
   padding: 8px;
   overflow: auto;
   scrollbar-width: none;
-  @media (max-width: 633px) {
+  @media (max-width: 1270px) {
     scrollbar-width: thin;
     &::-webkit-scrollbar {
       width: 0.25rem;

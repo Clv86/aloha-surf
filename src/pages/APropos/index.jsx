@@ -15,10 +15,10 @@ function APropos() {
 
 const Portrait = styled.img`
   height: 400px;
-  @media (max-height: 425px) {
+  @media (max-device-height: 425px) {
     display: none;
   }
-  @media (max-width: 670px) {
+  @media (max-device-width: 670px) {
     max-width: 317px;
     margin-left: auto;
     margin-right: auto;
@@ -32,7 +32,7 @@ const Main = styled.div`
   justify-content: center;
   height: 78vh;
   margin-bottom: auto;
-  @media (max-width: 724px) {
+  @media (max-device-width: 724px) {
     height: calc(78vh + 34px);
   }
 `

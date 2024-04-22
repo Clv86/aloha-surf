@@ -31,7 +31,7 @@ const Main = styled.div`
   display: flex;
   justify-content: center;
   height: auto;
-  margin-bottom: auto;
+  margin-bottom: 4vh;
   @media (max-device-width: 724px) {
     height: calc(78vh + 34px);
   }

@@ -73,7 +73,7 @@ const Main = styled.div`
 const Presentation = styled.div`
   display: flex;
   flex-direction: column;
-  width: 80vw;
+  width: 80dvw;
   justify-content: center;
   gap: 10px;
   align-items: left;

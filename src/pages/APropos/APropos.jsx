@@ -18,15 +18,12 @@ const Portrait = styled.img`
   @media (max-device-height: 425px) {
     display: none;
   }
-  @media (max-width: 724px) {
-    margin: 0 28px;
+  @media (max-device-width: 670px) {
     max-width: 317px;
+    margin-left: auto;
+    margin-right: auto;
     max-width: 100%;
     height: 100%;
-  }
-
-  @media (max-width: 450px) {
-    margin: 0 12px;
   }
 `
 
@@ -48,11 +45,15 @@ const Presentation = styled.div`
   gap: 4vh;
   margin: auto;
   @media (max-width: 670px) {
+  }
+  @media (max-width: 724px) {
+    margin: 4vh 28px;
     flex-direction: column;
     justify-content: start;
-    margin-bottom: 4vh;
-    margin-top: 4vh;
     object-fit: contain;
+  }
+  @media (max-width: 450px) {
+    margin: 4vh 12px;
   }
 `
 

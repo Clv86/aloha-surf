@@ -147,7 +147,7 @@ const VertTable = styled.div`
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(5px);
     width: auto;
-    overflow: auto;
+    overflow: scroll;
   }
   scrollbar-width: thin;
   &::-webkit-scrollbar {

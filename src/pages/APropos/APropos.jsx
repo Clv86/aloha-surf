@@ -41,6 +41,11 @@ const Presentation = styled.div`
   justify-content: center;
   gap: 4vh;
   margin: auto;
+  border-radius: 16px;
+  border: 1px solid rgb(255, 255, 255);
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  padding: 16px;
   @media (max-width: 724px) {
     width: auto;
     margin: 4vh 28px;

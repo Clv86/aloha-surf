@@ -40,7 +40,7 @@ function DayConditions(spotName) {
   if (wind && wave) {
     return (
       <>
-        <VertTable>
+        <VertTable style="overflow-x:auto">
           <Table>
             <Table.Head>
               <Table.TR>

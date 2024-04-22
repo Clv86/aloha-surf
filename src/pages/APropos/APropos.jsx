@@ -36,7 +36,6 @@ const Main = styled.div`
 
 const Presentation = styled.div`
   display: flex;
-  width: 80vw;
   align-items: flex-start;
   justify-content: center;
   gap: 4vh;

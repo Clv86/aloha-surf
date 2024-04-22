@@ -138,7 +138,7 @@ function DayConditions(spotName) {
 }
 const VertTable = styled.div`
   display: none;
-  @media (max-width: 554px) {
+  @media (max-width: 700px) {
     display: block;
     height: 50vh;
     padding: 8px;

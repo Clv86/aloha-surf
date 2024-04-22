@@ -21,6 +21,7 @@ const Portrait = styled.img`
   @media (max-width: 670px) {
     max-width: 317px;
     margin: auto;
+    margin-bottom: 16px;
     max-width: 100%;
     max-height: 35dvh;
   }

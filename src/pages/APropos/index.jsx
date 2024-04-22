@@ -22,6 +22,7 @@ const Portrait = styled.img`
     max-width: 317px;
     margin-left: auto;
     margin-right: auto;
+    max-height: 50vh;
   }
 `
 

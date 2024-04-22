@@ -21,6 +21,9 @@ const ContactText = styled.p`
   font-weight: 400;
   line-height: normal;
   text-align: center;
+  @media (max-width: 700px) {
+    display: none;
+  }
 `
 
 export default Footer

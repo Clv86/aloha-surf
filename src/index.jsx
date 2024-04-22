@@ -34,6 +34,7 @@ root.render(
           element={
             <>
               <APropos />
+              <Footer />
             </>
           }
         />

@@ -9,7 +9,7 @@ export const StyledTable = styled.table`
   position: relative;
   table-layout: fixed;
   font-size: 12px;
-  @media (max-width: 554px) {
+  @media (max-width: 600px) {
     padding: 0;
   }
 `

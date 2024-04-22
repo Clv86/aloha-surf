@@ -30,7 +30,6 @@ export const TR = styled.tr``
 
 export const TH = styled.th`
   @media (max-height: 490px) {
-    padding: 0.2em;
   }
 `
 

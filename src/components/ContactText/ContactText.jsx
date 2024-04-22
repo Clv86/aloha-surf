@@ -43,7 +43,7 @@ const ContactDescription = styled.div`
   color: #2e2e2e;
   text-align: justify;
   font-family: 'Space Grotesk';
-  font-size: 8px;
+  font-size: 12px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;

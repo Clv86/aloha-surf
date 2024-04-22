@@ -138,7 +138,7 @@ const Presentation = styled.div`
     grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
   }
   @media (max-width: 700px) {
-    gap: 3vh;
+    gap: 3dvh;
   }
   scrollbar-width: none;
   &::-webkit-scrollbar {

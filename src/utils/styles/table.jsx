@@ -29,7 +29,9 @@ export const TBody = styled.tbody``
 export const TR = styled.tr``
 
 export const TH = styled.th`
+  width: 1px;
   @media (max-height: 490px) {
+    padding: 0.2em;
   }
 `
 

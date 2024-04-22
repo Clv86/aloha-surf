@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import React from 'react'
 import spotsCoordinate from '../../assets/spotsCoordinate.json'
 import { useParams, Link } from 'react-router-dom'
-import HourConditions from '../../components/HourConditions'
+import HourConditions from '../../components/HourConditions/HourConditions'
 
 function Spots() {
   const spotNames = Object.entries(spotsCoordinate)

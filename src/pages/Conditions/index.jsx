@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import DayConditions from '../../components/DayConditions'
-import WeekConditions from '../../components/WeekConditions'
+import DayConditions from '../../components/DayConditions/DayConditions'
+import WeekConditions from '../../components/WeekConditions/WeekConditions'
 import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 function Conditions(spot, setSpot) {

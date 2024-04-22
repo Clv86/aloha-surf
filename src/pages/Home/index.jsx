@@ -1,6 +1,6 @@
-import Description from '../../components/Description'
+import Description from '../../components/Description/Description'
 import styled from 'styled-components'
-import SpotList from '../../components/SpotList'
+import SpotList from '../../components/SpotList/SpotList'
 import { useState } from 'react'
 
 function Home() {

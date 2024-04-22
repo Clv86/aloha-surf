@@ -5,11 +5,11 @@ import GlobalStyle from './utils/styles/globalStyle'
 import Home from './pages/Home'
 import Contact from './pages/Contact'
 import Spots from './pages/Spots'
-import Header from './components/Header'
-import Footer from './components/Footer'
+import Header from './components/Header/Header'
+import Footer from './components/Footer/Footer'
 import Conditions from './pages/Conditions'
 import APropos from './pages/APropos'
-import Background from './components/Background'
+import Background from './components/Background/Background'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 

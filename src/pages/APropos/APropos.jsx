@@ -30,7 +30,7 @@ const Portrait = styled.img`
 const Main = styled.div`
   display: flex;
   justify-content: center;
-  height: 78vh;
+  height: auto;
   margin-bottom: auto;
   @media (max-device-width: 724px) {
     height: calc(78vh + 34px);
@@ -47,8 +47,8 @@ const Presentation = styled.div`
   @media (max-width: 670px) {
     flex-direction: column;
     justify-content: start;
-    margin-bottom: 40vh;
-    margin-top: 40vh;
+    margin-bottom: 4vh;
+    margin-top: 4vh;
     object-fit: contain;
   }
 `

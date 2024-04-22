@@ -21,7 +21,6 @@ const Portrait = styled.img`
   @media (max-width: 670px) {
     max-width: 317px;
     margin: auto;
-    margin-bottom: 16px;
     max-width: 100%;
     max-height: 35dvh;
   }
@@ -38,7 +37,7 @@ const Presentation = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  gap: 4vh;
+  gap: 4dvh;
   margin: auto;
   border-radius: 16px;
   border: 1px solid rgb(255, 255, 255);
@@ -47,13 +46,13 @@ const Presentation = styled.div`
   padding: 16px;
   @media (max-width: 724px) {
     width: auto;
-    margin: 4vh 28px;
+    margin: 4dvh 28px;
     flex-direction: column;
     justify-content: start;
     object-fit: contain;
   }
   @media (max-width: 450px) {
-    margin: 4vh 12px;
+    margin: 4dvh 12px;
   }
 `
 

@@ -1,6 +1,6 @@
-# Aloha Surf - A website dedicated to French coast surfing conditions
+# Aloha Surf - A website dedicated to French West coast surfing conditions
 
-As a user of surf conditions websites, I've noticed how hard it is to find the right predictions in my area (most surfers are used to comparing several websites). Also, most surfing websites are polluted with too much information and notations. Those two facts gave me the idea of building a minimalist website dedicated to specific spots on the French coast, with few details but cross-referencing several databases to give the most precise conditions.
+As a user of surf conditions websites, I've noticed how hard it is to find the right predictions in my area (most surfers are used to comparing several websites). Therefore, I wanted to develop a minimalist website dedicated to specific spots on the French West coast, with few details but cross-referencing several databases to give the most precise conditions.
 
 As a beginner developer, I wanted to use this project to learn more about React, use APIs, and make some weather calculations with basic algorithms.
 

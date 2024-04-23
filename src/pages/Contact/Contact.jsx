@@ -61,6 +61,9 @@ const ContactSection = styled.div`
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(5px);
   padding: 16px;
+  @media (max-width: 700px) {
+    margin-top: 30px;
+  }
 `
 const Title = styled.h1`
   color: #3c3c3c;

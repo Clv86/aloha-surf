@@ -73,7 +73,7 @@ const Title = styled.h1`
 const IconSection = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 2dvh;
+  gap: 3dvh;
 `
 const ContactLine = styled.div`
   display: flex;

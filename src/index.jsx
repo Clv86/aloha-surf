@@ -29,15 +29,7 @@ root.render(
             </>
           }
         />
-        <Route
-          path="/à-propos"
-          element={
-            <>
-              <APropos />
-              <Footer />
-            </>
-          }
-        />
+        <Route path="/à-propos" element={<APropos />} />
         <Route path="/spots" element={<Spots />} />
         <Route path="/spots/:spotsearch" element={<Spots />} />
         <Route

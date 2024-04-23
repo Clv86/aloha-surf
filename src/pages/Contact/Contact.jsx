@@ -12,22 +12,20 @@ function Contact() {
           <ContactLine>
             <Icon href="mailto:charleslouis.velieu@gmail.com">
               <IconPic src={mailIcon} alt="Mail" />
+              <IconText>charleslouis.velieu@gmail.com</IconText>
             </Icon>
-            <IconText>charleslouis.velieu@gmail.com</IconText>
           </ContactLine>
           <ContactLine>
             <Icon href="https://www.linkedin.com/in/charles-louis-velieu-37737826b/">
               <IconPic src={linkedinIcon} alt="Linkedin" />
+              <IconText>charles-louis-velieu</IconText>
             </Icon>
-            <IconText>
-              www.linkedin.com/in/charles-louis-velieu-37737826b
-            </IconText>
           </ContactLine>
           <ContactLine>
             <Icon href="https://github.com/Clv86">
               <IconPic src={githubIcon} alt="Github" />
+              <IconText>Clv86</IconText>
             </Icon>
-            <IconText>@Clv86</IconText>
           </ContactLine>
         </IconSection>
       </ContactSection>
@@ -88,7 +86,10 @@ const Icon = styled.a`
   margin-top: auto;
   margin-bottom: 0;
   display: flex;
+  gap: 1vw;
   align-items: flex-end;
+  color: inherit;
+  text-decoration: none;
 `
 
 const IconText = styled.p`

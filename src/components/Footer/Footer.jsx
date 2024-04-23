@@ -4,10 +4,18 @@ function Footer() {
   const { pathname } = useLocation()
   return (
     <ContactText style={{ color: pathname === '/' ? '#fff' : '#2E2E2E' }}>
-      Développé avec amour par charleslouis.velieu@gmail.com 🏄‍{' '}
+      Développé avec amour par{' '}
+      <Mail href="mailto:charleslouis.velieu@gmail.com">
+        charleslouis.velieu@gmail.com
+      </Mail>{' '}
+      🏄‍
     </ContactText>
   )
 }
+const Mail = styled.a`
+  color: inherit;
+  text-decoration: none;
+`
 const ContactText = styled.p`
   position: fixed;
   bottom: 0;

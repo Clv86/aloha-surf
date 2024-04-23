@@ -7,11 +7,8 @@ function ContactText() {
         <ContactTitle>À propos</ContactTitle>
         J'ai fait ce site pour m'exercer au code et montrer les conditions des
         différents spots susceptibles d'être intéressant sur la côte ouest
-        française !{' '}
-        <a href="mailto:charleslouis.velieu@gmail.com">
-          N'hésitez pas à me contacter pour faire des retours sur le site ou
-          proposer de nouveaux spots à ajouter !{' '}
-        </a>
+        française ! N'hésitez pas à me contacter pour faire des retours sur le
+        site ou proposer de nouveaux spots à ajouter !
       </ContactDescription>
     </ContactStyle>
   )

@@ -90,15 +90,4 @@ const IconText = styled.p`
   margin: auto 0;
   font-size: clamp(12px, 2vw, 16px);
 `
-//      <Presentation>charleslouis.velieu@gmail.com</Presentation>
-//const Presentation = styled.div`
-//display: flex;
-//justify-content: center;
-//color: #3c3c3c;
-//font-family: 'Space Grotesk';
-//font-size: clamp(1.2rem, 4vw, 4rem);
-//font-style: normal;
-//font-weight: 400;
-//line-height: normal;
-//`
 export default Contact

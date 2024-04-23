@@ -18,7 +18,7 @@ function Contact() {
           <ContactLine>
             <Icon href="https://www.linkedin.com/in/charles-louis-velieu-37737826b/">
               <IconPic src={linkedinIcon} alt="Linkedin" />
-              <IconText>charles-louis-velieu</IconText>
+              <IconText>www.linkedin.com/in/charles-louis-velieu</IconText>
             </Icon>
           </ContactLine>
           <ContactLine>

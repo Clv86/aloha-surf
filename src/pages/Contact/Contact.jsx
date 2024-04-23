@@ -84,10 +84,13 @@ const ContactLine = styled.div`
 const Icon = styled.a`
   margin-top: auto;
   margin-bottom: 0;
+  display: flex;
+  align-items: flex-end;
 `
 
 const IconText = styled.p`
-  margin: auto 0;
+  margin-top: auto;
+  margin-bottom: 0;
   font-size: clamp(12px, 2vw, 16px);
 `
 export default Contact

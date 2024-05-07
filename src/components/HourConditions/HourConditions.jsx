@@ -1,4 +1,4 @@
-import { useFetch } from '../../utils/hooks'
+import { useFetch } from '../../utils/hooks/dataFetching'
 import spotsCoordinate from '../../assets/spotsCoordinate.json'
 import styled from 'styled-components'
 import windAnalysis from '../../utils/windAnalysis'

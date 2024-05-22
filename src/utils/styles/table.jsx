@@ -15,6 +15,9 @@ export const StyledTable = styled.table`
   @media (max-width: 554px) {
     padding: 0;
   }
+  @media (max-height: 507px) {
+    width: inherit;
+  }
 `
 
 export const THead = styled.thead`

@@ -38,6 +38,11 @@ const ButtonContact = styled.div`
   border: 1px solid #fff;
   margin-top: 17px;
   margin-bottom: 19px;
+  @media (max-height: 507px) {
+    padding: 2px 6px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+  }
   @media (max-width: 724px) {
     padding: 4px 8px;
   }
@@ -48,13 +53,11 @@ const NavContainer = styled.nav`
   justify-content: space-between;
   align-content: center;
   align-items: center;
-  z-index: 3;
   border-bottom: solid 1px white;
   padding: 0 72px 0 72px;
   @media (max-width: 724px) {
     padding: 0 28px;
   }
-
   @media (max-width: 450px) {
     padding: 0 12px;
   }
@@ -89,14 +92,7 @@ const Logo = styled(Link)`
   }
 `
 
-const LogoPic = styled.img`
-  @media (max-width: 1000px) {
-  }
-  @media (max-width: 554px) {
-  }
-  @media (max-height: 425px) {
-  }
-`
+const LogoPic = styled.img``
 
 const Title = styled.h1`
   color: #fff;
@@ -116,8 +112,6 @@ const StyledLink = styled(Link)`
   font-weight: 700;
   line-height: normal;
   text-decoration: none;
-  @media (max-width: 504px) {
-  }
 `
 
 export default Header

@@ -39,6 +39,7 @@ function Conditions(spot, setSpot) {
     </Main>
   )
 }
+
 const ChooseButton = styled.div`
   display: flex;
   gap: 8px;
@@ -51,7 +52,6 @@ const TableButton = styled.button`
   padding-bottom: 6px;
   padding-top: 6px;
   display: flex;
-
   color: #2e2e2e;
   font-family: 'Space Grotesk';
   font-size: 16px;
@@ -67,16 +67,28 @@ const TableButton = styled.button`
 const Main = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
   height: 78dvh;
+  @media (max-device-height: 507px) and (max-device-width: 1190px) {
+    justify-content: left;
+    margin: 0 72px;
+  }
+  @media (max-width: 724px) {
+    margin: 0 28px;
+  }
+  @media (max-width: 450px) {
+    margin: 0 12px;
+  }
 `
 const Presentation = styled.div`
   display: flex;
   flex-direction: column;
   width: 80dvw;
-  justify-content: center;
   gap: 10px;
-  align-items: left;
+  margin-top: 32px;
+  @media (max-height: 507px) {
+    margin-top: 0;
+    width: 100%;
+  }
 `
 const SpotTitle = styled.h2`
   color: #3c3c3c;
@@ -87,6 +99,9 @@ const SpotTitle = styled.h2`
   line-height: normal;
   margin: 0;
   margin-bottom: 8px;
+  @media (max-height: 507px) {
+    margin-bottom: 0;
+  }
 `
 
 const TitleBar = styled.div`
@@ -95,6 +110,10 @@ const TitleBar = styled.div`
   width: auto;
   gap: 8px;
   padding: 0;
+  @media (max-height: 507px) {
+    flex-direction: row;
+    align-items: end;
+  }
 `
 
 export default Conditions

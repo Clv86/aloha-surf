@@ -170,7 +170,8 @@ const TableSizer = styled.div`
   padding: 8px;
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(5px);
-  width: fit-content;
+  width: max-content;
+  max-height: 50dvh;
   max-width: 80vw;
   overflow: auto;
   @media (max-width: 554px) {
@@ -188,7 +189,8 @@ const VertTable = styled.div`
   display: none;
   @media (max-width: 554px) {
     display: block;
-    max-height: 78dvh;
+    max-height: 50dvh;
+    height: max-content;
     padding: 8px;
     border-radius: 16px;
     border: 1px solid #fff;

@@ -72,6 +72,9 @@ const Main = styled.div`
     justify-content: left;
     margin: 0 72px;
   }
+  @media (max-width: 1190px) {
+    margin: 0 72px;
+  }
   @media (max-width: 724px) {
     margin: 0 28px;
   }
@@ -82,7 +85,7 @@ const Main = styled.div`
 const Presentation = styled.div`
   display: flex;
   flex-direction: column;
-  width: 80dvw;
+  width: max-content;
   gap: 10px;
   margin-top: 32px;
   @media (max-height: 507px) {

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const StyledTable = styled.table`
   text-align: left;
   display: table;
-  width: max-content;
+  max-width: max-content;
   border-spacing: 10px;
   margin: 0 -10px;
   position: relative;

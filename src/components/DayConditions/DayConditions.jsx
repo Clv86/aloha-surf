@@ -1,5 +1,5 @@
 import Table from '../Table/Table'
-import DirectionArrow from '../../utils/styles/arrow'
+import Arrow from '../../utils/styles/arrow'
 import { useFetch } from '../../utils/hooks/dataFetching'
 import spotsCoordinate from '../../assets/spotsCoordinate.json'
 import styled from 'styled-components'
@@ -30,12 +30,15 @@ function DayConditions(spotName) {
       wind.hourly.wind_direction_10m[i],
     )
     if (result === 'Onshore') {
-      return { color: 'red' }
+      return { fill: 'red' }
     } else if (result === 'Offshore') {
-      return { color: 'green' }
+      return { fill: 'green' }
     } else {
       return null
     }
+  }
+  function ArrowDirection(val) {
+    return { transform: `rotate(${val}deg)` }
   }
   if (wind && wave) {
     return (
@@ -58,12 +61,16 @@ function DayConditions(spotName) {
                   <Table.TH>{i}h</Table.TH>
                   <Table.TD>{val}</Table.TD>
                   <Table.TD style={colorConditions(wave, wind, i)}>
-                    {DirectionArrow(wave.hourly.wave_direction[i])}
+                    <Arrow
+                      style={ArrowDirection(wave.hourly.wave_direction[i])}
+                    />
                   </Table.TD>
                   <Table.TD>{wave.hourly.wave_period[i]}</Table.TD>
                   <Table.TD>{wind.hourly.wind_speed_10m[i]}</Table.TD>
                   <Table.TD style={colorConditions(wave, wind, i)}>
-                    {DirectionArrow(wind.hourly.wind_direction_10m[i])}
+                    <Arrow
+                      style={ArrowDirection(wind.hourly.wind_direction_10m[i])}
+                    />
                   </Table.TD>
                 </Table.TR>
               ))}
@@ -98,7 +105,7 @@ function DayConditions(spotName) {
                     key={keygen(wave.hourly.wave_height.name)}
                     style={colorConditions(wave, wind, i)}
                   >
-                    {DirectionArrow(val)}
+                    <Arrow style={ArrowDirection(val)} />
                   </Table.TD>
                 ))}
               </Table.TR>
@@ -125,7 +132,7 @@ function DayConditions(spotName) {
                     key={keygen(wave.hourly.wave_height.name)}
                     style={colorConditions(wave, wind, i)}
                   >
-                    {DirectionArrow(val)}
+                    <Arrow style={ArrowDirection(val)} />
                   </Table.TD>
                 ))}
               </Table.TR>

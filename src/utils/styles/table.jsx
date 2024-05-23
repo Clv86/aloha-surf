@@ -10,6 +10,7 @@ export const StyledTable = styled.table`
   table-layout: fixed;
   font-size: 12px;
   @media (max-width: 700px) {
+    border-spacing: 4px;
     table-layout: auto;
   }
   @media (max-width: 554px) {
@@ -17,6 +18,7 @@ export const StyledTable = styled.table`
   }
   @media (max-height: 507px) {
     width: inherit;
+    border-spacing: 4px;
   }
 `
 

@@ -188,13 +188,13 @@ const VertTable = styled.div`
   display: none;
   @media (max-width: 554px) {
     display: block;
-    height: 50dvh;
+    max-height: 78dvh;
     padding: 8px;
     border-radius: 16px;
     border: 1px solid #fff;
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(5px);
-    width: auto;
+    width: max-content;
     overflow: auto;
   }
   scrollbar-width: thin;

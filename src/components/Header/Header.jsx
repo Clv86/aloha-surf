@@ -54,13 +54,7 @@ const NavContainer = styled.nav`
   align-content: center;
   align-items: center;
   border-bottom: solid 1px white;
-  padding: 0 72px 0 72px;
-  @media (max-width: 724px) {
-    padding: 0 28px;
-  }
-  @media (max-width: 450px) {
-    padding: 0 12px;
-  }
+  padding: var(--margin-responsive-size);
 `
 
 const ButtonNav = styled.nav`
@@ -70,8 +64,6 @@ const ButtonNav = styled.nav`
   align-self: flex-end;
   margin-bottom: auto;
   margin-top: auto;
-  @media (max-width: 724px) {
-  }
 `
 const Logo = styled(Link)`
   display: flex;

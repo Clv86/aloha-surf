@@ -68,18 +68,9 @@ const Main = styled.div`
   display: flex;
   justify-content: center;
   height: 78dvh;
+  margin: var(--margin-responsive-size);
   @media (max-device-height: 507px) and (max-device-width: 1190px) {
     justify-content: left;
-    margin: 0 72px;
-  }
-  @media (max-width: 1190px) {
-    margin: 0 72px;
-  }
-  @media (max-width: 724px) {
-    margin: 0 28px;
-  }
-  @media (max-width: 450px) {
-    margin: 0 12px;
   }
 `
 const Presentation = styled.div`
@@ -100,8 +91,7 @@ const SpotTitle = styled.h2`
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  margin: 0;
-  margin-bottom: 8px;
+  margin: 0 0 8px 0;
   @media (max-height: 507px) {
     margin-bottom: 0;
   }

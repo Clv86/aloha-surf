@@ -110,17 +110,11 @@ const SpotTitle = styled.h2`
 `
 const SpotDescription = styled.div``
 const Main = styled.div`
-  margin: 0 72px 0 72px;
+  margin: var(--margin-responsive-size);
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 86vh;
-  @media (max-width: 724px) {
-    margin: 0 28px 0 28px;
-  }
-  @media (max-width: 450px) {
-    margin: 0 12px;
-  }
 `
 
 const Presentation = styled.div`

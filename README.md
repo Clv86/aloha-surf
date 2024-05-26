@@ -1,16 +1,15 @@
 # Aloha Surf - A website dedicated to French West coast surfing conditions
 
-As a user of surf conditions websites, I've noticed how hard it is to find the right predictions in my area (most surfers are used to comparing several websites). Therefore, I wanted to develop a minimalist website dedicated to specific spots on the French West coast, with few details but cross-referencing several databases to give the most precise conditions.
+As a user of surf conditions websites and a beginner developer, I wanted to develop a minimalist website dedicated to specific spots on the French West coast, with few details but cross-referencing several databases to give the most precise conditions.
 
-As a beginner developer, I wanted to use this project to learn more about React, use APIs, and make some weather calculations with basic algorithms.
+This project was perfect to practice React, use APIs, and learn more about weather forecast.
 
 ## Challenges and future implementations
 
 This first version of the website lacks of one fundamental piece of information, which is the tide. This data is hard to find in free databases.
-In terms of structure, the surfing conditions tables need to be optimized in code and made more readable, with more conditional formatting for example.
+Some Iphone models tend to resize the window.innerHeight value on Safari once the keyboard is used. This affect the website display and the responsive design has to be adjusted to correct this.
+A notation system should be added to comment the surf conditions.
 Also, to improve accuracy, I would like to cross-reference more meteorological databases in the future.
-
-The last main implementation needed is a report on day's conditions. Usualy, reports on website are problematic because conditions quality depends on surfer level. I would like to implement useful descriptions based on surfers levels.
 
 # Getting Started with Create React App
 

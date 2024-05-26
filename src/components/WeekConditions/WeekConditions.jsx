@@ -1,10 +1,14 @@
 import Table from '../Table/Table'
+import Arrow from '../Arrow/Arrow'
 import { useFetch } from '../../utils/hooks/dataFetching'
 import spotsCoordinate from '../../assets/spotsCoordinate.json'
 import styled from 'styled-components'
-import windAnalysis from '../../utils/windAnalysis'
-import Arrow from '../../utils/styles/arrow'
+import windDirectionAnalysis from '../../utils/windDirectionAnalysis'
 import createKeyGenerator from '../../utils/keyGenerator'
+import windSpeedColor from '../../utils/styles/windSpeedColor'
+import periodColor from '../../utils/styles/periodColor'
+import shoreColor from '../../utils/styles/shoreColor'
+import arrowDirection from '../../utils/styles/arrowDirection'
 
 function WeekConditions(spotName) {
   const { name } = spotName
@@ -37,22 +41,7 @@ function WeekConditions(spotName) {
     })
   }
   const location = filterIt(arrayCoordinates, name)
-  function colorConditions(wave, wind, i) {
-    let result = windAnalysis(
-      wave.daily.wave_direction_dominant[i],
-      wind.daily.wind_direction_10m_dominant[i],
-    )
-    if (result === 'Onshore') {
-      return { fill: 'red' }
-    } else if (result === 'Offshore') {
-      return { fill: 'green' }
-    } else {
-      return null
-    }
-  }
-  function ArrowDirection(val) {
-    return { transform: `rotate(${val}deg)` }
-  }
+
   const { wave, wind } = useFetch(
     `https://marine-api.open-meteo.com/v1/marine?latitude=${location[0][1][0]}&longitude=${location[0][1][1]}&daily=wave_height_max,wave_direction_dominant,wave_period_max&timezone=Europe%2FBerlin`,
     `https://api.open-meteo.com/v1/forecast?latitude=${location[0][1][0]}&longitude=${location[0][1][1]}&daily=wind_speed_10m_max,wind_direction_10m_dominant&timezone=Europe%2FBerlin`,
@@ -77,18 +66,36 @@ function WeekConditions(spotName) {
                 <Table.TR key={keygen(wave.daily.wave_height_max.name)}>
                   <Table.TH>{weekDay[i]}</Table.TH>
                   <Table.TD>{val}</Table.TD>
-                  <Table.TD style={colorConditions(wave, wind, i)}>
+                  <Table.TD
+                    style={shoreColor(
+                      windDirectionAnalysis,
+                      wave.daily.wave_direction_dominant[i],
+                      wind.daily.wind_direction_10m_dominant[i],
+                    )}
+                  >
                     <Arrow
-                      style={ArrowDirection(
+                      style={arrowDirection(
                         wave.daily.wave_direction_dominant[i],
                       )}
                     />
                   </Table.TD>
-                  <Table.TD>{wave.daily.wave_period_max[i]}</Table.TD>
-                  <Table.TD>{wind.daily.wind_speed_10m_max[i]}</Table.TD>
-                  <Table.TD style={colorConditions(wave, wind, i)}>
+                  <Table.TD style={periodColor(wave.daily.wave_period_max[i])}>
+                    {wave.daily.wave_period_max[i]}
+                  </Table.TD>
+                  <Table.TD
+                    style={windSpeedColor(wind.daily.wind_speed_10m_max[i])}
+                  >
+                    {wind.daily.wind_speed_10m_max[i]}
+                  </Table.TD>
+                  <Table.TD
+                    style={shoreColor(
+                      windDirectionAnalysis,
+                      wave.daily.wave_direction_dominant[i],
+                      wind.daily.wind_direction_10m_dominant[i],
+                    )}
+                  >
                     <Arrow
-                      style={ArrowDirection(
+                      style={arrowDirection(
                         wind.daily.wind_direction_10m_dominant[i],
                       )}
                     />
@@ -124,16 +131,23 @@ function WeekConditions(spotName) {
                 {wave.daily.wave_direction_dominant.map((val, i) => (
                   <Table.TD
                     key={keygen(wave.daily.wave_height_max.name)}
-                    style={colorConditions(wave, wind, i)}
+                    style={shoreColor(
+                      windDirectionAnalysis,
+                      wave.daily.wave_direction_dominant[i],
+                      wind.daily.wind_direction_10m_dominant[i],
+                    )}
                   >
-                    <Arrow style={ArrowDirection(val)} />
+                    <Arrow style={arrowDirection(val)} />
                   </Table.TD>
                 ))}
               </Table.TR>
               <Table.TR>
                 <Table.TH>Période (s)</Table.TH>
                 {wave.daily.wave_period_max.map((val, i) => (
-                  <Table.TD key={keygen(wave.daily.wave_height_max.name)}>
+                  <Table.TD
+                    style={periodColor(val)}
+                    key={keygen(wave.daily.wave_height_max.name)}
+                  >
                     {val}
                   </Table.TD>
                 ))}
@@ -141,7 +155,10 @@ function WeekConditions(spotName) {
               <Table.TR>
                 <Table.TH>Vitesse Vent (km/h)</Table.TH>
                 {wind.daily.wind_speed_10m_max.map((val, i) => (
-                  <Table.TD key={keygen(wave.daily.wave_height_max.name)}>
+                  <Table.TD
+                    style={windSpeedColor(val)}
+                    key={keygen(wave.daily.wave_height_max.name)}
+                  >
                     {val}
                   </Table.TD>
                 ))}
@@ -151,9 +168,13 @@ function WeekConditions(spotName) {
                 {wind.daily.wind_direction_10m_dominant.map((val, i) => (
                   <Table.TD
                     key={keygen(wave.daily.wave_height_max.name)}
-                    style={colorConditions(wave, wind, i)}
+                    style={shoreColor(
+                      windDirectionAnalysis,
+                      wave.daily.wave_direction_dominant[i],
+                      wind.daily.wind_direction_10m_dominant[i],
+                    )}
                   >
-                    <Arrow style={ArrowDirection(val)} />
+                    <Arrow style={arrowDirection(val)} />
                   </Table.TD>
                 ))}
               </Table.TR>

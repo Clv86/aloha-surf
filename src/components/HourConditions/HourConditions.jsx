@@ -1,7 +1,10 @@
 import { useFetch } from '../../utils/hooks/dataFetching'
 import spotsCoordinate from '../../assets/spotsCoordinate.json'
 import styled from 'styled-components'
-import windAnalysis from '../../utils/windAnalysis'
+import windDirectionAnalysis from '../../utils/windDirectionAnalysis'
+import periodColor from '../../utils/styles/periodColor'
+import windSpeedColor from '../../utils/styles/windSpeedColor'
+import shoreColor from '../../utils/styles/shoreColor'
 
 function HourConditions(props) {
   const name = props.spotName
@@ -14,7 +17,6 @@ function HourConditions(props) {
     })
   }
   const location = filterIt(arrayCoordinates, name)
-
   const { wave, wind } = useFetch(
     `https://marine-api.open-meteo.com/v1/marine?latitude=${location[0][1][0]}&longitude=${location[0][1][1]}&hourly=wave_height,wave_direction,wave_period&timezone=Europe%2FBerlin&forecast_days=1`,
     `https://api.open-meteo.com/v1/forecast?latitude=${location[0][1][0]}&longitude=${location[0][1][1]}&hourly=wind_speed_10m,wind_direction_10m&timezone=Europe%2FBerlin`,
@@ -31,10 +33,20 @@ function HourConditions(props) {
         <LiveConditionTitle>Vitesse (km/h)</LiveConditionTitle>
         <LiveConditionTitle>Direction</LiveConditionTitle>
         <LiveCondition>{wave.hourly.wave_height[hour]}</LiveCondition>
-        <LiveCondition>{wave.hourly.wave_period[hour]}</LiveCondition>
-        <LiveCondition>{wind.hourly.wind_speed_10m[hour]}</LiveCondition>
-        <LiveCondition>
-          {windAnalysis(
+        <LiveCondition style={periodColor(wave.hourly.wave_period[hour])}>
+          {wave.hourly.wave_period[hour]}
+        </LiveCondition>
+        <LiveCondition style={windSpeedColor(wind.hourly.wind_speed_10m[hour])}>
+          {wind.hourly.wind_speed_10m[hour]}
+        </LiveCondition>
+        <LiveCondition
+          style={shoreColor(
+            windDirectionAnalysis,
+            wave.hourly.wave_direction[hour],
+            wind.hourly.wind_direction_10m[hour],
+          )}
+        >
+          {windDirectionAnalysis(
             wave.hourly.wave_direction[hour],
             wind.hourly.wind_direction_10m[hour],
           )}

@@ -1,10 +1,14 @@
 import Table from '../Table/Table'
-import Arrow from '../../utils/styles/arrow'
+import Arrow from '../Arrow/Arrow'
 import { useFetch } from '../../utils/hooks/dataFetching'
 import spotsCoordinate from '../../assets/spotsCoordinate.json'
 import styled from 'styled-components'
-import windAnalysis from '../../utils/windAnalysis'
+import windDirectionAnalysis from '../../utils/windDirectionAnalysis'
 import createKeyGenerator from '../../utils/keyGenerator'
+import windSpeedColor from '../../utils/styles/windSpeedColor'
+import periodColor from '../../utils/styles/periodColor'
+import shoreColor from '../../utils/styles/shoreColor'
+import arrowDirection from '../../utils/styles/arrowDirection'
 
 function DayConditions(spotName) {
   const { name } = spotName
@@ -24,22 +28,6 @@ function DayConditions(spotName) {
     `https://marine-api.open-meteo.com/v1/marine?latitude=${location[0][1][0]}&longitude=${location[0][1][1]}&hourly=wave_height,wave_direction,wave_period&timezone=Europe%2FBerlin&forecast_days=1`,
     `https://api.open-meteo.com/v1/forecast?latitude=${location[0][1][0]}&longitude=${location[0][1][1]}&hourly=wind_speed_10m,wind_direction_10m&timezone=Europe%2FBerlin&forecast_days=1`,
   )
-  function colorConditions(wave, wind, i) {
-    let result = windAnalysis(
-      wave.hourly.wave_direction[i],
-      wind.hourly.wind_direction_10m[i],
-    )
-    if (result === 'Onshore') {
-      return { fill: 'red' }
-    } else if (result === 'Offshore') {
-      return { fill: 'green' }
-    } else {
-      return null
-    }
-  }
-  function ArrowDirection(val) {
-    return { transform: `rotate(${val}deg)` }
-  }
   if (wind && wave) {
     return (
       <>
@@ -60,16 +48,34 @@ function DayConditions(spotName) {
                 <Table.TR key={keygen(wave.hourly.wave_height.name)}>
                   <Table.TH>{i}h</Table.TH>
                   <Table.TD>{val}</Table.TD>
-                  <Table.TD style={colorConditions(wave, wind, i)}>
+                  <Table.TD
+                    style={shoreColor(
+                      windDirectionAnalysis,
+                      wave.hourly.wave_direction[i],
+                      wind.hourly.wind_direction_10m[i],
+                    )}
+                  >
                     <Arrow
-                      style={ArrowDirection(wave.hourly.wave_direction[i])}
+                      style={arrowDirection(wave.hourly.wave_direction[i])}
                     />
                   </Table.TD>
-                  <Table.TD>{wave.hourly.wave_period[i]}</Table.TD>
-                  <Table.TD>{wind.hourly.wind_speed_10m[i]}</Table.TD>
-                  <Table.TD style={colorConditions(wave, wind, i)}>
+                  <Table.TD style={periodColor(wave.hourly.wave_period[i])}>
+                    {wave.hourly.wave_period[i]}
+                  </Table.TD>
+                  <Table.TD
+                    style={windSpeedColor(wind.hourly.wind_speed_10m[i])}
+                  >
+                    {wind.hourly.wind_speed_10m[i]}
+                  </Table.TD>
+                  <Table.TD
+                    style={shoreColor(
+                      windDirectionAnalysis,
+                      wave.hourly.wave_direction[i],
+                      wind.hourly.wind_direction_10m[i],
+                    )}
+                  >
                     <Arrow
-                      style={ArrowDirection(wind.hourly.wind_direction_10m[i])}
+                      style={arrowDirection(wind.hourly.wind_direction_10m[i])}
                     />
                   </Table.TD>
                 </Table.TR>
@@ -103,16 +109,23 @@ function DayConditions(spotName) {
                 {wave.hourly.wave_direction.map((val, i) => (
                   <Table.TD
                     key={keygen(wave.hourly.wave_height.name)}
-                    style={colorConditions(wave, wind, i)}
+                    style={shoreColor(
+                      windDirectionAnalysis,
+                      wave.hourly.wave_direction[i],
+                      wind.hourly.wind_direction_10m[i],
+                    )}
                   >
-                    <Arrow style={ArrowDirection(val)} />
+                    <Arrow style={arrowDirection(val)} />
                   </Table.TD>
                 ))}
               </Table.TR>
               <Table.TR>
                 <Table.TH>Période (s)</Table.TH>
                 {wave.hourly.wave_period.map((val, i) => (
-                  <Table.TD key={keygen(wave.hourly.wave_height.name)}>
+                  <Table.TD
+                    style={periodColor(val)}
+                    key={keygen(wave.hourly.wave_height.name)}
+                  >
                     {val}
                   </Table.TD>
                 ))}
@@ -120,7 +133,10 @@ function DayConditions(spotName) {
               <Table.TR>
                 <Table.TH>Vitesse Vent (km/h)</Table.TH>
                 {wind.hourly.wind_speed_10m.map((val, i) => (
-                  <Table.TD key={keygen(wave.hourly.wave_height.name)}>
+                  <Table.TD
+                    style={windSpeedColor(wind.hourly.wind_speed_10m[i])}
+                    key={keygen(wave.hourly.wave_height.name)}
+                  >
                     {val}
                   </Table.TD>
                 ))}
@@ -130,9 +146,13 @@ function DayConditions(spotName) {
                 {wind.hourly.wind_direction_10m.map((val, i) => (
                   <Table.TD
                     key={keygen(wave.hourly.wave_height.name)}
-                    style={colorConditions(wave, wind, i)}
+                    style={shoreColor(
+                      windDirectionAnalysis,
+                      wave.hourly.wave_direction[i],
+                      wind.hourly.wind_direction_10m[i],
+                    )}
                   >
-                    <Arrow style={ArrowDirection(val)} />
+                    <Arrow style={arrowDirection(val)} />
                   </Table.TD>
                 ))}
               </Table.TR>

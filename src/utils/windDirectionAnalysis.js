@@ -1,4 +1,4 @@
-function windAnalysis(wave, wind) {
+function windDirectionAnalysis(wave, wind) {
   let degreesResult = wave >= wind ? wave - wind : wind - wave
   if (degreesResult <= 45 || degreesResult >= 335) {
     let result = 'Onshore'
@@ -14,4 +14,4 @@ function windAnalysis(wave, wind) {
     return result
   }
 }
-export default windAnalysis
+export default windDirectionAnalysis

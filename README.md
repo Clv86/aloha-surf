@@ -7,8 +7,10 @@ This project was perfect to practice React, use APIs, and learn more about weath
 ## Challenges and future implementations
 
 This first version of the website lacks of one fundamental piece of information, which is the tide. This data is hard to find in free databases.
-Some Iphone models tend to resize the window.innerHeight value on Safari once the keyboard is used. This affect the website display and the responsive design has to be adjusted to correct this.
+
+Iphones SE 2nd generation tend to resize the window.innerHeight value on Safari once the keyboard is used. This affect the website display and the responsive design has to be adjusted to correct this.
 A notation system should be added to comment the surf conditions.
+
 Also, to improve accuracy, I would like to cross-reference more meteorological databases in the future.
 
 # Getting Started with Create React App

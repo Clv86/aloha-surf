@@ -1,4 +1,4 @@
-# Aloha Surf - A website dedicated to French West coast surfing conditions
+# Aloha - A website dedicated to French West coast surfing conditions
 
 As a user of surf conditions websites and a beginner developer, I wanted to develop a minimalist website dedicated to specific spots on the French West coast, with few details but cross-referencing several databases to give the most precise conditions.
 

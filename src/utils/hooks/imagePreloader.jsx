@@ -19,8 +19,6 @@ export default function useImagePreloader(imageList) {
   useEffect(() => {
     let isCancelled = false
     async function effect() {
-      console.log('PRELOAD')
-
       if (isCancelled) {
         return
       }

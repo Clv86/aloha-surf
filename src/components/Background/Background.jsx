@@ -2,8 +2,17 @@ import surf1 from '../../assets/Background1.jpg'
 import surf2 from '../../assets/Background2.jpg'
 import styled from 'styled-components'
 import { useLocation } from 'react-router-dom'
+import useImagePreloader from '../../utils/hooks/imagePreloader'
+
 function Background() {
   const location = useLocation()
+
+  const preloadSrcList = [surf1, surf2]
+  const { imagesPreloaded } = useImagePreloader(preloadSrcList)
+
+  if (!imagesPreloaded) {
+    return <LoadingDiv></LoadingDiv>
+  }
   return (
     <BackgroundContainer>
       {location.pathname === '/' ? (
@@ -14,6 +23,16 @@ function Background() {
     </BackgroundContainer>
   )
 }
+const LoadingDiv = styled.div`
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  z-index: 200;
+`
+
 const BackgroundContainer = styled.div`
   position: absolute;
   overflow-y: hidden;

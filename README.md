@@ -19,10 +19,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Docker configuration
 
-You can use my version of the dockerfile with :
+My docker configuration is a part of a docker-compose configuration deploying the website with its backend on nginx. Feel free to adapt it to your usecase.
 
-### `docker build -t aloha/aloha`
-### `docker run aloha/aloha`
+The project can also be run with yarn scripts.
 
 ## Available yarn scripts
 
